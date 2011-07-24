@@ -1,0 +1,7 @@
+set t_Co=256
+color jellybeans+
+autocmd BufWritePre * :%s/\s\+$//e
+
+vmap <D-]> >gv
+vmap <D-[> <gv
+set pastetoggle=<F2>
