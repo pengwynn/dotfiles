@@ -1,6 +1,6 @@
 # opt out of some defaults
-skip_plugin_task "nerdcommenter"
-skip_plugin_task "jslint"
+skip_vim_plugin "nerdcommenter"
+skip_vim_plugin "jslint"
 
 # vim_plugin_task "lucius", "https://github.com/vim-scripts/Lucius.git"
 vim_plugin_task "taskpaper", "https://github.com/davidoc/taskpaper.vim.git"
