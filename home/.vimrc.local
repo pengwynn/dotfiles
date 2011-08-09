@@ -6,3 +6,5 @@ autocmd BufWritePre * :%s/\s\+$//e
 vmap <D-]> >gv
 vmap <D-[> <gv
 set pastetoggle=<F2>
+
+let g:syntastic_disabled_filetypes = ['sass', 'scss']
