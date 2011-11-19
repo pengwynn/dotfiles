@@ -5,8 +5,12 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 vmap <D-]> >gv
 vmap <D-[> <gv
-set pastetoggle=<F2>
+nnoremap <F5> :set invpaste paste?<CR>
+set pastetoggle=<F5>
+set showmode
 
 let g:syntastic_disabled_filetypes = ['sass', 'scss']
 
+au BufRead,BufNewFile *.thor set filetype=ruby
+au BufRead,BufNewFile Guardfile set filetype=ruby
 au BufRead,BufNewFile /usr/local/etc/nginx/* set ft=nginx
