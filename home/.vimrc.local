@@ -8,3 +8,5 @@ vmap <D-[> <gv
 set pastetoggle=<F2>
 
 let g:syntastic_disabled_filetypes = ['sass', 'scss']
+
+au BufRead,BufNewFile /usr/local/etc/nginx/* set ft=nginx
