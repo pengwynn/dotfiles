@@ -1,0 +1,41 @@
+[user]
+  name = Wynn Netherland
+  email = wynn.netherland@gmail.com
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lc = log ORIG_HEAD.. --stat --no-merges
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  ls = ls-files
+  pullm = !"git pull origin master"
+  pushm = !"git push origin master"
+  up = pull --rebase
+  rb = rebase
+  rbc = rebase --continue
+
+[core]
+  excludesfile = /Users/wynn/.gitignore
+[branch]
+  autosetuprebase = always
+
+

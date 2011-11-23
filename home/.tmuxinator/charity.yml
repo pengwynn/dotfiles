@@ -1,0 +1,17 @@
+# ~/.tmuxinator/charity.yml
+# you can make as many tabs as you wish...
+pre: unset TMPDIR
+socket_path: /tmp/tmux-charity
+project_name: Pure Charity
+project_root: ~/purecharity/code/charity
+tabs:
+  - editor:
+    - vim
+  - shell:
+    -
+  - console:
+    - rails c
+  - log:
+    - foreman start
+  - guard:
+    -
