@@ -1,6 +1,5 @@
 alias git='hub'
 
-
 # Git flow
 alias gff='git flow feature'
 alias gffs='git flow feature start'
