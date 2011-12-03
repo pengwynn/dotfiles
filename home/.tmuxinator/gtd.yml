@@ -4,5 +4,11 @@
 project_name: Tasks
 project_root: ~/Dropbox/TaskPaper/
 tabs:
-  - tasks: vim projects.taskpaper
+  - tasks:
+      layout: even-horizontal
+      panes:
+        - vim personal.taskpaper
+        - vim rizn.taskpaper
   - verses: vim verses.taskpaper
+  - book: vim book.taskpaper
+  - gifts: vim gifts.taskpaper

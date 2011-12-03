@@ -8,3 +8,4 @@ project_root: ~/sites/thechangelog.com
 tabs:
   - editor: vim
   - shell: git st
+  - server: bbu 8080
