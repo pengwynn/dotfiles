@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# Usage: git-diff-grep <revs-number> <query>
+
+# Example: "git-diff-grep 10 login_required" will grep for
+# login_required in the last 10 commits diffs
+
+# lifted from: https://github.com/oscardelben/git-diff-grep
+
+#!/bin/bash
+
+# Text color variables
+txtund=$(tput sgr 0 1)    # Underline
+txtbld=$(tput bold)       # Bold
+txtred=$(tput setaf 1)    # Red
+txtgrn=$(tput setaf 2)    # Green
+txtylw=$(tput setaf 3)    # Yellow
+txtblu=$(tput setaf 4)    # Blue
+txtpur=$(tput setaf 5)    # Purple
+txtcyn=$(tput setaf 6)    # Cyan
+txtwht=$(tput setaf 7)    # White
+txtrst=$(tput sgr0)       # Text reset
+
+# Get rid of multiple whitespaces
+function trim {
+  echo $*
+}
+
+git log --pretty=oneline -$1 | awk '{print $1}' |
+while read rev; do
+  git diff $rev |
+
+  grep -q "$2"
+  if [ $? -eq 0 ]
+  then
+    echo "  ${txtylw}commit $rev${txtrst}"
+    git show -s --format="  Author: %cn <%cE>" $rev
+    git show -s --format="  Date: %cd" $rev
+    git show -s --format="    %s" $rev
+    echo
+    git_diff=$(git diff $rev | grep "$2")
+    echo "$git_diff" | while read line
+    do
+      add_remove=$(echo $line | grep '^[-+]')
+      if [ "$add_remove" ]; then
+        add=$(echo $line | grep '^[-]')
+        if [ "$add" ]; then
+          color=$txtred
+        else
+          color=$txtgrn
+        fi
+      else
+        color=$txtrst
+      fi
+
+      echo "    ${color}$(trim $line)${txtrst}"
+    done
+    echo
+    echo
+  fi
+
+done
+
