@@ -1,5 +1,5 @@
 [user]
-  name = Wynn Netherland
+	name = Wynn Netherland
   email = wynn.netherland@gmail.com
 [color]
   ui = auto
@@ -39,3 +39,5 @@
   autosetuprebase = always
 
 
+[github]
+	user = q
