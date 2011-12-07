@@ -5,8 +5,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 vmap <D-]> >gv
 vmap <D-[> <gv
-nnoremap <F5> :set invpaste paste?<CR>
-set pastetoggle=<F5>
+nnoremap <F6> :set invpaste paste?<CR>
+set pastetoggle=<F6>
 set showmode
 
 let g:syntastic_disabled_filetypes = ['sass', 'scss']
