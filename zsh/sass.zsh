@@ -8,10 +8,8 @@ function smack {
   mkdir -p $SMACK_FOLDER/base;
   mkdir -p $SMACK_FOLDER/layout;
   mkdir -p $SMACK_FOLDER/modules;
-  mkdir -p $SMACK_FOLDER/state;
 
   touch $SMACK_FOLDER/_base.sass;
   touch $SMACK_FOLDER/_layout.sass;
   touch $SMACK_FOLDER/_modules.sass;
-  touch $SMACK_FOLDER/_state.sass;
 }

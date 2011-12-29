@@ -9,6 +9,7 @@ nnoremap <F6> :set invpaste paste?<CR>
 set pastetoggle=<F6>
 set showmode
 
+let g:NERDTreeDirArrows = 0
 let g:syntastic_disabled_filetypes = ['sass', 'scss']
 
 au BufRead,BufNewFile *.thor set filetype=ruby
