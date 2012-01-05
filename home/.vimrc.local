@@ -14,5 +14,5 @@ let g:syntastic_disabled_filetypes = ['sass', 'scss']
 
 au BufRead,BufNewFile *.thor set filetype=ruby
 au BufRead,BufNewFile Guardfile set filetype=ruby
-au BufRead,BufNewFile *nginx.conf set filetype=nginx
+au BufRead,BufNewFile */nginx/*.conf set filetype=nginx
 au BufRead,BufNewFile *.zsh-theme set ft=zsh
