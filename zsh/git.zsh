@@ -1,3 +1,5 @@
+export GHI_PAGER=less
+
 alias git='hub'
 
 # Git flow
