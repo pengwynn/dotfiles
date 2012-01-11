@@ -9,4 +9,11 @@ function colours() {
   done
 }
 
+function tpbcopy {
+  tmux showb > /tmp/tmxcp
+}
+
+function tpbpaste {
+  cat /tmp/tmxcp | pbcopy
+}
 
