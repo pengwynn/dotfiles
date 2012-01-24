@@ -12,6 +12,6 @@ tabs:
   - console:
     - rails c
   - log:
-    - foreman start
+    - be foreman start
   - guard:
     -
