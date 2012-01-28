@@ -11,4 +11,4 @@ vim_plugin_task "commentary", "https://github.com/tpope/vim-commentary.git"
 # vim_plugin_task "show-invisibles", "https://github.com/vim-scripts/cream-showinvisibles.git"
 vim_plugin_task "ctrlp", "https://github.com/kien/ctrlp.vim.git"
 vim_plugin_task "pasta", "https://github.com/sickill/vim-pasta.git"
-
+vim_plugin_task "yank-ring", "https://github.com/vim-scripts/YankRing.vim.git"
