@@ -9,6 +9,8 @@ nnoremap <F6> :set invpaste paste?<CR>
 set pastetoggle=<F6>
 set showmode
 
+nnoremap <F2> <Esc>:help keycodes<CR>
+
 let g:NERDTreeDirArrows = 0
 let g:syntastic_disabled_filetypes = ['sass', 'scss']
 
@@ -28,6 +30,8 @@ command! -bang Wa wa<bang>
 command! -bang WA wa<bang>
 command! -bang Wq wq<bang>
 command! -bang WQ wq<bang>
+
+map <Leader>yy :YRShow<CR>
 
 function! Privatize()
   let priorMethod = PriorMethodDefinition()
