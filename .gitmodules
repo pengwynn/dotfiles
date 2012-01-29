@@ -10,3 +10,6 @@
 [submodule "home/.janus/bubblegum"]
 	path = home/.janus/bubblegum
 	url = https://github.com/baskerville/bubblegum.git
+[submodule "yankring"]
+	path = yankring
+	url = https://github.com/vim-scripts/YankRing.vim.git
