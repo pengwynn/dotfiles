@@ -1,0 +1,12 @@
+[submodule "home/.janus/taskpaper"]
+	path = home/.janus/taskpaper
+	url = https://github.com/davidoc/taskpaper.vim.git
+[submodule "home/.janus/nginx"]
+	path = home/.janus/nginx
+	url = https://github.com/jinfield/vim-nginx.git
+[submodule "home/.janus/YankRing"]
+	path = home/.janus/YankRing
+	url = https://github.com/vim-scripts/YankRing.vim.git
+[submodule "home/.janus/bubblegum"]
+	path = home/.janus/bubblegum
+	url = https://github.com/baskerville/bubblegum.git

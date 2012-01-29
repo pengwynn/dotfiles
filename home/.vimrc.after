@@ -1,7 +1,6 @@
 set t_Co=256
-color jellybeans+
-
-autocmd BufWritePre * :%s/\s\+$//e
+set background=dark
+color jellybeans
 
 vmap <D-]> >gv
 vmap <D-[> <gv
@@ -10,9 +9,6 @@ set pastetoggle=<F6>
 set showmode
 
 nnoremap <F2> <Esc>:help keycodes<CR>
-
-let g:NERDTreeDirArrows = 0
-let g:syntastic_disabled_filetypes = ['sass', 'scss']
 
 au BufRead,BufNewFile *.thor set filetype=ruby
 au BufRead,BufNewFile Guardfile set filetype=ruby
@@ -48,5 +44,8 @@ function! PriorMethodDefinition()
 endfunction
 
 map <Leader>p :call Privatize()<CR>
+
+
+
 
 
