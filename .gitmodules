@@ -13,3 +13,6 @@
 [submodule "yankring"]
 	path = yankring
 	url = https://github.com/vim-scripts/YankRing.vim.git
+[submodule "home/.janus/yankring"]
+	path = home/.janus/yankring
+	url = https://github.com/vim-scripts/YankRing.vim.git
