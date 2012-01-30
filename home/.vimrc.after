@@ -1,6 +1,7 @@
 set t_Co=256
 set background=dark
-color jellybeans
+"color jellybeans
+color solarized
 
 vmap <D-]> >gv
 vmap <D-[> <gv
@@ -16,6 +17,7 @@ au BufRead,BufNewFile */nginx/*.conf set filetype=nginx
 au BufRead,BufNewFile *.zsh-theme set ft=zsh
 au BufNewFile,BufRead Movefile set filetype=yaml
 
+set mouse=a
 
 command! -bang E e<bang>
 command! -bang Q q<bang>

@@ -16,3 +16,9 @@
 [submodule "home/.janus/yankring"]
 	path = home/.janus/yankring
 	url = https://github.com/vim-scripts/YankRing.vim.git
+[submodule "home/.janus/sahara"]
+	path = home/.janus/sahara
+	url = https://github.com/tejr/sahara.git
+[submodule "home/.janus/number-toggle"]
+	path = home/.janus/number-toggle
+	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
