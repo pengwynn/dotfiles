@@ -19,6 +19,6 @@
 [submodule "home/.janus/sahara"]
 	path = home/.janus/sahara
 	url = https://github.com/tejr/sahara.git
-[submodule "home/.janus/number-toggle"]
-	path = home/.janus/number-toggle
-	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
+[submodule "home/.janus/vim-bundler"]
+	path = home/.janus/vim-bundler
+	url = https://github.com/tpope/vim-bundler.git

@@ -1,7 +1,7 @@
 set t_Co=256
-set background=dark
-"color jellybeans
-color solarized
+color jellybeans
+
+autocmd BufWritePre * :%s/\s\+$//e
 
 vmap <D-]> >gv
 vmap <D-[> <gv

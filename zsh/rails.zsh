@@ -7,6 +7,7 @@ alias cgj="find tmp/capybara | tail -1 | xargs open"
 alias tl='tail -f log/development.log'
 alias tts="touch tmp/restart.txt"
 alias fs="foreman start"
+alias ri='ri -f ansi'
 
 
 function bbu() {
