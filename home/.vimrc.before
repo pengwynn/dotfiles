@@ -1,2 +1,3 @@
 set nobackup
 set noswapfile
+call janus#disable_plugin('syntastic')

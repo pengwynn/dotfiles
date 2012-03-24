@@ -1,5 +1,9 @@
 set t_Co=256
-color jellybeans
+syntax enable
+set background=dark
+color solarized
+"color jellybeans
+let g:github_token = $GITHUB_TOKEN
 
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -11,11 +15,18 @@ set showmode
 
 nnoremap <F2> <Esc>:help keycodes<CR>
 
+au BufRead,BufNewFile /^[A-Z]+\w*file$/ setf ruby
 au BufRead,BufNewFile *.thor set filetype=ruby
 au BufRead,BufNewFile Guardfile set filetype=ruby
 au BufRead,BufNewFile */nginx/*.conf set filetype=nginx
 au BufRead,BufNewFile *.zsh-theme set ft=zsh
-au BufNewFile,BufRead Movefile set filetype=yaml
+au BufRead,BufNewFile *.jbuilder setf ruby
+au BufRead,BufNewFile *.jeco setf html
+au BufRead,BufNewFile *.jss set filetype=css
+au BufRead,BufNewFile *.hbs set filetype=mustache
+
+" disable for jeco
+let g:syntastic_disabled_filetypes = ['html']
 
 set mouse=a
 
@@ -46,7 +57,6 @@ function! PriorMethodDefinition()
 endfunction
 
 map <Leader>p :call Privatize()<CR>
-
 
 
 
