@@ -22,3 +22,9 @@
 [submodule "home/.janus/vim-bundler"]
 	path = home/.janus/vim-bundler
 	url = https://github.com/tpope/vim-bundler.git
+[submodule "home/.janus/hemisu"]
+	path = home/.janus/hemisu
+	url = https://github.com/noahfrederick/Hemisu.git
+[submodule "home/.janus/vim-stylus"]
+	path = home/.janus/vim-stylus
+	url = https://github.com/wavded/vim-stylus.git
