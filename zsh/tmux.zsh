@@ -17,3 +17,7 @@ function tpbpaste {
   cat /tmp/tmxcp | pbcopy
 }
 
+function tmw {
+  tmux split-window -dh "$*"
+}
+
