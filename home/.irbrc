@@ -13,57 +13,6 @@ require 'rubygems' rescue nil
 require 'wirble'
 require 'awesome_print'
 
-module AwesomePrintMongoid
-
-  def self.included(base)
-    base.send :alias_method, :printable_without_mongoid, :printable
-    base.send :alias_method, :printable, :printable_with_mongoid
-  end
-
-  # Add Mongoid class names to the dispatcher pipeline.
-  #------------------------------------------------------------------------------
-  def printable_with_mongoid(object)
-    printable = printable_without_mongoid(object)
-    return printable if !defined?(Mongoid::Document)
-
-    if printable == :self
-      if object.is_a?(Mongoid::Document)
-        printable = :mongoid_instance
-      end
-    elsif printable == :class && object.ancestors.include?(Mongoid::Document)
-      printable = :mongoid_class
-    end
-    printable
-  end
-
-  # Format Mongoid instance object.
-  #------------------------------------------------------------------------------
-  def awesome_mongoid_instance(object)
-    return object.inspect if !defined?(ActiveSupport::OrderedHash)
-
-    data = object.fields.keys.sort_by{|k| k}.inject(ActiveSupport::OrderedHash.new) do |hash, name|
-      hash[name] = object[name]
-      hash
-    end
-    "#{object} " + awesome_hash(data)
-  end
-
-  # Format Mongoid class object.
-  #------------------------------------------------------------------------------
-  def awesome_mongoid_class(object)
-    return object.inspect if !defined?(ActiveSupport::OrderedHash)
-
-    data = object.fields.sort_by{|k| k}.inject(ActiveSupport::OrderedHash.new) do |hash, c|
-      hash[c.first] = (c.last.type || "undefined").to_s.underscore.intern
-      hash
-    end
-    "class #{object} < #{object.superclass} " << awesome_hash(data)
-  end
-end
-
-AwesomePrint.send(:include, AwesomePrintMongoid)
-
-
 # load wirble
 Wirble.init
 Wirble.colorize
@@ -95,7 +44,7 @@ if ENV.include?('RAILS_ENV')
   def sql(query)
     ActiveRecord::Base.connection.select_all(query)
   end
-  
+
   if ENV['RAILS_ENV'] == 'test'
     require 'test/test_helper'
   end
