@@ -1,0 +1,63 @@
+set t_Co=256
+syntax enable
+set background=dark
+color solarized
+"color jellybeans
+let g:github_token = $GITHUB_TOKEN
+
+autocmd BufWritePre * :%s/\s\+$//e
+
+vmap <D-]> >gv
+vmap <D-[> <gv
+nnoremap <F6> :set invpaste paste?<CR>
+set pastetoggle=<F6>
+set showmode
+
+nnoremap <F2> <Esc>:help keycodes<CR>
+
+au BufRead,BufNewFile /^[A-Z]+\w*file$/ setf ruby
+au BufRead,BufNewFile *.thor set filetype=ruby
+au BufRead,BufNewFile Guardfile set filetype=ruby
+au BufRead,BufNewFile */nginx/*.conf set filetype=nginx
+au BufRead,BufNewFile *.zsh-theme set ft=zsh
+au BufRead,BufNewFile *.jbuilder setf ruby
+au BufRead,BufNewFile *.jeco setf html
+au BufRead,BufNewFile *.jss set filetype=css
+au BufRead,BufNewFile *.hbs set filetype=mustache
+
+" disable for jeco
+let g:syntastic_disabled_filetypes = ['html']
+
+set mouse=a
+
+command! -bang E e<bang>
+command! -bang Q q<bang>
+command! -bang W w<bang>
+command! -bang QA qa<bang>
+command! -bang Qa qa<bang>
+command! -bang Wa wa<bang>
+command! -bang WA wa<bang>
+command! -bang Wq wq<bang>
+command! -bang WQ wq<bang>
+
+map <Leader>yy :YRShow<CR>
+
+function! Privatize()
+  let priorMethod = PriorMethodDefinition()
+  exec "normal iprivate :" . priorMethod  . "\<Esc>=="
+endfunction
+
+function! PriorMethodDefinition()
+  let lineNumber = search('def', 'bn')
+  let line       = getline(lineNumber)
+  if line == 0
+    echo "No prior method definition found"
+  endif
+  return matchlist(line, 'def \(\w\+\).*')[1]
+endfunction
+
+map <Leader>p :call Privatize()<CR>
+
+
+
+
