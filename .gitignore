@@ -1,2 +1,2 @@
-zsh/*_private.zsh
-zsh/*_creds.zsh
+*_private.zsh
+*_creds.zsh

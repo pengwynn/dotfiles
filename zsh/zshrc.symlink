@@ -6,7 +6,7 @@ export EDITOR='vim'
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="pengwynn"
-export ZSH_CUSTOM=$HOME/.homesick/repos/pengwynn/dotfiles/zsh
+#export ZSH_CUSTOM=$HOME/.homesick/repos/pengwynn/dotfiles/zsh
 
 
 # Set to this to use case-sensitive completion
@@ -26,7 +26,7 @@ source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
 # Customize to your needs...
-export PATH=/Users/wynn/.homesick/repos/pengwynn/dotfiles/scripts:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/share/npm/bin
+export PATH=/Users/wynn/.dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/share/npm/bin
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
