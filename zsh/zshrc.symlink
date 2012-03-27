@@ -6,7 +6,10 @@ export EDITOR='vim'
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="pengwynn"
-#export ZSH_CUSTOM=$HOME/.homesick/repos/pengwynn/dotfiles/zsh
+
+# soure all the zsh files from dotfiles repo
+export DOTFILES=$HOME/.dotfiles
+for config_file ($DOTFILES/**/*.zsh) source $config_file
 
 
 # Set to this to use case-sensitive completion
@@ -15,8 +18,6 @@ export ZSH_THEME="pengwynn"
 # Comment this out to disable weekly auto-update checks
 export DISABLE_AUTO_UPDATE="true"
 
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
