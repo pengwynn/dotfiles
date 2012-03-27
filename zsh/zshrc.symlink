@@ -33,4 +33,4 @@ export PATH=/Users/wynn/.dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/b
 
 unsetopt auto_name_dirs
 
-
+randsig
