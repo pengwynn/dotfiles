@@ -7,7 +7,7 @@ export EDITOR='vim'
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="pengwynn"
 
-# soure all the zsh files from dotfiles repo
+# source all the zsh files from dotfiles repo
 export DOTFILES=$HOME/.dotfiles
 for config_file ($DOTFILES/**/*.zsh) source $config_file
 
