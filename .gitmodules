@@ -1,0 +1,6 @@
+[submodule "vim/janus.symlink/taskpaper"]
+	path = vim/janus.symlink/taskpaper
+	url = https://github.com/davidoc/taskpaper.vim.git
+[submodule "vim/janus.symlink/nginx"]
+	path = vim/janus.symlink/nginx
+	url = https://github.com/jinfield/vim-nginx.git
