@@ -21,7 +21,7 @@ export DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump git npm brew cake ruby osx textmate git-flow thor tmuxinator rails3 rake github)
+plugins=(autojump git npm brew cake ruby osx textmate git-flow thor tmuxinator rails3 rake)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all

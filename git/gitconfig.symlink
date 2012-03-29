@@ -38,8 +38,7 @@
 [branch]
   autosetuprebase = always
 
-
-[github]
-	user = q
 [init]
 	templatedir = ~/.git_template
+[github]
+	user = pengwynn
