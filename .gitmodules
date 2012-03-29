@@ -5,3 +5,6 @@
 	path = vim/janus.symlink/nginx
 	url = https://github.com/jinfield/vim-nginx.git
 
+[submodule "vim/janus.symlink/gist-vim"]
+	path = vim/janus.symlink/gist-vim
+	url = https://github.com/mattn/gist-vim.git
