@@ -17,21 +17,29 @@
   changed = green
   untracked = cyan
 [alias]
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-  lc = log ORIG_HEAD.. --stat --no-merges
-  lol = log --graph --decorate --pretty=oneline --abbrev-commit
-  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  st = status
-  ci = commit
   br = branch
+  # show all branches, even across remotes
+  branches = branch -a --color -v
+  ci = commit
+  # remove all local branches included in the current branch
+  cleanup = !sh -c 'git branch --merged | grep -E "^[^*]" --exclude "^\\s*master" | xargs -n1 git branch -d'
   co = checkout
   df = diff
+  lc = log ORIG_HEAD.. --stat --no-merges
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ls = ls-files
   pullm = !"git pull origin master"
   pushm = !"git push origin master"
-  up = pull --rebase
   rb = rebase
   rbc = rebase --continue
+  # track a remote branch
+  track = checkout -t
+  st = status
+  # remove a file from the index
+  unstage = reset HEAD --
+  up = pull --rebase
 
 [core]
   excludesfile = /Users/wynn/.gitignore
