@@ -1,0 +1,131 @@
+" Vim
+" ===
+
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" Automatically reload vimrc when it's saved
+autocmd! BufWritePost vimrc.symlink so ~/.vimrc
+
+" Source ~/.vimrc.before if it exists
+if filereadable(expand('~/.vimrc.before'))
+  source ~/.vimrc.before
+endif
+
+" Pathogen Initialization
+" =======================
+
+" This loads all the plugins in ~/.vim/bundle
+" Use tpope's pathogen plugin to manage all other plugins
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+call pathogen#helptags()
+
+" General Config
+" ==============
+
+let mapleader=','
+set encoding=utf-8
+set number                      " Line numbers are good
+set backspace=indent,eol,start  " Allow backspace in insert mode
+set history=1000                " Store lots of :cmdline history
+set showcmd                     " Show incomplete cmds down the bottom
+set showmode                    " Show current mode down the bottom
+set gcr=a:blinkon0              " Disable cursor blink
+set autoread                    " Reload files changed outside vim
+set laststatus=2                " Always show status line
+set clipboard=unnamed           " Use system clipboard
+set hidden                      " Buffers can exist in the background
+set splitright                  " Opens vertical split right of current window
+set splitbelow                  " Opens horizontal split below current window
+"set shortmess=filnxtToOI       " see :help shortmess
+                                " http://items.sjbach.com/319/configuring-vim-right
+
+" Syntax
+" ======
+
+syntax on
+syntax enable
+colorscheme solarized
+set background=dark
+
+" Filetype overrides
+" ==================
+
+autocmd! BufRead,BufNewFile *.jbuilder,Gemfile,Rakefile,Procfile,Guardfile setf ruby
+
+" Search Settings
+" ===============
+
+set incsearch        " Find the next match as we type the search
+set hlsearch         " Hilight searches by default
+set viminfo='100,f1  " Save up to 100 marks, enable capital marks
+
+" Turn Off Swap Files
+" ===================
+
+set noswapfile
+set nobackup
+set nowritebackup
+
+" Persistent Undo
+" ===============
+
+" Keep undo history across sessions, by storing in file
+" Only works in MacVim (gui) mode
+if has('gui_running')
+  set undodir=~/.vim/backups
+  set undofile
+endif
+
+" Indentation and Display
+" =======================
+
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+filetype plugin on
+filetype indent on
+
+set list listchars=tab:\ \ ,trail:·   " Display tabs and trailing spaces visually
+set nowrap                            " Don't wrap lines
+set linebreak                         " Wrap lines at convenient points
+
+" Folds
+" =====
+
+set foldmethod=indent   " Fold based on indent
+set foldnestmax=3       " Deepest fold is 3 levels
+set nofoldenable        " Don't fold by default
+
+" Completion
+" ==========
+
+set wildmode=list:longest
+set wildmenu                    " Enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~     " Stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+
+" Scrolling
+" =========
+
+" Start scrolling when we're getting close to margins
+set scrolloff=10
+set sidescrolloff=15
+set sidescroll=1
+
+" Status Line
+" ===========
+
+set statusline=                                 " Override default
+set statusline+=%{fugitive#statusline()[4:-2]}  " Show fugitive git info
+set statusline+=\ %f\ %m\ %r                    " Show filename/path
+set statusline+=%=                              " Set right-side status info after this line
+set statusline+=%l/%L:%v                        " Set <line number>/<total lines>:<column>
+set statusline+=\                               " Set ending space
