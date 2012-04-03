@@ -47,6 +47,7 @@ set splitbelow                  " Opens horizontal split below current window
 
 syntax on
 syntax enable
+set t_Co=256
 colorscheme solarized
 set background=dark
 
