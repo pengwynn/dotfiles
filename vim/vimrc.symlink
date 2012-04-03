@@ -25,7 +25,7 @@ call pathogen#helptags()
 " General Config
 " ==============
 
-let mapleader=','
+let mapleader='\'
 set encoding=utf-8
 set number                      " Line numbers are good
 set backspace=indent,eol,start  " Allow backspace in insert mode
