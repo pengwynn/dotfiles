@@ -13,6 +13,14 @@ if filereadable(expand('~/.vimrc.before'))
   source ~/.vimrc.before
 endif
 
+" Strip whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Toggle paste
+nnoremap <F6> :set invpaste paste?<CR>
+set pastetoggle=<F6>
+set showmode
+
 " Pathogen Initialization
 " =======================
 
@@ -55,6 +63,15 @@ set background=dark
 " ==================
 
 autocmd! BufRead,BufNewFile *.jbuilder,Gemfile,Rakefile,Procfile,Guardfile setf ruby
+au BufRead,BufNewFile /^[A-Z]+\w*file$/ setf ruby
+au BufRead,BufNewFile *.thor set filetype=ruby
+au BufRead,BufNewFile Guardfile set filetype=ruby
+au BufRead,BufNewFile */nginx/*.conf set filetype=nginx
+au BufRead,BufNewFile *.zsh-theme set ft=zsh
+au BufRead,BufNewFile *.jbuilder setf ruby
+au BufRead,BufNewFile *.jeco setf html
+au BufRead,BufNewFile *.jss set filetype=css
+au BufRead,BufNewFile *.hbs set filetype=mustache
 
 " Search Settings
 " ===============
@@ -130,3 +147,23 @@ set statusline+=\ %f\ %m\ %r                    " Show filename/path
 set statusline+=%=                              " Set right-side status info after this line
 set statusline+=%l/%L:%v                        " Set <line number>/<total lines>:<column>
 set statusline+=\                               " Set ending space
+
+
+" Privatize Ruby methods
+" ===========
+
+function! Privatize()
+  let priorMethod = PriorMethodDefinition()
+  exec "normal iprivate :" . priorMethod  . "\<Esc>=="
+endfunction
+
+function! PriorMethodDefinition()
+  let lineNumber = search('def', 'bn')
+  let line       = getline(lineNumber)
+  if line == 0
+    echo "No prior method definition found"
+  endif
+  return matchlist(line, 'def \(\w\+\).*')[1]
+endfunction
+
+map <Leader>p :call Privatize()<CR>
