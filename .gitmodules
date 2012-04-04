@@ -46,3 +46,6 @@
 [submodule "vim/vim.symlink/bundle/gitv"]
 	path = vim/vim.symlink/bundle/gitv
 	url = https://github.com/gregsexton/gitv.git
+[submodule "vim/vim.symlink/bundle/vim-commentary"]
+	path = vim/vim.symlink/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
