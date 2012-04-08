@@ -4,8 +4,7 @@
 unset: TMPDIR
 socket_name: tcl
 project_name: The Changelog
-project_root: ~/sites/thechangelog.com
+project_root: ~/sites/thechangelog
 tabs:
   - editor: vim
   - shell: git st
-  - server: bbu 8080
