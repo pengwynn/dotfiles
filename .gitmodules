@@ -52,3 +52,6 @@
 [submodule "vim/vim.symlink/bundle/php"]
 	path = vim/vim.symlink/bundle/php
 	url = https://github.com/vim-scripts/php.vim.git
+[submodule "vim/vim.symlink/bundle/taskpaper"]
+	path = vim/vim.symlink/bundle/taskpaper
+	url = https://github.com/davidoc/taskpaper.vim.git
