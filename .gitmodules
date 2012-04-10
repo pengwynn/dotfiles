@@ -55,3 +55,9 @@
 [submodule "vim/vim.symlink/bundle/taskpaper"]
 	path = vim/vim.symlink/bundle/taskpaper
 	url = https://github.com/davidoc/taskpaper.vim.git
+[submodule "vim/vim.symlink/bundle/vim-fuzzyfinder"]
+	path = vim/vim.symlink/bundle/vim-fuzzyfinder
+	url = git://github.com/vim-scripts/FuzzyFinder.git
+[submodule "vim/vim.symlink/bundle/L9"]
+	path = vim/vim.symlink/bundle/L9
+	url = https://github.com/vim-scripts/L9
