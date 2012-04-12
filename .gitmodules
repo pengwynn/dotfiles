@@ -61,3 +61,6 @@
 [submodule "vim/vim.symlink/bundle/L9"]
 	path = vim/vim.symlink/bundle/L9
 	url = https://github.com/vim-scripts/L9
+[submodule "vim/vim.symlink/bundle/nerdcommenter"]
+	path = vim/vim.symlink/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
