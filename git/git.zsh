@@ -1,6 +1,10 @@
 export GHI_PAGER=less
 
-alias git='hub'
+hub_path=$(which hub)
+if [[ -f $hub_path ]]
+then
+  alias git=$hub_path
+fi
 
 # Git flow
 alias gff='git flow feature'
