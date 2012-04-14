@@ -1,4 +1,5 @@
-alias cls="clear"
-alias lastfm="shell-fm"
+alias cls='clear'
+alias l='ls -la'
+alias lastfm='shell-fm'
 alias reload!='. ~/.zshrc'
 
