@@ -6,6 +6,8 @@ then
   alias git=$hub_path
 fi
 
+alias g='git'
+
 # Git flow
 alias gff='git flow feature'
 alias gffs='git flow feature start'
@@ -18,6 +20,8 @@ alias gfhs='git flow hotfix start'
 alias gfhf='git flow hotfix finish'
 alias gfs='git flow support'
 alias gfss='git flow support start'
+
+alias gst='git status'
 
 # Pairing
 hitch() {

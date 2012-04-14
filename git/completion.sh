@@ -20,3 +20,6 @@ if declare -f _git_commands > /dev/null; then
   # Extend the '_git_commands' function with hub commands
   eval "$(declare -f _git_commands | sed -e 's/base_commands=(/base_commands=(${_hub_commands} /')"
 fi
+
+compdef g=git
+

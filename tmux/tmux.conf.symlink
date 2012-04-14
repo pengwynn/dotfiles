@@ -64,8 +64,11 @@ set-window-option -g window-status-current-format '« #I #W »'
 ## set window notifications
 set-option -g visual-activity on
 set-option -g visual-content on
-set-window-option -g window-status-alert-fg colour226
-set-window-option -g window-status-alert-bg colour233
+
+# Alerts broken with 1.6
+#set-window-option -g window-status-alert-fg colour226
+#set-window-option -g window-status-alert-bg colour233
+
 set-window-option -g monitor-activity off
 set-window-option -g automatic-rename off
 
