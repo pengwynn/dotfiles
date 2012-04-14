@@ -1,0 +1,4 @@
+#compdef mux
+
+compadd `mux list | grep "    " | cut -d " " -f 5`
+
