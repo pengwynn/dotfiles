@@ -1,7 +1,6 @@
 ## keybindings
 unbind C-b
 unbind C-a
-unbind %
 unbind ,
 unbind .
 unbind n
@@ -37,6 +36,10 @@ bind-key C-h    resize-pane -L 5
 bind-key C-l    resize-pane -R 5
 bind-key C-j    resize-pane -D 5
 bind-key C-k    resize-pane -U 5
+# -r: can be repeated without pressing prefix#     again (500ms after last '-r' action or prefix)
+bind-key -r h   select-pane -t :.-
+bind-key -r l   select-pane -t :.+
+
 
 ## messages
 set-option -g message-fg colour229
