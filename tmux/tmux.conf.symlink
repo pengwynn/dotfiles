@@ -41,7 +41,7 @@ bind-key C-k    resize-pane -U 5
 ## messages
 set-option -g message-fg colour229
 set-option -g message-bg colour3
-set-option -g display-time 1500
+set-option -g display-time 500
 
 ## set status bar
 set-option -g status-utf8 on
@@ -49,8 +49,8 @@ set-option -g status-interval 1
 set-option -g status-fg colour0
 set-option -g status-bg default
 
-set-option -g status-left '#[fg=250]⣿'
-set-option -g status-right '⣿ ⊙ #S ⡇ #(whoami)@#H ⡇ %Y-%m-%d %H:%M ⣿'
+set-option -g status-left '#[fg=250]'
+set-option -g status-right '#(whoami)@#H ★ %Y-%m-%d %H:%M'
 
 set-option -g status-right-length 100
 set-option -g status-left-length 120
@@ -66,8 +66,8 @@ set-option -g visual-activity on
 set-option -g visual-content on
 
 # Alerts broken with 1.6
-#set-window-option -g window-status-alert-fg colour226
-#set-window-option -g window-status-alert-bg colour233
+set-window-option -g window-status-bell-fg colour226
+set-window-option -g window-status-bell-bg colour23
 
 set-window-option -g monitor-activity off
 set-window-option -g automatic-rename off
