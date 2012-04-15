@@ -6,13 +6,13 @@ local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}[ "
 ZSH_THEME_GIT_PROMPT_SUFFIX=" %{$fg[blue]%}] "
 ZSH_THEME_GIT_PROMPT_DIRTY=": %{$fg[red]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN=": %{$fg[green]%}✔"
+ZSH_THEME_GIT_PROMPT_CLEAN=": %{$fg[cyan]%}✔"
 
 # Colors vary depending on time lapsed.
-ZSH_THEME_GIT_TIME_SINCE_COMMIT_SHORT="%{$fg[green]%}"
+ZSH_THEME_GIT_TIME_SINCE_COMMIT_SHORT="%{$fg[cyan]%}"
 ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM="%{$fg[yellow]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG="%{$fg[red]%}"
-ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[cyan]%}"
+ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[yellow]%}"
 
 # get the name of the branch we are on
 function git_prompt_info() {
@@ -144,10 +144,10 @@ todo(){
   fi
 }
 
-export PROMPT='%{$fg[green]%}%c \
+export PROMPT='%{$fg[blue]%}%c \
 $(git_prompt_info)\
 $(git_time_since_commit)%{$reset_color%} \
-%{$fg[yellow]%}%(!.#.⚡)%{$reset_color%} '
+%{$fg[white]%}%(!.#.⚡)%{$reset_color%} '
 
 export RPROMPT="%{$fg_bold[blue]%}%~%{$reset_color%}"
 
