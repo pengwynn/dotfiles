@@ -1,69 +1,92 @@
 [submodule "vim/vim.symlink/bundle/vim-pathogen"]
 	path = vim/vim.symlink/bundle/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/vim-colors-solarized"]
 	path = vim/vim.symlink/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/syntastic"]
 	path = vim/vim.symlink/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/vim-fugitive"]
 	path = vim/vim.symlink/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/ctrlp"]
 	path = vim/vim.symlink/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/nerdtree"]
 	path = vim/vim.symlink/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/vim-coffee-script"]
 	path = vim/vim.symlink/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/vim-markdown"]
 	path = vim/vim.symlink/bundle/vim-markdown
 	url = git://github.com/plasticboy/vim-markdown.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/zoomwin"]
 	path = vim/vim.symlink/bundle/zoomwin
 	url = git://github.com/vim-scripts/ZoomWin.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/vim-rails"]
 	path = vim/vim.symlink/bundle/vim-rails
 	url = git://github.com/tpope/vim-rails.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/vim-ruby"]
 	path = vim/vim.symlink/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/gist-vim"]
 	path = vim/vim.symlink/bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/vim-surround"]
 	path = vim/vim.symlink/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/supertab"]
 	path = vim/vim.symlink/bundle/supertab
 	url = git://github.com/ervandew/supertab.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/webapi-vim"]
 	path = vim/vim.symlink/bundle/webapi-vim
 	url = git://github.com/mattn/webapi-vim.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/gitv"]
 	path = vim/vim.symlink/bundle/gitv
 	url = https://github.com/gregsexton/gitv.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/vim-commentary"]
 	path = vim/vim.symlink/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/php"]
 	path = vim/vim.symlink/bundle/php
 	url = https://github.com/vim-scripts/php.vim.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/taskpaper"]
 	path = vim/vim.symlink/bundle/taskpaper
 	url = https://github.com/davidoc/taskpaper.vim.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/vim-fuzzyfinder"]
 	path = vim/vim.symlink/bundle/vim-fuzzyfinder
 	url = git://github.com/vim-scripts/FuzzyFinder.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/L9"]
 	path = vim/vim.symlink/bundle/L9
 	url = https://github.com/vim-scripts/L9
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/nerdcommenter"]
 	path = vim/vim.symlink/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/vimux"]
 	path = vim/vim.symlink/bundle/vimux
 	url = https://github.com/benmills/vimux.git
+  ignore = untracked
