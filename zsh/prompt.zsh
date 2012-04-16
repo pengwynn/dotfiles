@@ -159,7 +159,7 @@ function notes_count() {
   else
     local NOTES_PATTERN=$1;
   fi
-  grep -ERni "\b($NOTES_PATTERN)\b" {app,config,lib,spec,test} 2>/dev/null | wc -l | sed 's/ //g'
+  grep -ERn "\b($NOTES_PATTERN)\b" {app,config,lib,spec,test} 2>/dev/null | wc -l | sed 's/ //g'
 }
 
 function notes_prompt() {
