@@ -128,10 +128,10 @@ function git_time_since_commit() {
 # This keeps the number of todos always available the right hand side of my
 # command line. I filter it to only count those tagged as "+next", so it's more
 # of a motivation to clear out the list.
-todo(){
-  if $(which todo.sh &> /dev/null)
+todo_count(){
+  if $(which todo &> /dev/null)
   then
-    num=$(echo $(todo.sh ls +next | wc -l))
+    num=$(echo $(todo ls +next | wc -l))
     let todos=num-2
     if [ $todos != 0 ]
     then
@@ -149,14 +149,10 @@ $(git_prompt_info)\
 $(git_time_since_commit)%{$reset_color%} \
 %{$fg[white]%}%(!.#.⚡)%{$reset_color%} '
 
-export RPROMPT="%{$fg_bold[blue]%}%~%{$reset_color%}"
-
-#export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
-  export RPROMPT="%{$fg_bold[blue]%}%~%{$reset_color%}"
+  export RPROMPT="%{$fg_bold[blue]%}$(todo_count)%{$reset_color%}"
 }
 
-#precmd() {
-  #title "zsh" "%m" "%55<...<%~"
-  #set_prompt
-#}
+precmd() {
+  set_prompt
+}
