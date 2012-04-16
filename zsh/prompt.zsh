@@ -131,7 +131,7 @@ function git_time_since_commit() {
 todo_count(){
   if $(which todo &> /dev/null)
   then
-    num=$(echo $(todo ls +next | wc -l))
+    num=$(echo $(todo ls $1 | wc -l))
     let todos=num-2
     if [ $todos != 0 ]
     then
@@ -144,13 +144,41 @@ todo_count(){
   fi
 }
 
+function todo_prompt() {
+  local COUNT=$(todo_count $1);
+  if [ $COUNT != 0 ]; then
+    echo "$1: $COUNT";
+  else
+    echo "";
+  fi
+}
+
+function notes_count() {
+  if [[ -z $1 ]]; then
+    local NOTES_PATTERN="TODO|FIXME|HACK";
+  else
+    local NOTES_PATTERN=$1;
+  fi
+  grep -ERni "\b($NOTES_PATTERN)\b" {app,config,lib,spec,test} 2>/dev/null | wc -l | sed 's/ //g'
+}
+
+function notes_prompt() {
+  local COUNT=$(notes_count $1);
+  if [ $COUNT != 0 ]; then
+    echo "$1: $COUNT";
+  else
+    echo "";
+  fi
+}
+
+
 export PROMPT='%{$fg[blue]%}%c \
 $(git_prompt_info)\
 $(git_time_since_commit)%{$reset_color%} \
 %{$fg[white]%}%(!.#.⚡)%{$reset_color%} '
 
 set_prompt () {
-  export RPROMPT="%{$fg_bold[blue]%}$(todo_count)%{$reset_color%}"
+  export RPROMPT="$(notes_prompt TODO) %{$fg_bold[yellow]%}$(notes_prompt HACK)%{$reset_color%} %{$fg_bold[red]%}$(notes_prompt FIXME)%{$reset_color%} %{$fg_bold[white]%}$(todo_prompt +next)%{$reset_color%}"
 }
 
 precmd() {
