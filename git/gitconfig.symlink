@@ -1,5 +1,5 @@
 [user]
-	name = Wynn Netherland
+  name = Wynn Netherland
   email = wynn.netherland@gmail.com
 [color]
   ui = auto
@@ -44,11 +44,11 @@
   up = pull --rebase
 
 [core]
-  excludesfile = /Users/wynn/.gitignore
+  excludesfile = /Users/wynn/.gitignore_global
 [branch]
   autosetuprebase = always
 
 [init]
-	templatedir = ~/.git_template
+  templatedir = ~/.git_template
 [github]
-	user = pengwynn
+  user = pengwynn
