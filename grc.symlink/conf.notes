@@ -1,0 +1,10 @@
+
+# TODO
+regexp=TODO
+colours=yellow
+count=more
+======
+# HACK
+regexp=HACK
+colours=red
+count=more
