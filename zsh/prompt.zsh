@@ -133,14 +133,7 @@ todo_count(){
   then
     num=$(echo $(todo ls $1 | wc -l))
     let todos=num-2
-    if [ $todos != 0 ]
-    then
-      echo "$todos"
-    else
-      echo ""
-    fi
-  else
-    echo ""
+    echo "$todos"
   fi
 }
 
