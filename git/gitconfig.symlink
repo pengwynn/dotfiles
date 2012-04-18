@@ -31,7 +31,7 @@
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ls = ls-files
   # Find FIXME, TODO, etc
-  n = !git ls-files | xargs notes | grcat conf.notes
+  n = !"git ls-files | xargs notes | awk -F: '{ print $1,$2; print $3,$4; print $5}' | grcat conf.notes "
   pullm = !"git pull origin master"
   pushm = !"git push origin master"
   rb = rebase
