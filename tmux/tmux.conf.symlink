@@ -29,7 +29,7 @@ bind-key n      command-prompt 'rename-window %%'
 bind-key N      command-prompt 'rename-session %%'
 bind-key Escape copy-mode -u
 bind-key Up     copy-mode -u
-bind-key r      source-file ~/.tmux.conf; display-message " ✱ ~/.tmux.conf is reloaded"
+bind-key r      source-file ~/.tmux.conf; display-message " The Matrix has been reloaded"
 bind-key R      refresh-client
 bind-key a      send-key C-a
 bind-key C-h    resize-pane -L 5
@@ -42,9 +42,9 @@ bind-key -r l   select-pane -t :.+
 
 
 ## messages
-set-option -g message-fg colour229
-set-option -g message-bg colour3
-set-option -g display-time 500
+set-option -g message-fg colour0
+set-option -g message-bg colour4
+set-option -g display-time 1500
 
 ## set status bar
 set-option -g status-utf8 on
