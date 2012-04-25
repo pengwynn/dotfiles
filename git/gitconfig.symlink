@@ -26,6 +26,8 @@
   co = checkout
   df = diff
   lc = log ORIG_HEAD.. --stat --no-merges
+  # just for fun
+  l33t = !"git shortlog | l33t"
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
