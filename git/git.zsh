@@ -1,4 +1,5 @@
 export GHI_PAGER=less
+export GIT_SANDBOX=~/Projects/sandbox
 
 hub_path=$(which hub)
 if [[ -f $hub_path ]]
@@ -40,3 +41,6 @@ function minutes_since_last_commit {
     echo $minutes_since_last_commit
 }
 
+function sandbox() {
+  cd $GIT_SANDBOX && git clone $1 && cd `last_modified`
+}
