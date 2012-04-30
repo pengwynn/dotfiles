@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Running some commands to prep the project before launching tmux
+cd ~/purecharity/code/rewards
+
+# Setup and run function to setup new tmux session
+function load_session() {
+  local SESSION=rewards
+
+  if ! tmux has-session -t $SESSION; then
+    tmux new-session -s $SESSION -n vim -d
+    tmux new-window -n shell -t $SESSION
+    tmux new-window -n console -t $SESSION
+    tmux new-window -n tests -t $SESSION
+    tmux new-window -n server -t $SESSION
+    tmux new-window -n logs -t $SESSION
+
+    tmux send-keys -t $SESSION:1 'vim' C-m ':NERDTreeToggle' C-m
+    tmux send-keys -t $SESSION:2 'git pull && bundle install && bundle exec rake db:migrate' C-m
+    tmux send-keys -t $SESSION:3 'bundle exec foreman run bundle exec rails console' C-m
+    tmux send-keys -t $SESSION:4 'sleep 30 && bundle exec guard -g jasmine' C-m
+    tmux send-keys -t $SESSION:5 'bundle exec foreman start' C-m
+    tmux send-keys -t $SESSION:6 'tail -f log/development.log' C-m
+
+    tmux select-window -t $SESSION:1
+  fi
+
+  tmux attach -t $SESSION
+}
+load_session

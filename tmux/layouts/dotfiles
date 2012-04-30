@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Running some commands to prep the project before launching tmux
+cd ~/.dotfiles
+
+# Setup and run function to setup new tmux session
+function load_session() {
+  local SESSION=dotfiles
+
+  if ! tmux has-session -t $SESSION; then
+    tmux new-session -s $SESSION -n personal -d
+    tmux new-window -n github -t $SESSION
+
+    tmux send-keys -t $SESSION:1 'vim' C-m ':NERDTreeToggle' C-m
+    tmux send-keys -t $SESSION:2 'cd ~/code/dotfiles/dotfiles.github.com && git pull' C-m
+    tmux send-keys -t $SESSION:2 'vim' C-m ':NERDTreeToggle' C-m
+
+    tmux select-window -t $SESSION:1
+  fi
+
+  tmux attach -t $SESSION
+}
+load_session

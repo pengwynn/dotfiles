@@ -1,0 +1,4 @@
+#compdef mx
+
+compadd `ls $DOTFILES/tmux/layouts`
+

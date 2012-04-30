@@ -5,6 +5,7 @@ export PATH=/Users/wynn/.dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/b
 
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
+export DOTFILES=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/code
