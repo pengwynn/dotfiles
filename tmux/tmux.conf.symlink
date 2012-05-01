@@ -52,8 +52,20 @@ set-option -g status-interval 1
 set-option -g status-fg colour0
 set-option -g status-bg default
 
+# "I' == current window index
+# 'H' == Hostname
+# 'F' == current window flag
+# 'P' == current pane index
+# 'S' == Session name
+# 'T' == current window title
+# 'W' == current window name
+# '#' == a literal "#"
+# Where appropriate, special character sequences may be prefixed with a
+# number to specify the maximum length, in this line "#10W'.
+
 set-option -g status-left '#[fg=250]'
-set-option -g status-right '#(whoami)@#H ★ %Y-%m-%d %H:%M'
+#set-option -g status-right '#(whoami)@#H ★ %Y-%m-%d %H:%M'
+set-option -g status-right '#[fg=yellow]#S#[fg=default] // %Y-%m-%d %H:%M'
 
 set-option -g status-right-length 100
 set-option -g status-left-length 120
@@ -62,7 +74,7 @@ set-option -g status-left-length 120
 set-window-option -g window-status-current-fg colour4
 set-window-option -g window-status-current-bg default
 set-window-option -g window-status-current-attr bright
-set-window-option -g window-status-current-format '« #I #W »'
+set-window-option -g window-status-current-format '[ #I #W ]'
 
 ## set window notifications
 set-option -g visual-activity on
