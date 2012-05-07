@@ -49,7 +49,7 @@ set-option -g display-time 1500
 ## set status bar
 set-option -g status-utf8 on
 set-option -g status-interval 1
-set-option -g status-fg colour0
+set-option -g status-fg colour10
 set-option -g status-bg default
 
 # "I' == current window index
@@ -63,8 +63,6 @@ set-option -g status-bg default
 # Where appropriate, special character sequences may be prefixed with a
 # number to specify the maximum length, in this line "#10W'.
 
-set-option -g status-left '#[fg=250]'
-#set-option -g status-right '#(whoami)@#H ★ %Y-%m-%d %H:%M'
 set-option -g status-right '#[fg=yellow]#S#[fg=default] // %Y-%m-%d %H:%M'
 
 set-option -g status-right-length 100
