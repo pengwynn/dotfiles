@@ -1,8 +1,21 @@
-#compdef rake
-if [ -f Rakefile ]; then
-  recent=`last_modified .rake_tasks~ Rakefile **/*.rake`
-  if [[ $recent != '.rake_tasks~' ]]; then
-    rake --silent --tasks | cut -d " " -f 2 > .rake_tasks~
+# Lifted from https://github.com/joshuaclayton/dotfiles/blob/master/zsh_profile.d/completion.zsh
+
+_rake_does_task_list_need_generating() {
+  if [[ ! -f .rake_tasks ]]; then return 0;
+  else
+    accurate=$(stat -f%m .rake_tasks)
+    changed=$(stat -f%m Rakefile)
+    return $(expr $accurate '>=' $changed)
   fi
-  compadd `cat .rake_tasks~`
-fi
+}
+
+_rake() {
+  if [[ -f Rakefile ]]; then
+    if _rake_does_task_list_need_generating; then
+      rake --silent --tasks | cut -d " " -f 2 | cut -d "[" -f 1 > .rake_tasks
+    fi
+    compadd $(cat .rake_tasks)
+  fi
+}
+compdef _rake rake
+
