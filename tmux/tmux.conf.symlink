@@ -40,6 +40,8 @@ bind-key C-k    resize-pane -U 5
 bind-key -r h   select-pane -t :.-
 bind-key -r l   select-pane -t :.+
 
+#bind-key u select-window -t :1
+
 
 ## messages
 set-option -g message-fg colour0
@@ -62,7 +64,7 @@ set-option -g status-bg default
 # '#' == a literal "#"
 # Where appropriate, special character sequences may be prefixed with a
 # number to specify the maximum length, in this line "#10W'.
-
+set-option -g status-left ''
 set-option -g status-right '#[fg=yellow]#S#[fg=default] // %Y-%m-%d %H:%M'
 
 set-option -g status-right-length 100
