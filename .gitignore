@@ -1,3 +1,5 @@
 *_private.zsh
 *_creds.zsh
 .netrwhist
+tmux/layouts/github*
+nginx/vhosts/github*
