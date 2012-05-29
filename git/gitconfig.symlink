@@ -50,9 +50,6 @@
 [core]
   excludesfile = /Users/wynn/.gitignore_global
 
-[branch]
-  autosetuprebase = always
-
 [init]
   templatedir = ~/.git_template
 
