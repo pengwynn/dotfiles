@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# waldo
+# version 0.2
+# Adam Jahnke - http://github.com/adamyonk
+
+# Usage:
+#   waldo
+#
+# This is a script for pointing a DNSimple A record to your current IP.
+#
+# Set environment (in ~/.localrc, if you please) variables for:
+# - DNSIMPLE_LOGIN
+# - DNSIMPLE_PASSWORD
+# - DNSIMPLE_DOMAIN_ID
+# - DNSIMPLE_RECORD_ID
+#
+# DNSIMPLE_DOMAIN_ID can be the ID or domain name ('example.com'). To get the
+# DNSIMPLE_RECORD_ID, go to the advanced editor for the specified domain and
+# hover over the edit button for the record you want to change.
+
+# Source env vars for account, in case this is being called from a cron job.
+source ~/.localrc
+
+IP="`curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'`"
+
+curl --insecure --header 'Accept: application/json' \
+     --basic --user "$DNSIMPLE_LOGIN:$DNSIMPLE_PASSWORD" \
+     --header 'Content-Type: application/json' \
+     --include --request PUT "https://dnsimple.com/domains/$DNSIMPLE_DOMAIN_ID/records/$DNSIMPLE_RECORD_ID.json" \
+     --data "{\"record\":{\"content\":\"$IP\"}}" \
+     --silent --write-out "\n => %{http_code}: Set IP to $IP\n\n" \
+     --output /dev/null
