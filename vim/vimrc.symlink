@@ -164,6 +164,15 @@ set statusline+=%=                              " Set right-side status info aft
 set statusline+=%l/%L:%v                        " Set <line number>/<total lines>:<column>
 set statusline+=\                               " Set ending space
 
+" Windows
+" ==========
+
+" easier navigation between split windows
+ nnoremap <c-j> <c-w>j
+ nnoremap <c-k> <c-w>k
+ nnoremap <c-h> <c-w>h
+ nnoremap <c-l> <c-w>l
+
 
 " Privatize Ruby methods
 " ===========
