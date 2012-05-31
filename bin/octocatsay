@@ -1,0 +1,41 @@
+#!/usr/bin/perl
+
+
+# octocatsay
+# Coby Chapple - https://github.com/cobyism/octocatsay
+
+print "
+           MMM.           .MMM
+           MMMMMMMMMMMMMMMMMMM
+           MMMMMMMMMMMMMMMMMMM      _";
+for ($i = 0; $i < length(@ARGV[0]); $i++) {
+  print "_";
+}
+print "_
+          MMMMMMMMMMMMMMMMMMMMM    | ";
+for ($i = 0; $i < length(@ARGV[0]); $i++) {
+  print " ";
+}
+print " |
+         MMMMMMMMMMMMMMMMMMMMMMM   | @ARGV[0] |
+        MMMMMMMMMMMMMMMMMMMMMMMM   |_   ";
+for ($i = 0; $i < length(@ARGV[0]) - 2; $i++) {
+  print "_";
+}
+print "|
+        MMMM::- -:::::::- -::MMMM    |/
+         MM~:~   ~:::::~   ~:~MM
+    .. MMMMM::. .:::+:::. .::MMMMM ..
+          .MM::::: ._. :::::MM.
+             MMMM;:::::;MMMM
+      -MM        MMMMMMM
+      ^  M+     MMMMMMMMM
+          MMMMMMM MM MM MM
+               MM MM MM MM
+               MM MM MM MM
+            .~~MM~MM~MM~MM~~.
+         ~~~~MM:~MM~~~MM~:MM~~~~
+        ~~~~~~==~==~~~==~==~~~~~~
+         ~~~~~~==~==~==~==~~~~~~
+             :~==~==~==~==~~
+";
