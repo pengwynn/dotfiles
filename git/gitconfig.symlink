@@ -38,6 +38,7 @@
   pushm = !"git push origin master"
   rb = rebase
   rbc = rebase --continue
+  tags = tag -l
   # track a remote branch
   track = checkout -t
   st = status
