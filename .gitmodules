@@ -82,3 +82,6 @@
   path = vim/vim.symlink/bundle/nerdcommenter
   url = https://github.com/scrooloose/nerdcommenter.git
   ignore = untracked
+[submodule "vim/vim.symlink/bundle/mustache"]
+	path = vim/vim.symlink/bundle/mustache
+	url = git://github.com/juvenn/mustache.vim.git
