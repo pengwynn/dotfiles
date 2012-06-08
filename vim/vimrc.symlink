@@ -89,6 +89,15 @@ au BufRead,BufNewFile *.jeco setf html
 au BufRead,BufNewFile *.jss set filetype=css
 au BufRead,BufNewFile *.hbs set filetype=mustache
 
+" Markdown
+augroup markdown
+    au!
+    autocmd Syntax markdown setlocal textwidth=79
+    if exists("&colorcolumn")
+        autocmd Syntax markdown setlocal colorcolumn=80
+    endif
+augroup END
+
 " Search Settings
 " ===============
 
