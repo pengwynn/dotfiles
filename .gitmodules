@@ -83,8 +83,10 @@
   url = https://github.com/scrooloose/nerdcommenter.git
   ignore = untracked
 [submodule "vim/vim.symlink/bundle/mustache"]
-	path = vim/vim.symlink/bundle/mustache
-	url = git://github.com/juvenn/mustache.vim.git
+  path = vim/vim.symlink/bundle/mustache
+  url = git://github.com/juvenn/mustache.vim.git
+  ignore = untracked
 [submodule "vim/vim.symlink/bundle/ack-vim"]
-	path = vim/vim.symlink/bundle/ack-vim
-	url = https://github.com/vim-scripts/ack.vim.git
+  path = vim/vim.symlink/bundle/ack-vim
+  url = https://github.com/vim-scripts/ack.vim.git
+  ignore = untracked
