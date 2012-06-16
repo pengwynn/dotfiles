@@ -85,3 +85,6 @@
 [submodule "vim/vim.symlink/bundle/mustache"]
 	path = vim/vim.symlink/bundle/mustache
 	url = git://github.com/juvenn/mustache.vim.git
+[submodule "vim/vim.symlink/bundle/ack-vim"]
+	path = vim/vim.symlink/bundle/ack-vim
+	url = https://github.com/vim-scripts/ack.vim.git

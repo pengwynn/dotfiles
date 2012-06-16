@@ -150,7 +150,8 @@ set nofoldenable        " Don't fold by default
 " Completion
 " ==========
 
-set wildmode=list:longest
+"set wildmode=list:longest
+set wildmode=longest,list,full
 set wildmenu                    " Enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~     " Stuff to ignore when tab completing
 set wildignore+=*vim/backups*
