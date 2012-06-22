@@ -4,6 +4,7 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+inoremap jj <esc>
 
 " Automatically reload vimrc when it's saved
 autocmd! BufWritePost vimrc.symlink so ~/.vimrc
