@@ -1,11 +1,9 @@
 export GHI_PAGER=less
 export GIT_SANDBOX=~/Projects/sandbox
+export GIT_MERGE_AUTOEDIT=no
 
-hub_path=$(which hub)
-if [[ -f $hub_path ]]
-then
-  alias git=$hub_path
-fi
+# Wrap git with hub
+if [[ -f `command -v hub` ]] ; then alias git=hub ; fi
 
 alias g='git'
 
