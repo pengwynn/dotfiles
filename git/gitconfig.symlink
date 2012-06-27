@@ -1,6 +1,6 @@
 [user]
   name = Wynn Netherland
-  email = wynn.netherland@gmail.com
+  email = wynn@github.com
 [color]
   ui = auto
 [color "branch"]
@@ -54,8 +54,7 @@
 [init]
   templatedir = ~/.git_template
 
-[github]
-  user = pengwynn
-
 [push]
   default = upstream
+[credential]
+  helper = osxkeychain
