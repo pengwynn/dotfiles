@@ -1,8 +1,0 @@
-# ~/.tmuxinator/twitter.yml
-# you can make as many tabs as you wish...
-
-project_name: Twitter
-project_root: ~/
-rvm: 1.9.2
-tabs:
-  - stream: earthquake

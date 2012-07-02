@@ -85,12 +85,17 @@ set-window-option -g window-status-bell-fg colour226
 set-window-option -g window-status-bell-bg colour23
 
 set-window-option -g monitor-activity off
+
+# this only works for paying attention to tmux internal rename attempts
+# you also need the new-to-tmux-1.6 allow-rename off below
 set-window-option -g automatic-rename off
+
+# don't let ZSH override the window title
+set-window-option -g allow-rename off
 
 ## tmux window titling for X
 set-option -g set-titles on
 set-option -g set-titles-string '[#I] #W'
-set-window-option -g automatic-rename on
 set-window-option -g window-status-format ' #I #W '
 set-window-option -g window-status-attr bold
 # starts windows at 1 not 0
