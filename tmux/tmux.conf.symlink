@@ -65,7 +65,7 @@ set-option -g status-bg default
 # Where appropriate, special character sequences may be prefixed with a
 # number to specify the maximum length, in this line "#10W'.
 set-option -g status-left ''
-set-option -g status-right '#[fg=yellow]#S#[fg=default] // %Y-%m-%d %H:%M'
+set-option -g status-right '#[fg=yellow]#S#[fg=default] //#(rdio-current-track-tmux)//#[fg=default]%e %b %H:%M'
 
 set-option -g status-right-length 100
 set-option -g status-left-length 120
@@ -73,7 +73,6 @@ set-option -g status-left-length 120
 ## highlight active window
 set-window-option -g window-status-current-fg colour4
 set-window-option -g window-status-current-bg default
-set-window-option -g window-status-current-attr bright
 set-window-option -g window-status-current-format '[ #I #W ]'
 
 ## set window notifications
@@ -96,8 +95,10 @@ set-window-option -g allow-rename off
 ## tmux window titling for X
 set-option -g set-titles on
 set-option -g set-titles-string '#S'
+
 set-window-option -g window-status-format ' #I #W '
-set-window-option -g window-status-attr bold
+set-window-option -g window-status-attr dim
+
 # starts windows at 1 not 0
 set-option -g base-index 1
 
