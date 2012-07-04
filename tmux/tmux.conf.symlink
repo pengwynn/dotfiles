@@ -95,7 +95,7 @@ set-window-option -g allow-rename off
 
 ## tmux window titling for X
 set-option -g set-titles on
-set-option -g set-titles-string '[#I] #W'
+set-option -g set-titles-string '#S'
 set-window-option -g window-status-format ' #I #W '
 set-window-option -g window-status-attr bold
 # starts windows at 1 not 0
