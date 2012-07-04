@@ -58,3 +58,5 @@
   default = upstream
 [credential]
   helper = osxkeychain
+[hub]
+	protocol = https
