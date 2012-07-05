@@ -1,0 +1,39 @@
+# HTTP header
+regexp=^([A-Z].*)\:\s(.*)$
+colours=default, default, cyan
+count=more
+=====
+# HTTP success
+regexp=^HTTP.*?\s([1-3]\d{2}.*)$
+colours=default, green
+count=more
+=====
+# HTTP error
+regexp=^HTTP.*?\s([4|5]\d{2}.*)$
+colours=default, red
+count=more
+=====
+# JSON attribute
+regexp=(\".*\")\:
+colours=default, blue
+count=more
+=====
+# String value
+regexp=\:\s(\".*\"),?$
+colours=default, yellow, default
+count=more
+=====
+# Number value
+regexp=\:\s(\d+),?$
+colours=default, magenta, default
+count=more
+=====
+# Boolean value
+regexp=\:\s(true|false),?$
+colours=default, bold green
+count=more
+=====
+# Null value
+regexp=\:\s(null),?$
+colours=default, bold red
+count=more
