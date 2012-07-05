@@ -2,6 +2,7 @@ alias cls='clear'
 alias l='ls -la'
 alias lastfm='shell-fm'
 alias reload!='. ~/.zshrc'
+alias count='wc -l'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
