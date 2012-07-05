@@ -59,4 +59,9 @@
 [credential]
   helper = osxkeychain
 [hub]
-	protocol = https
+  protocol = https
+
+[branch]
+  autosetuprebase = always
+
+# vim: st=2:ts=2:noet:ft=gitconfig
