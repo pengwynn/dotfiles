@@ -1,0 +1,2 @@
+#!/bin/sh
+sort $* | uniq -u | sort
