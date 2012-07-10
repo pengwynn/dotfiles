@@ -1,4 +1,5 @@
 #!/bin/zsh
+# Lifted from https://github.com/lukaszkorecki/DotFiles/blob/master/bins/faces
 faces=('ಠ_ಠ' 'ಠ_ರೃ' '﴾͡๏̯͡๏﴿' '๏_๏' 'ಠ▃ಠ' '(•‿•)' 'Ծ_Ծ' '¯\(°_o)/¯' '(✌ﾟ∀ﾟ)☞' '╚(•⌂•)╝' 't(-_-t)t' '(ツ)_/¯' '◔_◔' '◎⃝ _◎⃝' ';ლ(ಠ_ಠლ)' '(╯°□°）╯︵ ┻━┻' 'ᶘ ᵒᴥᵒᶅ')
 
 if [[ -z $1 ]]; then
