@@ -15,6 +15,10 @@ function load_session() {
     tmux send-keys -t $SESSION:1 'vim' C-m #':CtrlP' C-m
     tmux send-keys -t $SESSION:3 'nanoc autocompile -p 3002' C-m
 
+    # work around for renaming
+    tmux rename-window -t $SESSION:2 shell
+    tmux rename-window -t $SESSION:3 server
+
     tmux select-window -t $SESSION:1
   fi
 

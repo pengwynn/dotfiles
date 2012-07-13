@@ -13,6 +13,9 @@ function load_session() {
 
     tmux send-keys -t $SESSION:1 'vim' C-m #':CtrlP' C-m
 
+    # work around for renaming
+    tmux rename-window -t $SESSION:2 shell
+
     tmux select-window -t $SESSION:1
   fi
 

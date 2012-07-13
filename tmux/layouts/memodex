@@ -14,6 +14,9 @@ function load_session() {
     tmux send-keys -t $SESSION:1 'vim' C-m ':NERDTreeToggle' C-m
 
     tmux select-window -t $SESSION:1
+
+    tmux rename-window -t $SESSION:2 shell
+
   fi
 
   tmux attach -t $SESSION
