@@ -14,9 +14,12 @@ unbind "'"
 set-option -g prefix C-a # C-a for prefix just like screen
 
 bind-key C-a    last-window
-bind-key |      split-window -h
-bind-key \      split-window -h
-bind-key -      split-window -v
+
+# ssh-friendly splits
+bind-key  |     run-shell 'exec tmux-ssh-split -h'
+bind-key  \     run-shell 'exec tmux-ssh-split -h'
+bind-key  -    run-shell 'exec tmux-ssh-split -v'
+
 bind-key x      kill-pane
 bind-key X      kill-window
 bind-key q      confirm-before kill-session
@@ -39,6 +42,7 @@ bind-key C-k    resize-pane -U 5
 # -r: can be repeated without pressing prefix#     again (500ms after last '-r' action or prefix)
 bind-key -r h   select-pane -t :.-
 bind-key -r l   select-pane -t :.+
+
 
 #bind-key u select-window -t :1
 
@@ -65,7 +69,7 @@ set-option -g status-bg default
 # Where appropriate, special character sequences may be prefixed with a
 # number to specify the maximum length, in this line "#10W'.
 set-option -g status-left ''
-set-option -g status-right '#[fg=yellow]#S#[fg=default] ////#(rdio-current-track-tmux)//#[fg=default]%e %b %H:%M'
+set-option -g status-right '#[fg=yellow]#S#[fg=default] ////#(rdio-current-track-tmux)//#[fg=default] %e %b %H:%M'
 
 set-option -g status-right-length 100
 set-option -g status-left-length 120
@@ -90,7 +94,7 @@ set-window-option -g monitor-activity off
 set-window-option -g automatic-rename off
 
 # don't let ZSH override the window title
-set-window-option -g allow-rename off
+set-window-option -g allow-rename on
 
 ## tmux window titling for X
 set-option -g set-titles on
@@ -117,4 +121,4 @@ set-option -g pane-border-fg colour240
 
 
 ## Copy/paste
-set-option -g default-command "reattach-to-user-namespace -l zsh"
+set-option -g default-command "tmux rename-window zsh; reattach-to-user-namespace -l zsh"

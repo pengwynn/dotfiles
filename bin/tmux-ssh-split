@@ -1,0 +1,18 @@
+#!/bin/sh
+# If running in tmux and the user has ssh-ed into another machine, create split
+# pane also logged into that machine. Otherwise behave like regular split.
+
+# Extract ssh arguments like hostname used to initial connect to another
+# machine.
+
+WINDOW_INDEX=$(tmux display-message -p '#I')
+SESSION_VARIABLE_NAME="window_${WINDOW_INDEX}_ssh_args"
+
+SSH_ARGS=$(tmux showenv | grep -F "$SESSION_VARIABLE_NAME" | sed 's/^.*=//')
+if [ -n "$SSH_ARGS" ]
+then
+  tmux splitw $1 "exec ssh $SSH_ARGS"
+else
+  tmux splitw $1
+fi
+
