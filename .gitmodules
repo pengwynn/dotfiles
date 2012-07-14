@@ -90,3 +90,6 @@
   path = vim/vim.symlink/bundle/ack-vim
   url = https://github.com/vim-scripts/ack.vim.git
   ignore = untracked
+[submodule "vim/vim.symlink/bundle/vim-css-color"]
+	path = vim/vim.symlink/bundle/vim-css-color
+	url = https://github.com/ap/vim-css-color.git
