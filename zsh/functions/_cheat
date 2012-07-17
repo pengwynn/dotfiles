@@ -1,4 +1,5 @@
+#compdef _cheat cheat
+
 _cheat() {
   compadd $(cheat sheets)
 }
-compdef _cheat cheat

@@ -1,3 +1,4 @@
+#compdef _rake rake
 # Lifted from https://github.com/joshuaclayton/dotfiles/blob/master/zsh_profile.d/completion.zsh
 
 _rake_does_task_list_need_generating() {
@@ -17,5 +18,4 @@ _rake() {
     compadd $(cat .rake_tasks)
   fi
 }
-compdef _rake rake
 
