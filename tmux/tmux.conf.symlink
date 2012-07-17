@@ -18,7 +18,7 @@ bind-key C-a    last-window
 # ssh-friendly splits
 bind-key  |     run-shell 'exec tmux-ssh-split -h'
 bind-key  \     run-shell 'exec tmux-ssh-split -h'
-bind-key  -    run-shell 'exec tmux-ssh-split -v'
+bind-key  -     run-shell 'exec tmux-ssh-split -v'
 
 bind-key x      kill-pane
 bind-key X      kill-window
