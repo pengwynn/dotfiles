@@ -22,6 +22,9 @@ nnoremap <F6> :set invpaste paste?<CR>
 set pastetoggle=<F6>
 set showmode
 
+" Toggle case
+nmap <F9> :set ignorecase! ignorecase?<CR>
+
 " Yank from cursor to end of line
 nnoremap Y y$
 
