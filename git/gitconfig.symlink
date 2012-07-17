@@ -66,4 +66,7 @@
 [branch]
   autosetuprebase = always
 
+[github]
+  user = pengwynn
+
 # vim: st=2:ts=2:noet:ft=gitconfig
