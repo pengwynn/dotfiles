@@ -102,6 +102,9 @@ augroup markdown
     endif
 augroup END
 
+" wrap current paragraph
+nnoremap <leader>w gqip
+
 " Search Settings
 " ===============
 
