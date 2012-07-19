@@ -35,3 +35,9 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 
 # color aliases
 alias grcurl="colourify curl -s"
+
+# zmv ftw
+autoload -U zmv
+# alias for zmv for no quotes
+# mmv *.c.orig orig/*.c
+alias mmv='noglob zmv -W'
