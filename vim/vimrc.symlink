@@ -1,32 +1,16 @@
 " Vim
 " ===
 
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-inoremap jj <esc>
-
-" Automatically reload vimrc when it's saved
-autocmd! BufWritePost vimrc.symlink so ~/.vimrc
-
 " Source ~/.vimrc.before if it exists
 if filereadable(expand('~/.vimrc.before'))
   source ~/.vimrc.before
 endif
 
-" Strip whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
+" Plugin overrides
+source ~/.vim/autocmd.vim
+source ~/.vim/rails.vim
+source ~/.vim/shortcuts.vim
 
-" Toggle paste
-nnoremap <F6> :set invpaste paste?<CR>
-set pastetoggle=<F6>
-set showmode
-
-" Toggle case
-nmap <F9> :set ignorecase! ignorecase?<CR>
-
-" Yank from cursor to end of line
-nnoremap Y y$
 
 " Pathogen Initialization
 " =======================
@@ -36,6 +20,16 @@ nnoremap Y y$
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
+
+
+" Syntax
+" ======
+
+syntax on
+syntax enable
+set t_Co=256
+colorscheme solarized
+set background=dark
 
 " General Config
 " ==============
@@ -57,14 +51,6 @@ set splitbelow                  " Opens horizontal split below current window
 "set shortmess=filnxtToOI       " see :help shortmess
                                 " http://items.sjbach.com/319/configuring-vim-right
 
-" Syntax
-" ======
-
-syntax on
-syntax enable
-set t_Co=256
-colorscheme solarized
-set background=dark
 
 " Mouse
 " ======
@@ -79,31 +65,6 @@ set mouse=a
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 set ttymouse=xterm2
 
-" Filetype overrides
-" ==================
-
-autocmd! BufRead,BufNewFile *.jbuilder,Gemfile,Rakefile,Procfile,Guardfile setf ruby
-au BufRead,BufNewFile /^[A-Z]+\w*file$/ setf ruby
-au BufRead,BufNewFile *.thor set filetype=ruby
-au BufRead,BufNewFile Guardfile set filetype=ruby
-au BufRead,BufNewFile */nginx/*.conf set filetype=nginx
-au BufRead,BufNewFile *.zsh-theme set ft=zsh
-au BufRead,BufNewFile *.jbuilder setf ruby
-au BufRead,BufNewFile *.jeco setf html
-au BufRead,BufNewFile *.jss set filetype=css
-au BufRead,BufNewFile *.hbs set filetype=mustache
-
-" Markdown
-augroup markdown
-    au!
-    autocmd Syntax markdown setlocal textwidth=79
-    if exists("&colorcolumn")
-        autocmd Syntax markdown setlocal colorcolumn=80
-    endif
-augroup END
-
-" wrap current paragraph
-nnoremap <leader>w gqip
 
 " Search Settings
 " ===============
@@ -181,31 +142,3 @@ set statusline+=%=                              " Set right-side status info aft
 set statusline+=%l/%L:%v                        " Set <line number>/<total lines>:<column>
 set statusline+=\                               " Set ending space
 
-" Windows
-" ==========
-
-" easier navigation between split windows
- nnoremap <c-j> <c-w>j
- nnoremap <c-k> <c-w>k
- nnoremap <c-h> <c-w>h
- nnoremap <c-l> <c-w>l
-
-
-" Privatize Ruby methods
-" ===========
-
-function! Privatize()
-  let priorMethod = PriorMethodDefinition()
-  exec "normal iprivate :" . priorMethod  . "\<Esc>=="
-endfunction
-
-function! PriorMethodDefinition()
-  let lineNumber = search('def', 'bn')
-  let line       = getline(lineNumber)
-  if line == 0
-    echo "No prior method definition found"
-  endif
-  return matchlist(line, 'def \(\w\+\).*')[1]
-endfunction
-
-map <Leader>p :call Privatize()<CR>
