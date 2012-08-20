@@ -17,6 +17,7 @@ au BufRead,BufNewFile *.jbuilder setf ruby
 au BufRead,BufNewFile *.jeco setf html
 au BufRead,BufNewFile *.jss set filetype=css
 au BufRead,BufNewFile *.hbs set filetype=mustache
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " Markdown
 augroup markdown
