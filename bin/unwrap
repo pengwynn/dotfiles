@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+# Usage: unwrap [<file>]
+# Removes hard line breaks from text such that each paragraph occupies a
+# single line. Indented code blocks and text quoted with '>' are not
+# reformatted. Bulleted and numbered lists are formatted but individual
+# items are retained.
+
+# open the file or use stdin
+file =
+  if ARGV.empty? || ARGV[0] == '-'
+    $stdin
+  else
+    File.open(ARGV[0], 'rb')
+  end
+
+# slurp the entire contents
+text = file.read
+
+# remove hard breaks and unify spacing in text
+def unwrap(text)
+  text[/^ +/].to_s +
+  text.tr("\n", ' ').gsub(/ +/, ' ').strip
+end
+
+# split into paragraphs and remove hard
+paras =
+  text.split(/\n{2,}/).map do |para|
+    if para =~ /^(>| *\[| {4,})/
+      # quoted material, references, indented code blocks
+      para
+    elsif para =~ /^( *)[0-9*-]/
+      # indented bulleted and numbered lists
+      indent = $1.to_s
+      para.
+        split(/\n#{indent}(?! )/).
+        map { |item| unwrap(item) }.
+        join("\n#{indent}")
+    else
+      # normal paragraphs
+      unwrap(para)
+    end
+  end
+
+# join all the paragraphs and write to stdout
+puts paras.join("\n\n")

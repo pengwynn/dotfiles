@@ -1,0 +1,17 @@
+#!/bin/sh
+#/ Usage: lsrb <file>...
+#/ List class, module, and method definitions in Ruby <file>.
+set -e
+
+# show usage
+[ -z "$1" -o "$1" = "--help" ] && {
+    grep ^#/ <"$0" |cut -c4-
+    exit 2
+}
+
+# run over files and grep out interesting bits
+for f in "$@"
+do echo "$f:"
+   grep -e '^[ 	]*\(class\|module\|def\|alias\|alias_method\) ' "$f" |
+   sed 's/^/  /'
+done

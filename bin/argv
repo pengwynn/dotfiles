@@ -1,0 +1,10 @@
+#!/bin/sh
+# Usage: argv <args>
+# Dump arguments
+set -e
+count=0
+for a in "$@"
+do
+  count=$(( count + 1 ))
+  echo "$count: $a"
+done

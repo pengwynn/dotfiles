@@ -1,0 +1,6 @@
+#!/bin/sh
+# Usage: lgrep [<options>] <pattern>
+# Shorthand for: grep --line-buffer <options> <pattern>
+# This is useful when using grep in a pipeline with tail -f or
+# where buffering would delay output.
+exec grep --line-buffer "$@"

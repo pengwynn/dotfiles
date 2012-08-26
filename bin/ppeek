@@ -1,0 +1,11 @@
+#!/bin/sh
+# Usage: ppeek [<prefix>]
+# Read lines from standard input and write to both standard output and
+# standard error. This is useful for peeking in on a pipeline.
+set -e
+prefix="${1:-> }"
+while read -r line
+do echo "$line"
+   echo "$prefix$line" 1>&2
+done
+exit 0

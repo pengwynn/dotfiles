@@ -1,0 +1,93 @@
+#!/bin/sh
+#/ Usage: git prune-merged-branches [-fu] [-r <remote>] <merge-branch>
+#/ Delete all branches that are fully merged into <merge-branch>.
+#/
+#/ Options:
+#/   -f            Really delete the branches. Without this, branches are shown but
+#/                 not actually deleted.
+#/   -r <remote>   Name of remote to operate on. Operate locally when not specified.
+#/   -u            Fetch <remote> before determining merged branch status.
+#/
+#/ Examples:
+#/   List local branches already merged into master for inspection:
+#/     git prune-merged-branches master
+#/
+#/   Delete local branches already merged into master:
+#/     git prune-merged-branches -f master
+#/
+#/   List branches in origin remote already merged into origin/master:
+#/     git prune-merged-branches -u -r origin master
+#/
+#/   Delete branches in origin remote already merged into origin/master:
+#/     git prune-merged-branches -f -r origin/master
+set -e
+
+# show usage message and exit
+usage () {
+    status=${1:-0}
+    grep '^#/' <"$0"| cut -c4-
+    exit $status
+}
+[ $# -eq 0 -o "$1" = "--help" ] && usage
+
+# parse arguments
+force=false
+update=false
+remote=
+while getopts hfur: name
+do
+    case $name in
+    f)    force=true;;
+    r)    remote="$OPTARG";;
+    u)    update=true;;
+    ?)    usage 2;;
+    esac
+done
+shift $(($OPTIND - 1))
+
+# remaining arg must be a branch name
+branch="$1"
+[ -n "$branch" ] || usage 2
+
+# determine branches to delete based on local or remote mode
+if [ -n "$remote" ]
+then
+    $update && git fetch "$remote" --prune
+    mode=Remote
+    branch_name="$remote/$branch"
+    branches=$(
+        git branch --no-color -a --merged "$remote/$branch" |
+        grep "^..remotes/$remote/" |
+        grep -v "^..remotes/$remote/$branch$" |
+        grep -v " -> " |
+        sed 's|^\(..\)remotes/'$remote'/|\1|'
+    )
+else
+    mode=Local
+    branch_name="$branch"
+    branches=$(
+        git branch --no-color --merged "$branch" |
+        grep -v "^..$branch$" |
+        grep -v " -> "
+    )
+fi
+
+# bail out with no branches
+[ -z "$branches" ] && {
+    echo "no merged branches detected" 1>&2
+    exit 0
+}
+
+# with no -f option, just show branches that would be deleted
+if ! $force
+then echo "$mode branches fully merged into $branch_name:" 1>&2
+     echo "$branches"
+     echo "Use \`$(basename "$0") -f' if you're sure." 1>&2
+     exit
+fi
+
+# actually delete the branches via push if remote or via branch -D if local
+if [ -n "$remote" ]
+then git push origin $(echo "$branches" | sed 's/^../:/')
+else git branch -D $(echo "$branches" | cut -c2-)
+fi

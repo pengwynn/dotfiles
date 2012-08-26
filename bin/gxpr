@@ -1,0 +1,47 @@
+#!/bin/sh
+# Usage: gxpr <expression>
+# Like expr(1), but uses Google's calculator to evaluate <expression>.
+#
+# Math examples:
+#   $ gxpr '1 + 1'
+#   2
+#
+#   $ gxpr 2 ^  16
+#   65536
+#
+#   $ gxpr '(2 ^ 1) + (2 ^ 2) + (2 ^ 3) + (2 ^ 5)'
+#   46
+#
+#   $ gxpr '5*9+(sqrt 10)^3='
+#   76.6227766
+#
+# Conversion examples:
+#   $ gxpr 1GB in KB
+#   1048576 kilobytes
+#
+#   $ gxpr 10 megabits in megabytes
+#   1.25 megabytes
+#
+#   $ gxpr 2 miles in inches
+#   126720 inches
+
+CURL='curl -s --header User-Agent:gxpr/1.0'
+SEARCH="http://www.google.com/search"
+EXPR=$(echo "$@" | sed -e 's/+/%2B/g' -e 's/ /+/g')
+
+res=$(
+    $CURL "$SEARCH?q=$EXPR" |
+    grep '<h2 class=r'      |
+    perl -pe 's@.*<h2 class=r.*?<b>.*?= (.*?)</b>.*@\1@' |
+    perl -pe 's@\x{a0}@@g' |
+    perl -pe 's@ </font>@@g' |
+    perl -pe 's@<.*?>@@g'
+)
+
+# if we don't have a result, assume it's an invalid expression
+test -z "$res" && {
+    echo "invalid expression:" "$@" 1>&2
+    exit 1
+}
+
+echo "$res"

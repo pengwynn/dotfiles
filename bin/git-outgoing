@@ -1,0 +1,51 @@
+#!/bin/sh
+# Usage: git-outgoing [-d] [<upstream>] [<head> [<limit>]]
+# Show commits on current branch that do not exist on branch <upstream>.
+
+# bail out with message to stderr and exit status 1
+die() {
+    echo "$(basename $0):" "$@" 1>&2
+    exit 1
+}
+
+# colors
+SHA=$(git config --get-color 'color.branch.local')
+ADD=$(git config --get-color 'color.diff.new')
+REM=$(git config --get-color 'color.diff.old')
+RESET=$(git config --get-color '' 'reset')
+
+# check for -d / --diff argument
+diff=false
+if [ "$1" = '-d' -o "$1" = '--diff' ]
+then diff=true
+     shift
+fi
+
+# get the current branch in refs/heads/<branch> form
+ref=$(git symbolic-ref -q HEAD)
+test -n "$ref" ||
+die "you're not on a branch"
+
+# just the branch name please
+branch=$(echo "$ref" | sed 's@^refs/heads/@@')
+test -n "$branch" ||
+die "you're in a weird place; get on a local branch"
+
+# use tracking branch if no upstream given
+if [ $# -eq 0 ]
+then
+    remote=$(git config --get "branch.$branch.remote" || true)
+
+    merge=$(git config branch.$branch.merge) ||
+    die "branch $branch isn't tracking a remote branch and no <upstream> given"
+
+    set -- "$remote/$(echo "$merge" |sed 's@^refs/heads/@@')"
+fi
+
+if $diff
+then git diff "$1"...HEAD
+else git cherry -v "$@"                                |
+     cut -c1-9 -c43-                                   |
+     sed -e "s/^\(.\) \(.......\)/\1 $SHA\2$RESET/"    |
+     sed -e "s/^-/$REM-$RESET/" -e "s/^+/$ADD+$RESET/"
+fi

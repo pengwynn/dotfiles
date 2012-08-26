@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+## Usage: webseq [-s|--style=<style>] <file>
+## Generate a sequence diagram from text in <file> using the
+## websequencediagrams.com API and write the result as a PNG
+## to standard output. If <file> is '-' or no <file> is specified,
+## read diagram description text from standard input.
+##
+## Use the --style argument to generate diagrams in any of the
+## following styles: default, earth, modern-blue, mscgen, omegapple,
+## qsd, rose, roundgreen, or napkin. The modern-blue style is used
+## by default.
+##
+## Example:
+##   webseq --style=napkin awesome.seq > awesome.png
+require 'net/http'
+require 'uri'
+require 'open-uri'
+
+style = 'modern-blue'
+text = nil
+
+loop do
+  case ARGV[0]
+  when /--help/
+    puts File.read(__FILE__).grep(/^##/).map { |line| line[3...-1] }.join("\n")
+    exit 0
+  when /^--style=(.*)/
+    style = $1
+    ARGV.shift
+    next
+  when '--style', '-s'
+    style = ARGV[1]
+    2.times { ARGV.shift }
+    next
+  else
+    text =
+      if ARGV[0] && $stdin.tty?
+        if File.exist?(ARGV[0])
+          File.read(ARGV[0])
+        else
+          open(ARGV[0], 'Accept' => 'text/plain').read
+        end
+      else
+        readlines.join
+      end
+    break
+  end
+end
+
+url = URI.parse('http://www.websequencediagrams.com/index.php')
+response = Net::HTTP.post_form(url, 'style' => style, 'message' => text)
+
+if response.body =~ /img: "(.+)"/
+  connection = open("http://www.websequencediagrams.com/#$1")
+  $stdout.write(connection.read)
+end

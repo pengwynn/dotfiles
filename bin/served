@@ -1,0 +1,35 @@
+#!/bin/sh
+# served -- no fuss working directory HTTP server
+# usage: served [-p PORT] [-a ADDR]
+#
+# With no PORT or ADDR, bind to "localhost:3000".
+#
+# Supports directory index.html files and automatic
+# adding of ".html" extensions.
+#
+# Prerequisites: ruby, thin (HTTP server)
+set -e
+
+config="/tmp/$(basename $0)-$$.ru"
+trap "rm -f $config" 0
+
+cat <<-RUBY > $config
+  class Rewriter < Struct.new(:app)
+    def call(env)
+      if env['PATH_INFO'] =~ /\/$/
+        env['PATH_INFO'] += 'index.html'
+      elsif env['PATH_INFO'] !~ /\.\w+$/
+        env['PATH_INFO'] += '.html'
+      end
+      app.call(env)
+    end
+  end
+
+  use Rack::CommonLogger
+  use Rewriter
+  use Rack::Static, :root => '$(pwd)', :urls => ["/"]
+
+  run lambda { |env| [404,{},'<h1>Not Found</h1>'] }
+RUBY
+
+thin --rackup "$config" "$@" start

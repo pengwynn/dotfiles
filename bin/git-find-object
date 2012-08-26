@@ -1,0 +1,28 @@
+#!/bin/sh
+#/ Usage: git-find-object <id> <repo>...
+#/ Write first <repo> that includes object <id>. Useful when trying to locate a
+#/ missing object in a list of repositories.
+#/
+#/ Ex: git-find-object deadbee /repos/*.git
+
+# shift off the SHA1 object id to look for
+sha="$1"
+shift
+
+# usage
+[ "$sha" = "--help" ] && {
+    grep ^#/ |cut -c4-
+    exit 2
+}
+
+# run through each repo dir and write the path to the first one
+# that includes the object
+for dir in "$@"
+do (cd "$dir" && git cat-file -e $sha 2>/dev/null) && {
+       echo "$dir"
+       exit 0
+   }
+done
+
+# if we make it here, the object wasn't found
+exit 1

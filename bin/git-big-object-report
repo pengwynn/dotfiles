@@ -1,0 +1,35 @@
+#!/bin/sh
+# Shows you the largest objects in your repo's pack file.
+# Originally written for OSX by Antony Stubbs.
+# http://stubbisms.wordpress.com/2009/07/10/git
+#
+# POSIX compatibility by Ryan Tomayko <r@tomayko.com>
+set -e
+
+# set the internal field spereator to line break, so that we can
+# iterate easily over the verify-pack output
+IFS=$'\n';
+
+git_dir=$(git rev-parse --git-dir)
+
+# list all objects including their size, sort by size, take top 10
+objects=$(
+    git verify-pack -v "$git_dir"/objects/pack/pack-*.idx |
+    grep -v chain |
+    sort -k3nr    |
+    head
+)
+
+printf "%7s %7s %-7s %-20s\n" SIZE PACK SHA1 LOCATION
+for y in $objects
+do
+    size=$((`echo $y | cut -f 5 -d ' '`/1024))
+    pack_size=$((`echo $y | cut -f 6 -d ' '`/1024))
+    sha1=$(echo $y | cut -f 1 -d ' ')
+    short=$(echo "$sha1" |cut -c1-7)
+    path=$(git rev-list --all --objects |grep $sha1 |cut -c42-)
+
+    printf "%7d %7d %-7s %-20s\n" "$size" "$pack_size" "$short" "$path"
+done
+
+echo "All sizes in KB. PACK = size of compressed object in pack file."

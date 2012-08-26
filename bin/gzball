@@ -1,0 +1,23 @@
+#!/bin/sh
+# create tar.gz archives and remove original dirs
+# usage: gzball [-q] DIR [DIR] ...
+
+ECHO="echo"
+
+# be totally quite with -q argument
+if [ "$1" == "-q" ] ; then
+  TAR="tar czf"
+  shift
+else
+  TAR="tar cvzf"
+fi
+
+# bail on first error
+set -e
+
+for p in "$@" ; do
+  $ECHO "$p.tar.gz"             # what we're building
+  $TAR "$p.tar.gz" "$p"         # create tar.gz archive
+  touch -r "$p" "$p.tar.gz"     # update modified time to match original DIR
+  rm -rf "$p"                   # remove original dir
+done

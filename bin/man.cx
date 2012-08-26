@@ -1,0 +1,51 @@
+#!/bin/sh
+#/ Usage: man.cx [<section>] <topic>...
+#/ Open manpage <topic> on http://man.cx. When <section> is given, it
+#/ must start with a numeric. Multiple <topic>s may be specified.
+set -e
+
+# Open the cowsay(1) and wall(1) manpages:
+# $ man.cx cowsay wall
+#
+# Open the 1posix section sh, command, and type manpages:
+# $ man.cx 1posix sh command type
+
+# Command to use when opening URLs. Use the first one found on
+# PATH, unless the BROWSER environment variable is already set.
+: ${BROWSER:=$(
+    for c in xdg-open open firefox
+    do command -v $c && break
+    done
+  )}
+
+# The man.cx root URL
+MANCX_URL="http://man.cx"
+
+# Write usage and bail out with no args or with --help.
+test $# -eq 0 -o $(expr "$*" : ".*--help") -ne 0 && {
+    grep ^#/ < $0 |
+    cut -c4-
+    exit
+}
+
+# Bail out if we couldn't find a browser.
+test -z "$BROWSER" && {
+    echo "$(basename $0): BROWSER not set and no opening program found" 2>&1
+    exit 1
+}
+
+# When the first arg starts with a numeric, its the <section>.
+section=
+case "$1" in [0-9]*)
+    section="($1)"
+    shift
+    ;;
+esac
+
+# Run over remaining arguments and open in BROWSER.
+for page in "$@"
+do $BROWSER "${MANCX_URL}/${page}${section}"
+done
+
+# Copyright (c) 2010 by Ryan Tomayko <http://tomayko.com/about>
+# This is Free Software distributed under the terms of the MIT license

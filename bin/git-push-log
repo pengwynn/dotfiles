@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+# Usage: git-push-log
+# Show reflog information for all branch heads by date. This is useful on bare
+# remotes to determine when / who pushed and when.
+require 'time'
+
+# change into git reflog dir to make everything easier
+ENV['GIT_DIR'] ||= `git rev-parse --git-dir`.chomp
+Dir.chdir(ENV['GIT_DIR'] + '/logs/refs/heads')
+
+# find all reflog files
+logs = Dir['**'].select { |f| File.file?(f) }
+
+# build master list of all reflog entries for all refs
+records = []
+logs.each do |log|
+  entries = File.read(log).split("\n")
+  entries.each do |line|
+    before, after, rest = line.split(' ', 3)
+    push_info, message = rest.split("\t", 1)
+    if push_info =~ /^(.*?) (<.*>) (\d+) ([0-9+-]+)/
+      name, email, timestamp, offset = $1, $2, $3.to_i, $4
+      date = Time.at(timestamp)
+    end
+    records << [log, before, after, name, email, date]
+  end
+end
+
+# sort and output reflog entries with some formatting
+begin
+  records = records.sort_by { |r| r.last }.reverse
+  records.each do |ref, before, after, name, email, date|
+    printf "%-20s %7s:%7s %-30s %s\n",
+      date.iso8601, before[0,7], after[0,7], ref, email
+  end
+rescue Errno::EPIPE
+  exit 1
+end

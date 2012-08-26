@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ $# = 0 ] ; then
+  echo "usage: orig FILE ..."
+  echo "copy FILE(s) to FILE.orig"
+else
+  for f in "$@" ; do
+    cp -p "$f" "$f.orig"
+  done
+fi
