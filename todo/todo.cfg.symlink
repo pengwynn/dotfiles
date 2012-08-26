@@ -34,7 +34,7 @@ export BLUE='\\033[0;34m'
 export PURPLE='\\033[0;35m'
 export CYAN='\\033[0;36m'
 export LIGHT_GREY='\\033[0;37m'
-export DARK_GREY='\\033[1;30m'
+export DARK_GREY='\\033[1;92m'
 export LIGHT_RED='\\033[1;31m'
 export LIGHT_GREEN='\\033[1;32m'
 export YELLOW='\\033[1;33m'
@@ -53,16 +53,16 @@ export DEFAULT='\\033[0m'
 # Priorities can be any upper-case letter.
 # A,B,C are highlighted; you can add coloring for more.
 #
-export PRI_A=$RED        # color for A priority
+export PRI_A=$YELLOW         # color for A priority
 export PRI_B=$YELLOW         # color for B priority
-export PRI_C=$LIGHT_BLUE    # color for C priority
+export PRI_C=$LIGHT_BLUE     # color for C priority
 #export PRI_D=...            # define your own
-export PRI_X=$WHITE         # color unless explicitly defined
+export PRI_X=$WHITE          # color unless explicitly defined
 
 # There is highlighting for tasks that have been done,
 # but haven't been archived yet.
 #
-export COLOR_DONE=$PURPLE
+export COLOR_DONE=$DARK_GREY
 
 # === BEHAVIOR ===
 

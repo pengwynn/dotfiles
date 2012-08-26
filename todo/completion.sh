@@ -1,4 +1,4 @@
-alias td='`brew --prefix`/bin/todo.sh -d $HOME/.todo.cfg'
+alias td='`brew --prefix`/bin/todo.sh -d -c $HOME/.todo.cfg'
 alias n='td ls +next'
 _td() {
   local _todo_sh='`brew --prefix`/bin/todo.sh -d "$HOME/.todo.cfg"'
