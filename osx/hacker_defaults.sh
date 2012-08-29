@@ -43,6 +43,9 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 # Commented out, as this is known to cause problems when saving files in Adobe Illustrator CS5 :(
 #echo "0x08000100:0" > ~/.CFUserTextEncoding
 
+# Check for software updates daily, not just once per week
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
 ###############################################################################
 # Trackpad, mouse, keyboard, and input                                        #
 ###############################################################################
