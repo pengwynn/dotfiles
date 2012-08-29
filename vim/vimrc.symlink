@@ -35,6 +35,7 @@ set background=dark
 " ==============
 
 let mapleader='\'
+set gfn=Menlo:h14
 set encoding=utf-8
 set number                      " Line numbers are good
 set backspace=indent,eol,start  " Allow backspace in insert mode
