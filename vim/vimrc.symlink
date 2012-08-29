@@ -89,6 +89,8 @@ set nowritebackup
 if has('gui_running')
   set undodir=~/.vim/backups
   set undofile
+  " Hide the toolbar
+  set guioptions-=T
 endif
 
 " Indentation and Display
