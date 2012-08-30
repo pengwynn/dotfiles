@@ -252,6 +252,9 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 # Address Book, Dashboard, iCal, iTunes, Mail, and Disk Utility               #
 ###############################################################################
 
+# Enable the WebKit Developer Tools in the Mac App Store
+defaults write com.apple.appstore WebKitDeveloperExtras -bool true
+
 # Enable the debug menu in Address Book
 defaults write com.apple.addressbook ABShowDebugMenu -bool true
 
