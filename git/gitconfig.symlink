@@ -1,75 +1,78 @@
 [user]
-	name = Wynn Netherland
-	email = wynn@github.com
+  name = Wynn Netherland
+  email = wynn@github.com
 [color]
-	ui = auto
+  ui = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-	added = yellow
-	changed = blue
-	untracked = cyan
+  added = yellow
+  changed = blue
+  untracked = cyan
 [alias]
-	br = branch
-	# show all branches, even across remotes
-	branches = branch -a --color -v
-	ci = commit
-	# remove all local branches included in the current branch
-	cleanup = !sh -c 'git branch --merged | grep -E "^[^*]" --exclude "^\\s*master" | xargs -n1 git branch -d'
-	co = checkout
-	# Switch to a branch, creating it if necessary
-	go = checkout -B
-	df = diff
-	lc = log ORIG_HEAD.. --stat --no-merges
-	# just for fun
-	l33t = !"git shortlog | l33t"
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-	lol = log --graph --decorate --pretty=oneline --abbrev-commit
-	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	ls = ls-files
-	# Find FIXME, TODO, etc
-	n = !"git ls-files | xargs notes | awk -F: '{ print $1,$2; print $3,$4; print $5}' | grcat conf.notes "
-	pullm = !"git pull origin master"
-	pushm = !"git push origin master"
-	rb = rebase
-	rbc = rebase --continue
-	# Interactive rebase with the selected number of latest commits
-	reb = "!r() { git rebase -i HEAD~$1; }; r"tags = tag -l
-	# track a remote branch
-	track = checkout -t
-	st = status
-	# clean up fully merged branches
-	sweep = !git-sweep
-	# remove a file from the index
-	unstage = reset HEAD --
-	up = pull --rebase
+  br = branch
+  # show all branches, even across remotes
+  branches = branch -a --color -v
+  ci = commit
+  # remove all local branches included in the current branch
+  cleanup = !sh -c 'git branch --merged | grep -E "^[^*]" --exclude "^\\s*master" | xargs -n1 git branch -d'
+  co = checkout
+  # Switch to a branch, creating it if necessary
+  go = checkout -B
+  # Diff
+  d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
+  di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+  df = diff
+  lc = log ORIG_HEAD.. --stat --no-merges
+  # just for fun
+  l33t = !"git shortlog | l33t"
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ls = ls-files
+  # Find FIXME, TODO, etc
+  n = !"git ls-files | xargs notes | awk -F: '{ print $1,$2; print $3,$4; print $5}' | grcat conf.notes "
+  pullm = !"git pull origin master"
+  pushm = !"git push origin master"
+  rb = rebase
+  rbc = rebase --continue
+  # Interactive rebase with the selected number of latest commits
+  reb = "!r() { git rebase -i HEAD~$1; }; r"tags = tag -l
+  # track a remote branch
+  track = checkout -t
+  st = status
+  # clean up fully merged branches
+  sweep = !git-sweep
+  # remove a file from the index
+  unstage = reset HEAD --
+  up = pull --rebase
 
 [core]
-	excludesfile = /Users/wynn/.gitignore_global
+  excludesfile = /Users/wynn/.gitignore_global
 
 [init]
-	templatedir = ~/.git_template
+  templatedir = ~/.git_template
 
 [push]
-	default = upstream
+  default = upstream
 
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 
 [hub]
-	protocol = https
+  protocol = https
 
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 
 [github]
-	user = pengwynn
+  user = pengwynn
 
-# vim: st=2:ts=2:noet:ft=gitconfig
+# vim: ft=gitconfig
