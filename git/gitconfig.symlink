@@ -26,9 +26,11 @@
   co = checkout
   # Switch to a branch, creating it if necessary
   go = checkout -B
-  # Diff
+  # Show the diff between the latest commit and the current state
   d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
+  # `git di $number` shows the diff between the state `$number` revisions ago and the current state
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+  # Diff
   df = diff
   lc = log ORIG_HEAD.. --stat --no-merges
   # just for fun
