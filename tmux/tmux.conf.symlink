@@ -71,7 +71,7 @@ set-option -g status-bg default
 set-option -g status-left ''
 #set-option -g status-right '#[fg=yellow]#S#[fg=default] ////#(rdio-current-track-tmux)//#[fg=default] %e %b %H:%M'
 #set-option -g status-right '#[fg=yellow]#S#[fg=default] ////#[fg=default] ⌁#(battery) // %e %b %H:%M'
-set-option -g status-right '#[fg=yellow]#S#[fg=default] ////#[fg=default]// %e %b %H:%M'
+set-option -g status-right '#[fg=yellow]#S#[fg=default] //// %e %b %H:%M'
 
 set-option -g status-right-length 100
 set-option -g status-left-length 120
