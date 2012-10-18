@@ -31,3 +31,4 @@ nnoremap <leader>w gqip
 " Visual mode: D
 vmap D y'>p
 
+map <Leader>S :%s/\s\+$//e<CR>

@@ -2,7 +2,7 @@
 autocmd! BufWritePost vimrc.symlink so ~/.vimrc
 
 " Strip whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :%s/\s\+$//e
 
 " Filetype overrides
 " ==================
