@@ -4,22 +4,28 @@
 # octocatsay
 # Coby Chapple - https://github.com/cobyism/octocatsay
 
+my $text = @ARGV[0];
+unless ($text) {
+  $text = <STDIN>;
+  chomp $text;
+}
+
 print "
            MMM.           .MMM
            MMMMMMMMMMMMMMMMMMM
            MMMMMMMMMMMMMMMMMMM      _";
-for ($i = 0; $i < length(@ARGV[0]); $i++) {
+for ($i = 0; $i < length($text); $i++) {
   print "_";
 }
 print "_
           MMMMMMMMMMMMMMMMMMMMM    | ";
-for ($i = 0; $i < length(@ARGV[0]); $i++) {
+for ($i = 0; $i < length($text); $i++) {
   print " ";
 }
 print " |
-         MMMMMMMMMMMMMMMMMMMMMMM   | @ARGV[0] |
+         MMMMMMMMMMMMMMMMMMMMMMM   | $text |
         MMMMMMMMMMMMMMMMMMMMMMMM   |_   ";
-for ($i = 0; $i < length(@ARGV[0]) - 2; $i++) {
+for ($i = 0; $i < length($text) - 2; $i++) {
   print "_";
 }
 print "|
