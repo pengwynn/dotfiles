@@ -31,4 +31,9 @@ nnoremap <leader>w gqip
 " Visual mode: D
 vmap D y'>p
 
-map <Leader>S :%s/\s\+$//e<CR>
+" Remove whitespace
+map <Leader>W :%s/\s\+$//e<CR>
+
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv

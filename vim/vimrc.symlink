@@ -9,7 +9,8 @@ endif
 " Plugin overrides
 source ~/.vim/autocmd.vim
 source ~/.vim/rails.vim
-source ~/.vim/shortcuts.vim
+source ~/.vim/ruby.vim
+source ~/.vim/common.vim
 
 
 " Pathogen Initialization
