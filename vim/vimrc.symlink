@@ -12,6 +12,11 @@ source ~/.vim/rails.vim
 source ~/.vim/ruby.vim
 source ~/.vim/common.vim
 
+" Per-directory .vimrc files
+set exrc
+set secure
+
+
 
 " Pathogen Initialization
 " =======================
