@@ -4,7 +4,7 @@
   ignore = untracked
 [submodule "vim/vim.symlink/bundle/vim-colors-solarized"]
   path = vim/vim.symlink/bundle/vim-colors-solarized
-  url = git://github.com/altercation/vim-colors-solarized.git
+  url = https://github.com/skwp/vim-colors-solarized.git
   ignore = untracked
 [submodule "vim/vim.symlink/bundle/vim-fugitive"]
   path = vim/vim.symlink/bundle/vim-fugitive
