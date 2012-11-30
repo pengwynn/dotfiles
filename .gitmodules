@@ -105,3 +105,6 @@
 [submodule "vim/vim.symlink/bundle/snipmate-snippets"]
 	path = vim/vim.symlink/bundle/snipmate-snippets
 	url = https://github.com/honza/snipmate-snippets.git
+[submodule "vim/vim.symlink/bundle/vim-flavored-markdown"]
+	path = vim/vim.symlink/bundle/vim-flavored-markdown
+	url = https://github.com/jtratner/vim-flavored-markdown.git
