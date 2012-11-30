@@ -108,3 +108,6 @@
 [submodule "vim/vim.symlink/bundle/vim-flavored-markdown"]
 	path = vim/vim.symlink/bundle/vim-flavored-markdown
 	url = https://github.com/jtratner/vim-flavored-markdown.git
+[submodule "vim/vim.symlink/bundle/tabular"]
+	path = vim/vim.symlink/bundle/tabular
+	url = https://github.com/godlygeek/tabular
