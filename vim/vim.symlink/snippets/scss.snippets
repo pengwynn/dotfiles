@@ -1,0 +1,307 @@
+# CSS & SASS Snippets for VIM's Snipmate
+# Original Author: Chris Batchelor, Firegoby Design
+# https://github.com/firegoby/SASS-Snippets
+#
+# Install: -
+#   Put in your SnipMate's snippets/ dir
+#   :set filetype=scss
+#      or
+#   'filetype on' in your .vimrc
+# Notes: -
+#   most used features use single letter abbreviations
+#   standard CSS declarations use two letters (occasionally three)
+#   SASS functions use the first three letters of the function (occ. four)
+
+# element
+snippet e
+	${1:element} {
+		${2}
+	}
+# class
+snippet c
+	.${1:class} {
+		${2}
+	}
+# id
+snippet i
+	#${1:id} {
+		${2}
+	}
+# Define a variable
+snippet v
+	$${1:name}: ${2:value};
+	${3}
+# @extend - Selector Inheritance
+snippet ex
+	@extend .${1:class};
+	${2}
+# @mixin - Define a mixin
+snippet mix
+	@mixin ${1:name} {
+		${2}
+	}
+# @include - Use a mixin
+snippet inc
+	@include ${1:mixin};
+	${2}
+# Standard CSS Declarations
+# positioning
+snippet di
+	display: ${1:none};
+	${2}
+snippet po
+	position: ${1:relative};
+	${2}
+snippet poa
+	position: ${1:absolute};
+	${2}
+snippet fl
+	float: ${1:left};
+	${2}
+snippet cl
+	clear: ${1:left};
+	${2}
+snippet top
+	top: ${1:0};
+	${2}
+snippet bot
+	bottom: ${1:0};
+	${2}
+snippet lef
+	left: ${1:0};
+	${2}
+snippet rig
+	right: ${1:0};
+	${2}
+# sizing
+snippet hi
+	height: ${1:100%};
+	${2}
+snippet wi
+	width: ${1:80%};
+	${2}
+snippet maw
+	max-width: ${1:80%};
+	${2}
+snippet miw
+	min-width: ${1:25%};
+	${2}
+# margins
+snippet m
+	margin: ${1:0} ${2:auto};
+	${3}
+snippet mt
+	margin-top: ${1:0};
+	${2}
+snippet mb
+	margin-bottom: ${1:0};
+	${2}
+snippet ml
+	margin-left: ${1:0};
+	${2}
+snippet mr
+	margin-right: ${1:0};
+	${2}
+# padding
+snippet p
+	padding: ${1:0} ${2:0};
+	${3}
+snippet pt
+	padding-top: ${1:0};
+	${2}
+snippet pb
+	padding-bottom: ${1:0};
+	${2}
+snippet pl
+	padding-left: ${1:0};
+	${2}
+snippet pr
+	padding-right: ${1:0};
+	${2}
+#borders
+snippet b
+	border: ${1:1px} ${2:solid} ${3:#000};
+	${4}
+snippet bt
+	border-top: ${1:1px} ${2:solid} ${3:#000};
+	${4}
+snippet bb
+	border-bottom: ${1:1px} ${2:solid} ${3:#000};
+	${4}
+snippet bl
+	border-left: ${1:1px} ${2:solid} ${3:#000};
+	${4}
+snippet br
+	border-right: ${1:1px} ${2:solid} ${3:#000};
+	${4}
+# backgrounds
+snippet ba
+	background: ${1:#fff} ${2:url} ${3:repeat} ${4:left} ${5:top};
+	${6}
+snippet bc
+	background-color: ${1:#fff};
+	${2}
+snippet bi
+	background-image: url('${1}');
+	${2}
+snippet bp
+	background-position: ${1:left} ${2:top};
+	${3}
+# fonts
+snippet f
+	font: ${1:size}em/${2:1.5} ${3:"Helvetica Neue", Helvetica, Arial, sans-serif};
+	${4}
+snippet font
+	font: ${1:weight} ${2:style} ${3:variant} ${4:size}/${5:line-height} ${6:family};
+	${7}
+snippet ff
+	font-family: ${1:"Helvetica Neue", Helvetica, Arial, sans-serif};
+	${2}
+snippet fs
+	font-size: ${1:1.2em};
+	${2}
+snippet fst
+	font-style: ${1:italic};
+	${2}
+snippet fv
+	font-variant: ${1:small-caps};
+	${2}
+snippet fw
+	font-weight: ${1:bold};
+	${2}
+snippet @ff
+	@font-face {
+		font-family: ${1:name};
+		src: ${2:url};
+	}
+	${3}
+# text- & lettering
+snippet co
+	color: ${1:#000};
+	${2}
+snippet ta
+	text-align: ${1:center};
+	${2}
+snippet td
+	text-decoration: ${1:none};
+	${2}
+snippet ti
+	text-indent: ${1:length};
+	${2}
+snippet to
+	text-overflow: ${1:ellipsis};
+	${2}
+snippet tr
+	text-rendering: ${1:optimizeLegibility};
+	${2}
+snippet ts
+	text-shadow: ${1:color} ${2:x} ${3:y} ${4:blur};
+	${5}
+snippet tt
+	text-transform: ${1:uppercase};
+	${2}
+snippet lh
+	line-height: ${1:1.5em};
+	${2}
+snippet ls
+	letter-spacing: ${1:0.025em};
+	${2}
+# SASS RGB Functions
+# Converts an rgb(red, green, blue) triplet into a color.
+snippet rgb
+	rgb(${1:red}, ${2:green}, ${3:blue})
+# Converts an rgba(red, green, blue, alpha) quadruplet into a color.
+snippet rgba
+	rgba(${1:red}, ${2:green}, ${3:blue}, ${4:alpha})
+# Adds an alpha layer to any color value.
+snippet rgbc
+	rgba(${1:color}, ${2:alpha})
+# Gets the red component of a color.
+snippet red
+	red(${1:color})
+# Gets the green component of a color.
+snippet gre
+	green(${1:color})
+# Gets the blue component of a color.
+snippet blu
+	blue(${1:color})
+# Mixes two colors together.
+snippet mixc
+	mix(${1:color1}, ${2:color2})
+# Mixes two colors together (weighted)
+snippet mixcw
+	mix(${1:color1}, ${2:color2}, ${3:weight})
+# SASS HSL Functions
+# Converts an hsl(hue, saturation, lightness) triplet into a color.
+snippet hsl
+	hsl(${1:hue}, ${2:saturation}, ${3:lightness})
+# Converts an hsla(hue, saturation, lightness, alpha) quadruplet into a color.
+snippet hsla
+	hsla(${1:hue}, ${2:saturation}, ${3:lightness}, ${4:alpha})
+# Gets the hue component of a color.
+snippet hue
+	hue(${1:color})
+# Gets the saturation component of a color.
+snippet satc
+	saturation(${1:color})
+# Gets the lightness component of a color.
+snippet ligc
+	lightness(${1:color})
+# Changes the hue of a color.
+snippet adj
+	adjust-hue(${1:color}, ${2:degrees})
+# Makes a color lighter.
+snippet lig
+	lighten(${1:color}, ${2:amount})
+# Makes a color darker.
+snippet dar
+	darken(${1:color}, ${2:amount})
+# Makes a color more saturated.
+snippet sat
+	saturate(${1:color}, ${2:amount})
+# Makes a color less saturated.
+snippet des
+	desaturate(${1:color}, ${2:amount})
+# Converts a color to grayscale.
+snippet gra
+	grayscale(${1:color})
+# Returns the complement of a color.
+snippet com
+	complement(${1:color})
+# Returns the inverse of a color.
+snippet inv
+	invert(${1:color})
+# SASS Opacity Functions
+# Gets the alpha component (opacity) of a color.
+snippet alp
+	alpha(${1:color})
+# Add or change an alpha layer for any color value.
+# - already defined, see 'rgbc'
+# Makes a color more opaque.
+snippet opa
+	opacify(${1:color}, ${2:amount})
+# Makes a color more transparent.
+snippet tra
+	transparentize(${1:color}, ${2:amount})
+# SASS Number Functions
+# Converts a unitless number to a percentage.
+snippet per
+	percentage(${1:value})
+# Rounds a number to the nearest whole number.
+snippet rou
+	round(${1:value})
+# Rounds a number up to the nearest whole number.
+snippet cei
+	ceil(${1:value})
+# Rounds a number down to the nearest whole number.
+snippet flo
+	floor(${1:value})
+# Returns the absolute value of a number.
+snippet abs
+	abs(${1:value})
+# section
+snippet ///
+	//-----------------------------------------------------------
+	// \`${1:Section}
+	//-----------------------------------------------------------
+

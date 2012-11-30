@@ -93,3 +93,15 @@
 [submodule "vim/vim.symlink/bundle/vim-css-color"]
 	path = vim/vim.symlink/bundle/vim-css-color
 	url = https://github.com/ap/vim-css-color.git
+[submodule "vim/vim.symlink/bundle/vim-snipmate"]
+	path = vim/vim.symlink/bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "vim/vim.symlink/bundle/tlib_vim"]
+	path = vim/vim.symlink/bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "vim/vim.symlink/bundle/vim-addon-mw-utils"]
+	path = vim/vim.symlink/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/vim.symlink/bundle/snipmate-snippets"]
+	path = vim/vim.symlink/bundle/snipmate-snippets
+	url = https://github.com/honza/snipmate-snippets.git
