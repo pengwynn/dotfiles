@@ -117,3 +117,6 @@
 [submodule "vim/vim.symlink/bundle/vim-rake"]
 	path = vim/vim.symlink/bundle/vim-rake
 	url = https://github.com/tpope/vim-rake.git
+[submodule "vim/vim.symlink/bundle/vim-autoclose"]
+	path = vim/vim.symlink/bundle/vim-autoclose
+	url = https://github.com/Townk/vim-autoclose.git
