@@ -41,3 +41,9 @@ autoload -U zmv
 # alias for zmv for no quotes
 # mmv *.c.orig orig/*.c
 alias mmv='noglob zmv -W'
+
+
+# from @nvie https://coderwall.com/p/4tkkpq
+#
+# ls **/*.zsh | map dirname
+alias map="xargs -n1"
