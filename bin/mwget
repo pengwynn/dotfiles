@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+# mwget
+# Version 0.1
+# Adam Jahnke - http://github.com/adamyonk
+# Credit: https://coderwall.com/p/57ijqw
+# Dependencies: wget # brew install wget
+#               trollop #gem install trollop
+
+require 'trollop'
+
+opts = Trollop::options do
+  version '0.1'
+  banner <<-EOS
+Starts a multithread wget download
+
+Usage:
+  mwget <url> [options]
+
+where [options] are:
+EOS
+  opt :threads, 'Number of threads', default: 3, type: Integer
+end
+
+url = ARGV.shift
+
+Trollop::die :threads, 'must be 2 or more' if opts[:threads] < 2
+# Just going to leave this validation to wget
+#Trollop::die 'not a valid url' unless %r{^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$}ix.match url
+
+`for i in {1..#{opts[:threads]}}; do wget --recursive --no-parent --continue --timestamping #{url}; done;`
