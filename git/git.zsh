@@ -20,7 +20,7 @@ alias gfhf='git flow hotfix finish'
 alias gfs='git flow support'
 alias gfss='git flow support start'
 
-alias gst='git status'
+alias gst='git status -sb'
 
 # Pairing
 hitch() {
