@@ -90,33 +90,30 @@
   path = vim/vim.symlink/bundle/ack-vim
   url = https://github.com/vim-scripts/ack.vim.git
   ignore = untracked
-[submodule "vim/vim.symlink/bundle/vim-css-color"]
-	path = vim/vim.symlink/bundle/vim-css-color
-	url = https://github.com/ap/vim-css-color.git
 [submodule "vim/vim.symlink/bundle/vim-snipmate"]
-	path = vim/vim.symlink/bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
+  path = vim/vim.symlink/bundle/vim-snipmate
+  url = https://github.com/garbas/vim-snipmate.git
 [submodule "vim/vim.symlink/bundle/tlib_vim"]
-	path = vim/vim.symlink/bundle/tlib_vim
-	url = https://github.com/tomtom/tlib_vim.git
+  path = vim/vim.symlink/bundle/tlib_vim
+  url = https://github.com/tomtom/tlib_vim.git
 [submodule "vim/vim.symlink/bundle/vim-addon-mw-utils"]
-	path = vim/vim.symlink/bundle/vim-addon-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+  path = vim/vim.symlink/bundle/vim-addon-mw-utils
+  url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "vim/vim.symlink/bundle/snipmate-snippets"]
-	path = vim/vim.symlink/bundle/snipmate-snippets
-	url = https://github.com/honza/snipmate-snippets.git
+  path = vim/vim.symlink/bundle/snipmate-snippets
+  url = https://github.com/honza/snipmate-snippets.git
 [submodule "vim/vim.symlink/bundle/vim-flavored-markdown"]
-	path = vim/vim.symlink/bundle/vim-flavored-markdown
-	url = https://github.com/jtratner/vim-flavored-markdown.git
+  path = vim/vim.symlink/bundle/vim-flavored-markdown
+  url = https://github.com/jtratner/vim-flavored-markdown.git
 [submodule "vim/vim.symlink/bundle/tabular"]
-	path = vim/vim.symlink/bundle/tabular
-	url = https://github.com/godlygeek/tabular
+  path = vim/vim.symlink/bundle/tabular
+  url = https://github.com/godlygeek/tabular
 [submodule "vim/vim.symlink/bundle/vim-haml"]
-	path = vim/vim.symlink/bundle/vim-haml
-	url = https://github.com/tpope/vim-haml.git
+  path = vim/vim.symlink/bundle/vim-haml
+  url = https://github.com/tpope/vim-haml.git
 [submodule "vim/vim.symlink/bundle/vim-rake"]
-	path = vim/vim.symlink/bundle/vim-rake
-	url = https://github.com/tpope/vim-rake.git
+  path = vim/vim.symlink/bundle/vim-rake
+  url = https://github.com/tpope/vim-rake.git
 [submodule "vim/vim.symlink/bundle/vim-autoclose"]
-	path = vim/vim.symlink/bundle/vim-autoclose
-	url = https://github.com/Townk/vim-autoclose.git
+  path = vim/vim.symlink/bundle/vim-autoclose
+  url = https://github.com/Townk/vim-autoclose.git
