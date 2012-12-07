@@ -117,3 +117,9 @@
 [submodule "vim/vim.symlink/bundle/vim-autoclose"]
   path = vim/vim.symlink/bundle/vim-autoclose
   url = https://github.com/Townk/vim-autoclose.git
+[submodule "vim/vim.symlink/bundle/ultisnips"]
+  path = vim/vim.symlink/bundle/ultisnips
+  url = https://github.com/vim-scripts/UltiSnips.git
+[submodule "vim/vim.symlink/bundle/ultisnips-snippets"]
+  path = vim/vim.symlink/bundle/ultisnips-snippets
+  url = https://github.com/aalvarado/ultisnips-snippets.git
