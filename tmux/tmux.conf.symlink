@@ -111,6 +111,7 @@ set-option -g base-index 1
 ## enable mouse
 set-option -g mouse-select-pane on
 set-option -g mouse-select-window on
+set-option -g mouse-resize-pane on
 set-window-option -g mode-keys vi
 set-window-option -g mode-mouse on
 # set-window-option -g monitor-activity off
