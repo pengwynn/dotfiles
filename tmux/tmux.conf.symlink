@@ -108,12 +108,23 @@ set-window-option -g window-status-attr dim
 # starts windows at 1 not 0
 set-option -g base-index 1
 
-## enable mouse
-set-option -g mouse-select-pane on
-set-option -g mouse-select-window on
-set-option -g mouse-resize-pane on
+# Toggle mouse on with ^F m
+bind m \
+  set -g mode-mouse on \;\
+  set -g mouse-resize-pane on \;\
+  set -g mouse-select-pane on \;\
+  set -g mouse-select-window on \;\
+  display 'Mouse: ON'
+
+# Toggle mouse off with ^F M
+bind M \
+  set -g mode-mouse off \;\
+  set -g mouse-resize-pane off \;\
+  set -g mouse-select-pane off \;\
+  set -g mouse-select-window off \;\
+  display 'Mouse: OFF'
+
 set-window-option -g mode-keys vi
-set-window-option -g mode-mouse on
 # set-window-option -g monitor-activity off
 # set-window-option -g monitor-content off
 # set-option -g status-keys vi
