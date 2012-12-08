@@ -20,6 +20,9 @@ bind-key  |     run-shell 'exec tmux-ssh-split -h'
 bind-key  \     run-shell 'exec tmux-ssh-split -h'
 bind-key  -     run-shell 'exec tmux-ssh-split -v'
 
+# windows and panes
+bind-key u      select-window -t :1
+bind-key W      split-window -h \; choose-window 'kill-pane ; join-pane -hs %%'
 bind-key x      kill-pane
 bind-key X      kill-window
 bind-key q      confirm-before kill-session
@@ -28,23 +31,24 @@ bind-key ,      previous-window # <
 bind-key .      next-window     # >
 bind-key <      swap-window -t :-
 bind-key >      swap-window -t :+
-bind-key n      command-prompt 'rename-window %%'
-bind-key N      command-prompt 'rename-session %%'
+bind-key C-h    resize-pane -L 5
+bind-key C-l    resize-pane -R 5
+bind-key C-j    resize-pane -D 5
+bind-key C-k    resize-pane -U 5
+
+bind-key n      command-prompt 'rename-window "%%"'
+bind-key N      command-prompt 'rename-session "%%"'
 bind-key Escape copy-mode -u
 bind-key Up     copy-mode -u
 bind-key r      source-file ~/.tmux.conf; display-message " The Matrix has been reloaded"
 bind-key R      refresh-client
 bind-key a      send-key C-a
-bind-key C-h    resize-pane -L 5
-bind-key C-l    resize-pane -R 5
-bind-key C-j    resize-pane -D 5
-bind-key C-k    resize-pane -U 5
 # -r: can be repeated without pressing prefix#     again (500ms after last '-r' action or prefix)
 bind-key -r h   select-pane -t :.-
 bind-key -r l   select-pane -t :.+
 
 
-#bind-key u select-window -t :1
+
 
 
 ## messages
@@ -97,6 +101,9 @@ set-window-option -g automatic-rename off
 
 # don't let ZSH override the window title
 set-window-option -g allow-rename on
+
+# renumber windows
+set-option -g renumber-windows on
 
 ## tmux window titling for X
 set-option -g set-titles on
