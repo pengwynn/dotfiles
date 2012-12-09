@@ -47,3 +47,6 @@ alias mmv='noglob zmv -W'
 #
 # ls **/*.zsh | map dirname
 alias map="xargs -n1"
+
+# free up `w` for my flavored sub
+alias whodat="w"
