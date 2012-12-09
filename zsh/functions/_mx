@@ -1,4 +1,5 @@
 #compdef mx
 
 compadd `ls $DOTFILES/tmux/layouts`
+compadd `tmux ls | cut -d ":" -f 1`
 
