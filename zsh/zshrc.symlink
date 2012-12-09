@@ -26,3 +26,6 @@ compinit
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
+
+# source sub
+eval "$($DOTFILES/wynn/bin/wynn init -)"
