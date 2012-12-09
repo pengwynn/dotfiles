@@ -123,3 +123,9 @@
 [submodule "vim/vim.symlink/bundle/ultisnips-snippets"]
   path = vim/vim.symlink/bundle/ultisnips-snippets
   url = https://github.com/aalvarado/ultisnips-snippets.git
+[submodule "vim/vim.symlink/bundle/vim-vroom"]
+	path = vim/vim.symlink/bundle/vim-vroom
+	url = https://github.com/skalnik/vim-vroom.git
+[submodule "vim/vim.symlink/bundle/vimux"]
+	path = vim/vim.symlink/bundle/vimux
+	url = https://github.com/benmills/vimux.git
