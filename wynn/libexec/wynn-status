@@ -4,7 +4,17 @@
 # Help: https://status.github.com/api
 #
 # encoding: utf-8
-require 'json'
+if !defined?(JSON)
+  begin
+    require 'rubygems'
+    require 'json'
+  rescue LoadError => e
+    puts 'Please install the json gem'
+    exit
+  end
+else
+  require 'json'
+end
 
 %w(json open-uri).each { |lib| require lib }
 
