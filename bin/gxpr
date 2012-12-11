@@ -31,11 +31,9 @@ EXPR=$(echo "$@" | sed -e 's/+/%2B/g' -e 's/ /+/g')
 
 res=$(
     $CURL "$SEARCH?q=$EXPR" |
-    grep '<h2 class=r'      |
-    perl -pe 's@.*<h2 class=r.*?<b>.*?= (.*?)</b>.*@\1@' |
-    perl -pe 's@\x{a0}@@g' |
-    perl -pe 's@ </font>@@g' |
-    perl -pe 's@<.*?>@@g'
+    perl -ne '/<h2 class="r".*?>(.*)<\/h2>/ and print $1' |
+    perl -ne '/= (.*)/ and print $1' |
+    	perl -pe 's/[^\x00-\x7F]//g'
 )
 
 # if we don't have a result, assume it's an invalid expression
