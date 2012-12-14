@@ -47,9 +47,7 @@ bind-key a      send-key C-a
 bind-key -r h   select-pane -t :.-
 bind-key -r l   select-pane -t :.+
 
-
-
-
+set -g history-limit 10000
 
 ## messages
 set-option -g message-fg colour0
@@ -114,6 +112,11 @@ set-window-option -g window-status-attr dim
 
 # starts windows at 1 not 0
 set-option -g base-index 1
+
+set -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
 
 # Toggle mouse on with ^F m
 bind m \
