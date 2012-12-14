@@ -41,6 +41,8 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ls = ls-files
+  # depends on hub
+  mypulls = browse -- pulls/pengwynn
   # Find FIXME, TODO, etc, optimized by @x3ro https://gist.github.com/3908985
   n = !"f() { git ls-files $1 | xargs notes | awk -F: '{ print $1,$2; print $3,$4; print $5}' | grcat conf.notes | less -r;  }; f"
   pullm = !"git pull origin master"
