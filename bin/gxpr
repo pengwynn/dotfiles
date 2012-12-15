@@ -40,7 +40,7 @@ res=$(
 # if we don't have a result, try wolfram alpha
 test -z "$res" && {
     echo "google doesn't know" "$@" 1>&2
-    echo "⌘ click: \033[4m$WOLFRAM?i=$EXPR"
+    echo "⌘ click: \033[4m$WOLFRAM?i=$EXPR\033[0m"
     exit 1
 }
 
