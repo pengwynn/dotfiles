@@ -59,6 +59,8 @@ set-option -g status-utf8 on
 set-option -g status-interval 1
 set-option -g status-fg colour10
 set-option -g status-bg default
+set-option -g status-left-bg default
+set-option -g status-right-bg default
 
 # "I' == current window index
 # 'H' == Hostname
