@@ -1,3 +1,16 @@
+" Navigation
+" ==========
+" Move between wrapped lines as though they were physical lines.
+noremap k gk
+noremap j gj
+noremap <up> g<up>
+noremap <down> g<down>
+
+" Easier start & end of line.
+noremap H ^
+nnoremap L $
+vnoremap L $h
+
 " Windows
 " ==========
 
@@ -8,8 +21,7 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 " Toggle paste
-nnoremap <F6> :set invpaste paste?<CR>
-set pastetoggle=<F6>
+nnoremap <leader>p :set invpaste paste?<CR>
 set showmode
 
 " Toggle case
