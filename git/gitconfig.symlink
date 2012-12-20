@@ -24,8 +24,6 @@
   # remove all local branches included in the current branch
   cleanup = !sh -c 'git branch --merged | grep -E "^[^*]" --exclude "^\\s*master" | xargs -n1 git branch -d'
   co = checkout
-  # Switch to a branch, creating it if necessary
-  go = checkout -B
   # Show the diff between the latest commit and the current state
   d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
   # `git di $number` shows the diff between the state `$number` revisions ago and the current state
