@@ -1,0 +1,120 @@
+#!/bin/bash
+command -v hub >/dev/null 2>&1 || { echo >&2 "This command needs hub installed and in PATH. http://defunkt.io/hub"; exit 1; }
+
+# TODO make login resolution a function call
+if [ -z "$GH_LOGIN" ]; then
+  echo >&2 "Please define GH_LOGIN with your GitHub user to let me know who you are."; exit 1;
+fi
+
+
+function gh_browse {
+  open "https://github.com/$1"
+}
+
+function usage {
+read -d '' usage <<"BLOCK"
+USAGE:   git-go [OPTION] [COMMAND]
+
+SYNOPSIS:
+
+        CLI helper for GitHub.com, inspired by the CommandBar
+        http://git.io/_OnQ3Q
+
+OPTIONS:
+
+        -g Perform command as globally, not scoped to current git repository
+
+COMMANDS:
+
+        search "q" - Perform a search
+
+        @user      - Browse a user
+
+        my [SUBCOMMAND] - Browse your personal items
+           dashboard
+           issues [assigned|mentioned|created]
+           notifications
+           profile
+           pulls
+           settings
+           stars
+BLOCK
+
+echo "$usage"
+}
+
+
+[ $# -eq 0 ] && {
+  usage
+  exit 1
+}
+
+while getopts ":g" opt; do
+  case $opt in
+    g)
+      global_browse=1
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+  esac
+done
+
+# Clear all options and reset the command line
+shift $(( OPTIND -1 ))
+
+case "$1" in
+  search )
+    gh_browse "search?q=$2"
+    ;;
+  @* )
+    target=$(echo "$1" | sed 's/@//g')
+    gh_browse $target
+    ;;
+  my*)
+    case $2 in
+      dashboard )
+        gh_browse "dashboard"
+        ;;
+      issues )
+        if [[ -z $global_browse ]]; then
+          case $3 in
+            m* )
+              filter="mentioned";;
+            c* )
+              filter="created_by";;
+            * )
+              filter="assigned";;
+          esac
+          hub browse -- issues/$filter/$GH_LOGIN
+        else
+          gh_browse "dashboard/issues"
+        fi
+        ;;
+      notifications )
+        if [[ -z $global_browse ]]; then
+          hub browse -- notifications/$GH_LOGIN
+        else
+          gh_browse "dashboard/notifications"
+        fi
+        ;;
+      profile )
+        gh_browse "$GH_LOGIN"
+        ;;
+      pulls )
+        if [[ -z $global_browse ]]; then
+          hub browse -- pulls/$GH_LOGIN
+        else
+          gh_browse "dashboard/pulls"
+        fi
+        ;;
+      settings )
+        gh_browse "settings/profile"
+        ;;
+      stars )
+        gh_browse "stars"
+        ;;
+    esac
+    ;;
+esac
+
