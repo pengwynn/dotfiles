@@ -30,6 +30,8 @@ COMMANDS:
 
         @user      - Browse a user
 
+        explore    - Explore GitHub
+
         my [SUBCOMMAND] - Browse your personal items
            dashboard
            issues [assigned|mentioned|created]
@@ -70,6 +72,9 @@ case "$1" in
   @* )
     target=$(echo "$1" | sed 's/@//g')
     gh_browse $target
+    ;;
+  explore )
+    gh_browse 'explore'
     ;;
   my*)
     case $2 in
