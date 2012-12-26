@@ -129,3 +129,6 @@
 [submodule "vim/vim.symlink/bundle/vimux"]
 	path = vim/vim.symlink/bundle/vimux
 	url = https://github.com/benmills/vimux.git
+[submodule "vim/vim.symlink/bundle/vim-tomdoc"]
+	path = vim/vim.symlink/bundle/vim-tomdoc
+	url = https://github.com/jc00ke/vim-tomdoc.git
