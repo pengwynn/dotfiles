@@ -49,3 +49,6 @@ map <Leader>W :%s/\s\+$//e<CR>
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
+
+" Clear last search
+nnoremap <Leader>m :set hlsearch!<CR>
