@@ -22,14 +22,12 @@ SYNOPSIS:
 
 OPTIONS:
 
-        -g Perform command as globally, not scoped to current git repository
+        -g Perform command globally, not scoped to current git repository
 
 COMMANDS:
 
         search "q" - Perform a search
-
         @user      - Browse a user
-
         explore    - Explore GitHub
 
         my [SUBCOMMAND] - Browse your personal items
@@ -40,6 +38,8 @@ COMMANDS:
            pulls
            settings
            stars
+
+        - Everything else forwards to `hub browse`
 BLOCK
 
 echo "$usage"
@@ -120,6 +120,9 @@ case "$1" in
         gh_browse "stars"
         ;;
     esac
+    ;;
+  *)
+    hub browse -- $1
     ;;
 esac
 
