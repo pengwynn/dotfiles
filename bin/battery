@@ -1,2 +1,146 @@
 #!/bin/sh
-pmset -g batt | grep Internal | awk '{print $2}' | sed 's/;//'
+
+# Author: Nicolas Goles
+# url: https://github.com/Goles/Battery
+
+battery_charge()
+{
+    ioreg -c AppleSmartBattery -w0 | \
+    grep -o '"[^"]*" = [^ ]*' | \
+    sed -e 's/= //g' -e 's/"//g' | \
+    sort | \
+    while read key value; do
+        case $key in
+            "MaxCapacity")
+                export maxcap=$value;;
+            "CurrentCapacity")
+                export curcap=$value;;
+        esac
+        if [[ -n "$maxcap" && -n $curcap ]]; then
+            CAPACITY=$(( 100 * curcap / maxcap))
+            printf "%d" $CAPACITY
+            break
+        fi
+    done
+}
+
+#
+# Run Battery
+#
+
+BATTERY_STATUS=`battery_charge`
+[ -z "$BATTERY_STATUS" ] && exit
+
+#
+# Read args
+#
+
+while getopts ":g:m:w:o:h" opt; do
+  case $opt in
+    g)
+      if [ "$good_color" == "" ]; then
+        good_color=$OPTARG
+      fi
+      ;;
+    m)
+      if [ "$middle_color" == "" ]; then
+        middle_color=$OPTARG
+      fi
+      ;;
+    w)
+      if [ "$warn_color" == "" ]; then
+        warn_color=$OPTARG
+      fi
+      ;;
+    o)
+      if [ "$output" == "" ]; then
+        output=$OPTARG
+      fi
+      ;;
+    h)
+      echo "Usage: battery [-g good battery status color, default green or 1;32] [-m middle battery status color, default yellow or 1;33] [-w warn batttery status color, default red or 0;31] [-o specifies output format, use -o tmux to specify tmux status bar format]"
+      exit 0
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG"
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument"
+      exit 1
+      ;;
+  esac
+done
+
+tmux=false
+
+if [ "$output" == "tmux" ]; then
+  tmux=true
+fi
+
+#
+# For default behavior when no different colors are specified
+#
+
+if [ "$good_color" == "" ]; then
+  case "$tmux" in
+    true) good_color="green" ;;
+    false) good_color="1;32" ;;
+  esac
+fi
+
+if [ "$middle_color" == "" ]; then
+  case "$tmux" in
+    true) middle_color="yellow" ;;
+    false) middle_color="1;33" ;;
+  esac
+fi
+
+if [ "$warn_color" == "" ]; then
+  case "$tmux" in
+    true) warn_color="red" ;;
+    false) warn_color="0;31" ;;
+  esac
+fi
+
+#
+# Apply the correct color to the battery status prompt
+#
+
+if [ $BATTERY_STATUS -ge 75 ]; then
+
+    # Green
+    case "$tmux" in
+        true) COLOR="#[fg=$good_color]" ;;
+        false) COLOR=$good_color ;;
+    esac
+
+elif [ $BATTERY_STATUS -ge 25 ] && [ $BATTERY_STATUS -lt 75 ]; then
+
+    # Yellow
+    case "$tmux" in
+        true) COLOR="#[fg=$middle_color]" ;;
+        false) COLOR=$middle_color ;;
+    esac
+
+elif [ $BATTERY_STATUS -lt 25 ]; then
+
+    # Red
+    case "$tmux" in
+        true) COLOR="#[fg=$warn_color]" ;;
+        false) COLOR=$warn_color ;;
+    esac
+
+fi
+
+#
+# Print the battery status
+#
+
+GRAPH=$(spark 0 ${BATTERY_STATUS} 100 | awk '{print substr($0,4,3)}')
+
+if [ "$tmux" == "false" ]; then
+    printf "\e[0;%sm%s %s \e[m\n"  "$COLOR" "[$BATTERY_STATUS%]"  "$GRAPH"
+else
+    printf "%s%s %s" "$COLOR" "[$BATTERY_STATUS%]" "$GRAPH"
+fi

@@ -74,8 +74,7 @@ set-option -g status-right-bg default
 # number to specify the maximum length, in this line "#10W'.
 set-option -g status-left ''
 #set-option -g status-right '#[fg=yellow]#S#[fg=default] ////#(rdio-current-track-tmux)//#[fg=default] %e %b %H:%M'
-#set-option -g status-right '#[fg=yellow]#S#[fg=default] ////#[fg=default] ⌁#(battery) // %e %b %H:%M'
-set-option -g status-right '#[fg=yellow]#S#[fg=default] //// %e %b %H:%M'
+set-option -g status-right '#[fg=yellow]#S#[fg=default] /// #(battery -o tmux -m default -g default)%a %d %b %H:%M'
 
 set-option -g status-right-length 100
 set-option -g status-left-length 120
