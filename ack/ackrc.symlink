@@ -14,3 +14,4 @@
 --follow
 --group
 --context=3
+--pager=less -iqRS
