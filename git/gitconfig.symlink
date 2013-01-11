@@ -65,10 +65,7 @@
   templatedir = ~/.git_template
 
 [push]
-  default = tracking
-
-[credential]
-  helper = osxkeychain
+  default = upstream
 
 [hub]
   protocol = https
@@ -80,3 +77,5 @@
   user = pengwynn
 
 # vim: ft=gitconfig
+[credential]
+	helper = osxkeychain
