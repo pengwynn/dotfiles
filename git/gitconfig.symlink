@@ -65,7 +65,7 @@
   templatedir = ~/.git_template
 
 [push]
-  default = upstream
+  default = tracking
 
 [credential]
   helper = osxkeychain
