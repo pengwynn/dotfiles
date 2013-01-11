@@ -1,0 +1,39 @@
+#compdef nesta
+
+# Source somewhere in your $fpath
+
+_nesta_content() {
+  content=(`ls content/pages/**/*`)
+}
+
+
+local -a _1st_arguments
+_1st_arguments=(
+  'new:Create a new Nesta project'
+  'edit:Edit a document'
+  'demo\:content:Install example pages in ./content-demo'
+  'theme\:install:Install a theme from a git repository'
+  'theme\:enable:Make the theme active, updating config.yml'
+  'theme\:create:Makes a template for a new theme in ./themes'
+)
+
+local expl
+local -a content
+
+_arguments \
+  '(-h)'{-h,--help}'[Display usage]' \
+  '(-v)'{-v,--version}'[Display Nesta version]' \
+  '(--bash-completion)--bash-completion[Output command for Bash completion]' \
+  '(--zsh-completion)--zsh-completion[Output command for Zsh completion]' \
+  '*:: :->subcmds' && return 0
+
+if (( CURRENT == 1 )); then
+  _describe -t commands "nesta subcommand" _1st_arguments
+  return
+fi
+
+case "$words[1]" in
+  edit)
+    _nesta_content
+    _wanted content expl 'all content' compadd -a content ;;
+esac
