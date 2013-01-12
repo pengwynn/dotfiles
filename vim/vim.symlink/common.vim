@@ -52,3 +52,6 @@ vnoremap > >gv
 
 " Clear last search
 nnoremap <Leader>m :set hlsearch!<CR>
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! %!sudo tee > /dev/null %
