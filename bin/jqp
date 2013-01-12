@@ -1,0 +1,8 @@
+#!/bin/sh
+# Shorthand to pluck items from JSON array
+# Depends on jq: http://stedolan.github.com/jq/
+set -e
+
+EXPR=".[].$1"
+
+jq -r $EXPR
