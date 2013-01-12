@@ -6,9 +6,9 @@
 #
 # Original version by Chris Wanstrath:
 # http://gist.github.com/287717
-exec sh -c "tail -n +$(($LINENO + 2)) < $0 | sed s/DATE/$(date +%Y)/"
+exec sh -c "tail -n +$(($LINENO + 2)) < $0"
 
-Copyright (c) DATE Wynn Netherland <http://wynnnetherland.com/about>
+Copyright (c) Wynn Netherland <http://wynnnetherland.com/about>
 
 Permission  is  hereby granted, free of charge, to any person ob-
 taining a copy of  this  software  and  associated  documentation
