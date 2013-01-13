@@ -52,6 +52,8 @@
   # track a remote branch
   track = checkout -t
   st = status
+  # update all submodules
+  subs = submodule foreach git pull origin master
   # clean up fully merged branches
   sweep = !git-sweep
   # remove a file from the index
