@@ -8,11 +8,9 @@ autocmd! BufWritePost vimrc.symlink so ~/.vimrc
 " ==================
 
 autocmd! BufRead,BufNewFile *.jbuilder,Gemfile,Rakefile,Procfile,Guardfile setf ruby
-au BufRead,BufNewFile /^[A-Z]+\w*file$/ setf ruby
 au BufRead,BufNewFile *.thor set filetype=ruby
 au BufRead,BufNewFile Guardfile set filetype=ruby
 au BufRead,BufNewFile */nginx/*.conf set filetype=nginx
-au BufRead,BufNewFile *.zsh-theme set ft=zsh
 au BufRead,BufNewFile *.jbuilder setf ruby
 au BufRead,BufNewFile *.jeco setf html
 au BufRead,BufNewFile *.jss set filetype=css
