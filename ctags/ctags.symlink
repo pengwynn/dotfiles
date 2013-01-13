@@ -1,0 +1,8 @@
+--languages=-javascript,sql
+--exclude=.git
+--langdef=css
+--langmap=css:.css
+--regex-css=/^[ \t]*([^\t {][^{]{1,100})(\t| )*{/\1/d,definition/
+--langdef=scss
+--langmap=scss:.scss
+--regex-scss=/^[ \t]*([^\t {][^{]{1,100})(\t| )*{/| \1/d,definition/

@@ -1,3 +1,4 @@
+
 " Navigation
 " ==========
 " Move between wrapped lines as though they were physical lines.
@@ -26,6 +27,11 @@ set showmode
 
 " Toggle case
 nmap <F9> :set ignorecase! ignorecase?<CR>
+
+" Tagbar
+let g:tagbar_ctags_bin = '/opt/github/homebrew/bin/ctags'
+" Toggle tagbar
+nmap <Leader>t :TagbarToggle<CR>
 
 " Yank from cursor to end of line
 nnoremap Y y$
