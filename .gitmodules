@@ -135,3 +135,6 @@
 [submodule "vim/vim.symlink/bundle/tagbar"]
 	path = vim/vim.symlink/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim/vim.symlink/bundle/vim-bundler"]
+	path = vim/vim.symlink/bundle/vim-bundler
+	url = https://github.com/tpope/vim-bundler.git
