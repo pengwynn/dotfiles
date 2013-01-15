@@ -17,6 +17,9 @@ au BufRead,BufNewFile *.jss set filetype=css
 au BufRead,BufNewFile *.hbs set filetype=mustache
 au BufRead,BufNewFile *.md set filetype=markdown
 
+" Resize splits on window resize
+au VimResized * exe "normal! \<c-w>="
+
 " Markdown
 augroup markdown
     au!

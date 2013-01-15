@@ -12,6 +12,12 @@ noremap H ^
 nnoremap L $
 vnoremap L $h
 
+" Selection
+" ==========
+"
+" select all
+map <Leader>a ggVG
+
 " Windows
 " ==========
 
@@ -57,7 +63,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Clear last search
-nnoremap <Leader>m :set hlsearch!<CR>
+nnoremap <space> :set hlsearch! hlsearch?<CR>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
