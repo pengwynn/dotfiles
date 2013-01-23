@@ -79,6 +79,12 @@
 [github]
   user = pengwynn
 
+[difftool]
+  prompt = false
+
+[diff]
+  tool = vimdiff
+
 # vim: ft=gitconfig
 [credential]
   helper = osxkeychain
