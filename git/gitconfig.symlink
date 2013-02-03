@@ -74,7 +74,6 @@
   protocol = https
 
 [branch]
-  autosetuprebase = always
 
 [github]
   user = pengwynn
