@@ -8,11 +8,14 @@ my own carefully crafted lightsaber.
 [Yonk][] and I scour the galaxy looking for nanosecond timesavers for all our
 favorite tools. If you've got a tip [let us know][octodots].
 
+![screencap][]
+
 ## Get your own ##
 
 If you're new to dotfiles, this probably isn't the best starter repository for
 you. While these started as a clone of [Holman's][holman/dotfiles], many
-utilities are unique to my workflow. I recommend other [dotfile frameworks][dotfiles] out there.
+utilities are unique to my workflow. I recommend other [dotfileframeworks][dotfiles]
+out there.
 
 ### Installation ###
 
@@ -66,3 +69,5 @@ found or tips and tricks for your favorite tools.
 [Yonk]: https://twitter.com/adamyonk
 [octodots]: https://twitter.com/octodots
 [holman/dotfiles]: https://github.com/holman/dotfiles
+[screencap]:
+http://cl.ly/image/3k171S3E3k2q/Screen%20Shot%202013-02-07%20at%2011.06.41%20AM.png
