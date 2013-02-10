@@ -62,7 +62,7 @@
   up = pull --rebase
 
 [core]
-  excludesfile = /Users/wynn/.gitignore_global
+  excludesfile = /opt/boxen/config/git/gitignore
 
 [init]
   templatedir = ~/.git_template
@@ -86,4 +86,4 @@
 
 # vim: ft=gitconfig
 [credential]
-  helper = osxkeychain
+  helper = /opt/boxen/bin/boxen-git-credential
