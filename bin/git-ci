@@ -61,9 +61,9 @@ if [ -z "$SHA" ]; then
   exit 1
 fi
 
-
-REPO=$(git config remote.origin.url | cut -d/ -f4- | sed s/.git//g)
+REPO=$(git config remote.origin.url | cut -d/ -f4- | sed s/.git$//g)
 API_URL="https://api.github.com/repos/$REPO/statuses/$SHA"
+
 
 RESPONSE=$(curl -n $API_URL)
 
@@ -87,5 +87,6 @@ if [[ -n $OPEN_TARGET ]] && [[ -n $TARGET ]]; then
 fi
 
 if [[ -n $DEBUG ]]; then
+  echo $API_URL
   echo $RESPONSE
 fi
