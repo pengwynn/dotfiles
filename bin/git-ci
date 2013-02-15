@@ -1,5 +1,6 @@
 #!/bin/bash
 command -v git >/dev/null 2>&1 || { echo >&2 "This command needs git installed and in PATH."; exit 1; }
+command -v jq >/dev/null 2>&1 || { echo >&2 "This command needs jq installed and in PATH. Install with brew install jq"; exit 1; }
 
 GREEN="\e[0;32m"
 YELLOW="\e[0;33m"
