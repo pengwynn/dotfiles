@@ -1,0 +1,91 @@
+#!/bin/bash
+command -v git >/dev/null 2>&1 || { echo >&2 "This command needs git installed and in PATH."; exit 1; }
+
+GREEN="\e[0;32m"
+YELLOW="\e[0;33m"
+RED="\e[0;31m"
+NOCOLOR="\e[0m"
+
+function usage {
+read -d '' USAGE <<"BLOCK"
+USAGE:   git-ci [OPTION] [SHA1]
+
+SYNOPSIS:
+
+        Display CI status for a GitHub commit
+
+OPTIONS:
+
+        -o Open the target URL for the build
+        -d Debug, show the API response
+
+BLOCK
+
+echo "$USAGE"
+}
+
+while getopts ":od" opt; do
+  case $opt in
+    o)
+      OPEN_TARGET=1
+      ;;
+    d)
+      DEBUG=1
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+  esac
+done
+
+# Clear all options and reset the command line
+shift $(( OPTIND -1 ))
+
+if [ -n "$1" ]; then
+  SHA="$1"
+else
+  if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1 ]; then
+    SHA=$(git rev-parse HEAD)
+  else
+    echo "Please supply commit SHA or run from a git REPOsitory"
+    echo ""
+    usage
+    exit 1
+  fi
+fi
+
+if [ -z "$SHA" ]; then
+  echo "Commit SHA not found"
+  echo ""
+  usage
+  exit 1
+fi
+
+
+REPO=$(git config remote.origin.url | cut -d/ -f4- | sed s/.git//g)
+API_URL="https://api.github.com/repos/$REPO/statuses/$SHA"
+
+RESPONSE=$(curl -n $API_URL)
+
+STATE=$(echo $RESPONSE | jq -r '.[0].state')
+TARGET=$(echo $RESPONSE | jq -r '.[0].target_url')
+
+case "$STATE" in
+  pending )
+    printf "$YELLOW%s $NOCOLOR%s\n" $STATE $TARGET
+    ;;
+  failure )
+    printf "$RED%s $NOCOLOR%s\n" $STATE $TARGET
+    ;;
+  success )
+    printf "$GREEN%s $NOCOLOR%s\n" $STATE $TARGET
+    ;;
+esac
+
+if [[ -n $OPEN_TARGET ]] && [[ -n $TARGET ]]; then
+  open $TARGET;
+fi
+
+if [[ -n $DEBUG ]]; then
+  echo $RESPONSE
+fi
