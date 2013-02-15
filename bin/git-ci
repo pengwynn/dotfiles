@@ -24,13 +24,17 @@ BLOCK
 echo "$USAGE"
 }
 
-while getopts ":od" opt; do
+while getopts ":odh" opt; do
   case $opt in
     o)
       OPEN_TARGET=1
       ;;
     d)
       DEBUG=1
+      ;;
+    h)
+      usage
+      exit 1
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
