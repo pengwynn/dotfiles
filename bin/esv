@@ -1,0 +1,104 @@
+#!/bin/bash
+
+URL="http://www.esvapi.org/v2/rest/passageQuery?key=IP&output-format=plain-text"
+
+# Option defaults
+DEBUG=0
+REFERENCES=1
+FIRST_VERSES=1
+VERSES=1
+FOOTNOTES=0
+COPYRIGHT=0
+PASSAGE_LINES=0
+HEADING_LINES=0
+HEADINGS=1
+SUBHEADINGS=1
+SELAHS=1
+LINE_LENGTH=74
+
+# Gets the command name without path
+cmd(){ echo `basename $0`; }
+
+# Help command output
+usage(){
+echo "\
+`cmd` [OPTION...]
+
+Display Bible passage from English Standard Version
+
+-f, --first-verse; Show first verse of chapter references
+-r, --references; Show passage references
+-t, --footnotes; Show footnotes
+-p, --passage-lines; Show passage horizontal rules
+-l, --heading-lines; Show heading horizontal rules
+--lines; Set an option with argument (default: $LINE_LENGTH)
+--no-references; Hide passage references
+--no-headings; Hide passage headings
+--no-subheadings; Hide passage subheadings
+--no-verses; Hide verse numbers
+--no-selahs; Hide "Selah." in Psalms
+" | column -t -s ";"
+}
+
+# Error message
+error(){
+    echo "`cmd`: invalid option -- '$1'";
+    echo "Try '`cmd` -h' for more information.";
+    exit 1;
+}
+
+# getopt string
+opts="frtc:"
+
+for pass in 1 2; do
+    while [ -n "$1" ]; do
+        case $1 in
+            --) shift; break;;
+            -*) case $1 in
+                -h|--help)             usage; exit 1;;
+                -d|--debug)            DEBUG=1;;
+                -f|--first-verses)     FIRST_VERSES=1;;
+                -r|--references)       REFERENCES=1;;
+                -t|--footnotes)        FOOTNOTES=1;;
+                -p|--passage-lines)    PASSAGE_LINES=1;;
+                -l|--heading-lines)    HEADING_LINES=1;;
+                --lines)               LINE_LENGTH=$2; shift;;
+                --no-headings)         HEADINGS=0;;
+                --no-subheadings)      SUBHEADINGS=0;;
+                --no-verses)           FIRST_VERSES=0;VERSES=0;;
+                --no-selahs)           SELAHS=0;;
+                --*)                 error $1;;
+                -*)                  if [ $pass -eq 1 ]; then ARGS="$ARGS $1";
+                                     else error $1; fi;;
+                esac;;
+            *)  if [ $pass -eq 1 ]; then ARGS="$ARGS $1";
+                else error $1; fi;;
+        esac
+        shift
+    done
+    if [ $pass -eq 1 ]; then ARGS=`getopt $opts $ARGS`
+        if [ $? != 0 ]; then usage; exit 2; fi; set -- $ARGS
+    fi
+done
+
+PASSAGE="$1"
+URL+="&include-passage-references=$REFERENCES"
+URL+="&include-first-verse-numbers=$FIRST_VERSES"
+URL+="&include-verse-numbers=$VERSES"
+URL+="&include-footnotes=$FOOTNOTES"
+URL+="&include-short-copyright=$COPYRIGHT"
+URL+="&include-passage-horizontal-lines=$PASSAGE_LINES"
+URL+="&include-heading-horizontal-lines=$HEADING_LINES"
+URL+="&include-headings=$HEADINGS"
+URL+="&include-subheadings=$SUBHEADINGS"
+URL+="&line-length=$LINE_LENGTH"
+URL+="&passage=$PASSAGE"
+
+if [[ $DEBUG -eq 1 ]]; then
+  echo "DEBUGGING URL:"
+  echo $URL
+  echo
+fi
+
+curl -s $URL
+echo
