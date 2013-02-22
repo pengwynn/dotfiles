@@ -14,7 +14,7 @@ favorite tools. If you've got a tip [let us know][octodots].
 
 If you're new to dotfiles, this probably isn't the best starter repository for
 you. While these started as a clone of [Holman's][holman/dotfiles], many
-utilities are unique to my workflow. I recommend other [dotfileframeworks][dotfiles]
+utilities are unique to my workflow. I recommend other [dotfile frameworks][dotfiles]
 out there.
 
 ### Installation ###
