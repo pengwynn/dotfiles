@@ -141,3 +141,6 @@
 [submodule "vim/vim.symlink/bundle/vim-gitgutter"]
 	path = vim/vim.symlink/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vim/vim.symlink/bundle/ag.vim"]
+	path = vim/vim.symlink/bundle/ag.vim
+	url = https://github.com/epmatsw/ag.vim.git
