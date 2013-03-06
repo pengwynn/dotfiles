@@ -1,0 +1,42 @@
+#!/bin/sh
+# Usage: git-show-pull [<ref>]
+# Browses to the first pull request for the current branch on GitHub Remote
+#
+
+strip_prefix () {
+    echo "$@" |
+    sed 's@refs/heads/@@'
+}
+
+current_branch () {
+    git symbolic-ref -q HEAD |
+    sed 's@refs/heads/@@'
+}
+
+tracking_branch () {
+    merge=$(git config --get branch.$(current_branch).merge)
+    echo "$(strip_prefix $merge)"
+}
+
+
+remote_url=$(git config --get remote.origin.url)
+owner=$(echo $remote_url | cut -d/ -f4 )
+repo=$(echo $remote_url | cut -d/ -f5 )
+
+
+label="${1:-$(tracking_branch)}"
+
+api_url="https://api.github.com/repos/$owner/$repo/pulls?head=$owner:$label"
+
+
+#echo $api_url
+api_response=$(curl -n $api_url)
+pull_url=$(echo $api_response | jq -r '.[].html_url' | head -1)
+pull_title=$(echo $api_response | jq -r '.[].title' | head -1)
+
+if [[ -z $pull_url ]]; then
+  echo "No pull request found"
+else
+  echo "Opening '$pull_title': $pull_url"
+  open $pull_url
+fi
