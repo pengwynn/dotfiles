@@ -60,6 +60,7 @@
   # remove a file from the index
   unstage = reset HEAD --
   up = pull --rebase
+	wdiff = diff --color-words
 
 [core]
   excludesfile = /opt/boxen/config/git/gitignore
