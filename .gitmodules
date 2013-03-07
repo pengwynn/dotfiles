@@ -117,30 +117,24 @@
 [submodule "vim/vim.symlink/bundle/vim-autoclose"]
   path = vim/vim.symlink/bundle/vim-autoclose
   url = https://github.com/Townk/vim-autoclose.git
-[submodule "vim/vim.symlink/bundle/ultisnips"]
-  path = vim/vim.symlink/bundle/ultisnips
-  url = https://github.com/vim-scripts/UltiSnips.git
-[submodule "vim/vim.symlink/bundle/ultisnips-snippets"]
-  path = vim/vim.symlink/bundle/ultisnips-snippets
-  url = https://github.com/aalvarado/ultisnips-snippets.git
 [submodule "vim/vim.symlink/bundle/vim-vroom"]
-	path = vim/vim.symlink/bundle/vim-vroom
-	url = https://github.com/skalnik/vim-vroom.git
+  path = vim/vim.symlink/bundle/vim-vroom
+  url = https://github.com/skalnik/vim-vroom.git
 [submodule "vim/vim.symlink/bundle/vimux"]
-	path = vim/vim.symlink/bundle/vimux
-	url = https://github.com/benmills/vimux.git
+  path = vim/vim.symlink/bundle/vimux
+  url = https://github.com/benmills/vimux.git
 [submodule "vim/vim.symlink/bundle/vim-tomdoc"]
-	path = vim/vim.symlink/bundle/vim-tomdoc
-	url = https://github.com/jc00ke/vim-tomdoc.git
+  path = vim/vim.symlink/bundle/vim-tomdoc
+  url = https://github.com/jc00ke/vim-tomdoc.git
 [submodule "vim/vim.symlink/bundle/tagbar"]
-	path = vim/vim.symlink/bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
+  path = vim/vim.symlink/bundle/tagbar
+  url = https://github.com/majutsushi/tagbar.git
 [submodule "vim/vim.symlink/bundle/vim-bundler"]
-	path = vim/vim.symlink/bundle/vim-bundler
-	url = https://github.com/tpope/vim-bundler.git
+  path = vim/vim.symlink/bundle/vim-bundler
+  url = https://github.com/tpope/vim-bundler.git
 [submodule "vim/vim.symlink/bundle/vim-gitgutter"]
-	path = vim/vim.symlink/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
+  path = vim/vim.symlink/bundle/vim-gitgutter
+  url = https://github.com/airblade/vim-gitgutter.git
 [submodule "vim/vim.symlink/bundle/ag.vim"]
-	path = vim/vim.symlink/bundle/ag.vim
-	url = https://github.com/epmatsw/ag.vim.git
+  path = vim/vim.symlink/bundle/ag.vim
+  url = https://github.com/epmatsw/ag.vim.git
