@@ -10,3 +10,5 @@ for i in {0..255} ; do
 done
 }
 
+
+function trash() { mv $1 ~/.Trash }
