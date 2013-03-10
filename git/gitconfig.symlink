@@ -20,7 +20,6 @@
   br = branch
   # show all branches, even across remotes
   branches = branch -a --color -v
-  ci = commit
   # remove all local branches included in the current branch
   cleanup = !sh -c 'git branch --merged | grep -E "^[^*]" --exclude "^\\s*master" | xargs -n1 git branch -d'
   co = checkout
@@ -36,7 +35,6 @@
   lc = log ORIG_HEAD.. --stat --no-merges
   # just for fun
   l33t = !"git shortlog | l33t"
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ls = ls-files
