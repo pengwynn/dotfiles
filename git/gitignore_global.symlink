@@ -12,3 +12,5 @@
 
 # Foreman
 .env
+
+.netrwhist
