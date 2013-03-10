@@ -5,7 +5,13 @@ export GIT_MERGE_AUTOEDIT=no
 # Wrap git with hub
 if [[ -f `command -v hub` ]] ; then alias git=hub ; fi
 
-alias g='git'
+function g {
+    if [[ $# > 0 ]]; then
+        git $@
+    else
+        git status --short --branch
+    fi
+}
 
 # Git flow
 alias gff='git flow feature'
