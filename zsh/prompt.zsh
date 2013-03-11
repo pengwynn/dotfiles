@@ -144,8 +144,7 @@ function git_time_since_commit() {
 # command line. I filter it to only count those tagged as "+next", so it's more
 # of a motivation to clear out the list.
 prompt_todo_count(){
-  if $(which todo.sh &> /dev/null)
-  then
+  if (( $+commands[todo.sh] )); then
     num=$(echo $(todo.sh ls $1 | wc -l))
     let todos=num-2
     echo "$todos"
