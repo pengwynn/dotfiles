@@ -28,6 +28,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 source ~/.vim/colors.vim
+call SetBackgroundForIterm()
 
 " Syntax
 " ======
