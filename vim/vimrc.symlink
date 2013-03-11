@@ -27,6 +27,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+source ~/.vim/colors.vim
 
 " Syntax
 " ======
@@ -34,9 +35,6 @@ call pathogen#helptags()
 syntax on
 syntax enable
 set t_Co=256
-colorscheme solarized
-set background=dark
-" let g:solarized_termcolors=256
 
 " General Config
 " ==============
