@@ -14,6 +14,21 @@ ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM="%{$fg[yellow]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG="%{$fg[red]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[yellow]%}"
 
+ZSH_THEME_LIGHT_THEME_PROMPT_COLOR="blue"
+ZSH_THEME_DARK_THEME_PROMPT_COLOR="white"
+
+# get properly contrasted prompt color for theme
+function prompt_color () {
+  case $ITERM_PROFILE in
+    SolarizedLight )
+      echo "blue";;
+    Tomorrow )
+      echo "yellow" ;;
+    *)
+      echo "white" ;;
+  esac
+}
+
 # get the name of the branch we are on
 function git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
@@ -168,7 +183,7 @@ function notes_prompt() {
 export PROMPT='%{$fg[blue]%}%c \
 $(git_prompt_info)\
 $(git_time_since_commit)%{$reset_color%} \
-%{$fg[white]%}%(!.#.⚡)%{$reset_color%} '
+%{$fg[$(prompt_color)]%}%(!.#.⚡)%{$reset_color%} '
 
 set_prompt () {
   #export RPROMPT="$(notes_prompt TODO) %{$fg_bold[yellow]%}$(notes_prompt HACK)%{$reset_color%} %{$fg_bold[red]%}$(notes_prompt FIXME)%{$reset_color%} %{$fg_bold[white]%}$(prompt_todo_text +next)%{$reset_color%}"
