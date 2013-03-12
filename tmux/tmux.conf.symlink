@@ -1,3 +1,6 @@
+# Don't lose ENV
+set -ga update-environment ' ITERM_PROFILE' 
+
 ## keybindings
 unbind C-b
 unbind C-a
