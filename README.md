@@ -55,7 +55,7 @@ approach makes this so easy. I also have stolen freely from:
 * [Mathias Bynens](http://github.com/mathiasbynens/dotfiles)
 * [Yan Pritzker](http://github.com/skwp/dotfiles)
 * [Josh Clayton](http://github.com/joshuaclayton/dotfiles)
-* [Adam Yonk](http://github.com/adamyonk/dotfiles)
+* [Adam Jahnke](http://github.com/adamyonk/dotfiles)
 * [Tom Ryder](http://github.com/tejr/dotfiles)
 * [Steve Losh](http://github.com/sjl/dotfiles)
 
