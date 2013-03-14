@@ -13,8 +13,6 @@ function g {
     fi
 }
 
-alias gst='git status -sb'
-
 function minutes_since_last_commit {
     now=`date +%s`
     last_commit=`git log --pretty=format:'%at' -1`
