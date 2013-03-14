@@ -65,6 +65,7 @@ for pass in 1 2; do
                 -p|--passage-lines)    PASSAGE_LINES=1;;
                 -l|--heading-lines)    HEADING_LINES=1;;
                 --lines)               LINE_LENGTH=$2; shift;;
+                --no-references)       REFERENCES=0;;
                 --no-headings)         HEADINGS=0;;
                 --no-subheadings)      SUBHEADINGS=0;;
                 --no-verses)           FIRST_VERSES=0;VERSES=0;;

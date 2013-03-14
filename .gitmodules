@@ -138,3 +138,6 @@
 [submodule "vim/vim.symlink/bundle/ag.vim"]
   path = vim/vim.symlink/bundle/ag.vim
   url = https://github.com/epmatsw/ag.vim.git
+[submodule "zsh/completions"]
+	path = zsh/completions
+	url = https://github.com/zsh-users/zsh-completions.git
