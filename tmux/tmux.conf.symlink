@@ -76,7 +76,6 @@ set-option -g status-right-bg default
 # Where appropriate, special character sequences may be prefixed with a
 # number to specify the maximum length, in this line "#10W'.
 set-option -g status-left ''
-#set-option -g status-right '#[fg=yellow]#S#[fg=default] ////#(rdio-current-track-tmux)//#[fg=default] %e %b %H:%M'
 set-option -g status-right '#[fg=yellow]#S#[fg=default] /// #(battery -o tmux -m default -g default)#[fg=default]%a %d %b %H:%M'
 
 set-option -g status-right-length 100
@@ -139,10 +138,6 @@ bind M \
   display 'Mouse: OFF'
 
 set-window-option -g mode-keys vi
-# set-window-option -g monitor-activity off
-# set-window-option -g monitor-content off
-# set-option -g status-keys vi
-# set-option -g history-limit 4096
 
 ## pane border and colors
 set-option -g pane-active-border-fg colour240
