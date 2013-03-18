@@ -141,3 +141,6 @@
 [submodule "zsh/completions"]
 	path = zsh/completions
 	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "vim/vim.symlink/bundle/vim-reveal-in-finder"]
+	path = vim/vim.symlink/bundle/vim-reveal-in-finder
+	url = https://github.com/henrik/vim-reveal-in-finder.git
