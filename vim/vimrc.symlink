@@ -11,6 +11,7 @@ source ~/.vim/autocmd.vim
 source ~/.vim/rails.vim
 source ~/.vim/ruby.vim
 source ~/.vim/common.vim
+source ~/.vim/tmux.vim
 
 " Per-directory .vimrc files
 set exrc
