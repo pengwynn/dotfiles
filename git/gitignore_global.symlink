@@ -14,3 +14,9 @@
 .env
 
 .netrwhist
+
+# Gem builds
+pkg
+
+# Cached rake tasks
+.rake_tasks
