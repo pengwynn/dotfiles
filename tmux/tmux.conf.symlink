@@ -1,5 +1,5 @@
 # Don't lose ENV
-set -ga update-environment ' ITERM_PROFILE' 
+set -ga update-environment ' ITERM_PROFILE'
 
 ## keybindings
 unbind C-b
@@ -18,10 +18,9 @@ set-option -g prefix C-a # C-a for prefix just like screen
 
 bind-key C-a    last-window
 
-# ssh-friendly splits
-bind-key  |     run-shell 'exec tmux-ssh-split -h'
-bind-key  \     run-shell 'exec tmux-ssh-split -h'
-bind-key  -     run-shell 'exec tmux-ssh-split -v'
+bind-key  |     split-window -h
+bind-key  \     split-window -h
+bind-key  -     split-window -v
 
 # windows and panes
 bind-key u      select-window -t :1
