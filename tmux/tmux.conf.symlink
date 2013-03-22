@@ -142,8 +142,8 @@ bind M \
 set-window-option -g mode-keys vi
 
 ## pane border and colors
-set-option -g pane-active-border-fg colour240
-set-option -g pane-border-fg colour240
+set-option -g pane-active-border-fg colour4
+set-option -g pane-active-border-bg colour8
 
 
 ## Copy/paste
