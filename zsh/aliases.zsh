@@ -3,6 +3,7 @@ alias l='ls -la'
 alias lastfm='shell-fm'
 alias reload!='. ~/.zshrc'
 alias count='wc -l'
+alias tft='curl "http://itsthisforthat.com/api.php?text"'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
