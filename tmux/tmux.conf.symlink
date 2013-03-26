@@ -67,6 +67,7 @@ set-option -g status-utf8 on
 set-option -g status-interval 1
 set-option -g status-fg colour10
 set-option -g status-bg default
+set-option -g status-left-fg default
 set-option -g status-left-bg default
 set-option -g status-right-bg default
 
@@ -80,7 +81,7 @@ set-option -g status-right-bg default
 # '#' == a literal "#"
 # Where appropriate, special character sequences may be prefixed with a
 # number to specify the maximum length, in this line "#10W'.
-set-option -g status-left ''
+set-option -g status-left '❰❰•❱❱'
 set-option -g status-right '#[fg=yellow]#S#[fg=default] /// #(battery -o tmux -m default -g default)#[fg=default]%a %d %b %H:%M'
 
 set-option -g status-right-length 100
@@ -88,6 +89,7 @@ set-option -g status-left-length 120
 
 ## highlight active window
 set-window-option -g window-status-current-fg colour4
+set-window-option -g window-status-current-attr bold
 set-window-option -g window-status-current-bg default
 set-window-option -g window-status-current-format '[ #I #W ]'
 
