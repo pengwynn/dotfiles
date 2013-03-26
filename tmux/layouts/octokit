@@ -21,6 +21,9 @@ function load_session() {
     # pane for guard
     tmux split-window -h -p 30
     tmux send-keys -t $SESSION:1 'be guard' C-m
+
+    # set status-left for guard
+    tmux set status-left "◢◣"
   fi
 
   tmux attach -t $SESSION
