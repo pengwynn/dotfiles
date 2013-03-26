@@ -1,5 +1,5 @@
 # Don't lose ENV
-set -ga update-environment ' ITERM_PROFILE'
+set -ga update-environment ' ITERM_PROFILE TMUX_STATUS_LEFT'
 
 ## keybindings
 unbind C-b
@@ -81,7 +81,7 @@ set-option -g status-right-bg default
 # '#' == a literal "#"
 # Where appropriate, special character sequences may be prefixed with a
 # number to specify the maximum length, in this line "#10W'.
-set-option -g status-left '❰❰•❱❱'
+set -g status-left "+++"
 set-option -g status-right '#[fg=yellow]#S#[fg=default] /// #(battery -o tmux -m default -g default)#[fg=default]%a %d %b %H:%M'
 
 set-option -g status-right-length 100

@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # Running some commands to prep the project before launching tmux
-cd ~/code/pengwynn/octokit
+cd ~/code/pengwynn/octonaut
 
 # Setup and run function to setup new tmux session
 function load_session() {
-  local SESSION=octokit
+  local SESSION=octonaut
 
   if ! tmux has-session -t $SESSION; then
     tmux new-session -s $SESSION -n vim -d
