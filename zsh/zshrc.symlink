@@ -23,6 +23,14 @@ fi
 autoload -U compinit
 compinit
 
+# quote pasted URLs
+autoload -U url-quote-magic
+zle -N self-insert url-quote-magic
+
+# fun
+autoload -U tetris
+zle -N tetris
+bindkey ^T tetris
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
