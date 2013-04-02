@@ -20,3 +20,6 @@ pkg
 
 # Cached rake tasks
 .rake_tasks
+
+# per-project scratchpad
+.scratch
