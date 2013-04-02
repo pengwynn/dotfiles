@@ -144,3 +144,6 @@
 [submodule "vim/vim.symlink/bundle/vim-reveal-in-finder"]
 	path = vim/vim.symlink/bundle/vim-reveal-in-finder
 	url = https://github.com/henrik/vim-reveal-in-finder.git
+[submodule "vim/vim.symlink/bundle/vim-dispatch"]
+	path = vim/vim.symlink/bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
