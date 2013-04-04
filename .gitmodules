@@ -147,3 +147,6 @@
 [submodule "vim/vim.symlink/bundle/vim-dispatch"]
 	path = vim/vim.symlink/bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
+[submodule "vim/vim.symlink/bundle/vim-ruby-minitest"]
+	path = vim/vim.symlink/bundle/vim-ruby-minitest
+	url = https://github.com/sunaku/vim-ruby-minitest.git
