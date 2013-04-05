@@ -1,74 +1,51 @@
-if defined?(::Bundler)
-  global_gemset = ENV['GEM_PATH'].split(':').grep(/ruby.*@global/).first
-  if global_gemset
-    all_global_gem_paths = Dir.glob("#{global_gemset}/gems/*")
-    all_global_gem_paths.each do |p|
-      gem_path = "#{p}/lib"
-      $LOAD_PATH << gem_path
-    end
-  end
-end
-
-require 'rubygems' rescue nil
-require 'wirble'
-require 'awesome_print'
-
-# load wirble
-Wirble.init
-Wirble.colorize
-
-unless IRB.version.include?('DietRB')
-  IRB::Irb.class_eval do
-    def output_value
-      ap @context.last_value
-    end
-  end
-else # MacRuby
-  IRB.formatter = Class.new(IRB::Formatter) do
-    def inspect_object(object)
-      object.ai
-    end
-  end.new
-end
-
-# load hirb
-
 IRB.conf[:AUTO_INDENT] = true
+alias q exit
 
-if ENV.include?('RAILS_ENV')
-  if !Object.const_defined?('RAILS_DEFAULT_LOGGER')
-    require 'logger'
-    Object.const_set('RAILS_DEFAULT_LOGGER', Logger.new(STDOUT))
-  end
+ANSI = {}
+ANSI[:RESET]     = "\e[0m"
+ANSI[:BOLD]      = "\e[1m"
+ANSI[:UNDERLINE] = "\e[4m"
+ANSI[:LGRAY]     = "\e[0;37m"
+ANSI[:GRAY]      = "\e[1;30m"
+ANSI[:RED]       = "\e[31m"
+ANSI[:GREEN]     = "\e[32m"
+ANSI[:YELLOW]    = "\e[33m"
+ANSI[:BLUE]      = "\e[34m"
+ANSI[:MAGENTA]   = "\e[35m"
+ANSI[:CYAN]      = "\e[36m"
+ANSI[:WHITE]     = "\e[37m"
 
-  def sql(query)
-    ActiveRecord::Base.connection.select_all(query)
+def extend_console(name, care = true, required = true)
+  if care
+    require name if required
+    yield if block_given?
+    $console_extensions << "#{ANSI[:GREEN]}#{name}#{ANSI[:RESET]}"
+  else
+    $console_extensions << "#{ANSI[:GRAY]}#{name}#{ANSI[:RESET]}"
   end
+rescue LoadError
+  $console_extensions << "#{ANSI[:RED]}#{name}#{ANSI[:RESET]}"
+end
+$console_extensions = []
 
-  if ENV['RAILS_ENV'] == 'test'
-    require 'test/test_helper'
-  end
-
-# for rails 3
-elsif defined?(Rails) && !Rails.env.nil? && defined?(ActiveRecord)
-  if Rails.logger
-    Rails.logger =Logger.new(STDOUT)
-    ActiveRecord::Base.logger = Rails.logger
-  end
-  if Rails.env == 'test'
-    require 'test/test_helper'
-  end
-else
-  # nothing to do
+extend_console 'wirble' do
+  Wirble.init(:history_uniq => false)
+  Wirble.colorize
 end
 
-if defined?(Mongoid)
-  Mongoid.config.logger = Logger.new($stdout)
+# Hirb makes tables easy.
+extend_console 'hirb' do
+  Hirb.enable
+  extend Hirb::Console
 end
 
-# annotate column names of an AR model
-def show(obj)
-  y(obj.send("column_names"))
+# awesome_print is prints prettier than pretty_print
+extend_console 'ap' do
+  AwesomePrint.irb!
+  alias pp ap
 end
 
-puts "> all systems are go wirble/hirb/ap/show <"
+
+# Show them what they've won, Johnny
+puts "#{ANSI[:BLUE]}~> Console extensions:#{ANSI[:RESET]} #{$console_extensions.join(' ')}#{ANSI[:RESET]}"
+
