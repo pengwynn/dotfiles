@@ -34,9 +34,6 @@ bind-key .      next-window     # >
 bind-key <      swap-window -t :-
 bind-key >      swap-window -t :+
 
-# Easier command prompt
-bind -n C-i command-prompt -p 'tmux <#S>: '
-
 # Smart pane switching with awareness of vim splits
 bind -n C-k run-shell 'tmux-vim-select-pane -U'
 bind -n C-j run-shell 'tmux-vim-select-pane -D'
