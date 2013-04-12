@@ -18,7 +18,8 @@ set-option -g prefix C-a # C-a for prefix just like screen
 
 bind-key C-a    last-window
 
-bind-key  +     resize-pane -Z 
+bind-key  +     resize-pane -Z
+bind-key  =     resize-pane -Z
 bind-key  |     split-window -h
 bind-key  \     split-window -h
 bind-key  -     split-window -v
