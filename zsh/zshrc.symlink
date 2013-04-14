@@ -37,5 +37,6 @@ for config_file ($ZSH/**/completion.sh) source $config_file
 
 source `brew --prefix grc`/etc/grc.bashrc
 
-# source sub
+# source subs
 eval "$($DOTFILES/wynn/bin/wynn init -)"
+eval "$(/Users/wynn/.coral/libexec/coral init -)"
