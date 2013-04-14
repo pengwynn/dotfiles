@@ -5,8 +5,8 @@ function mx() {
     SESSION=$1
   fi
 
-  if [[ -x $DOTFILES/tmux/layouts/$SESSION ]]; then
-    $DOTFILES/tmux/layouts/$SESSION
+  if [[ -x $DOTFILES/tmux/workspaces/$SESSION ]]; then
+    $DOTFILES/tmux/workspaces/$SESSION
   else
     if ! (tmux has-session -t $SESSION >/dev/null 2>&1); then
       tmux new-session -s $SESSION -n zsh -d
