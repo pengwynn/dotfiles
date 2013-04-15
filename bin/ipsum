@@ -135,7 +135,7 @@ if [[ $CODE -eq 1 ]]; then
   URL+="/code"
 fi
 
-if [[ $CAPS -eq 1 ]]; then
+if [[ $ALLCAPS -eq 1 ]]; then
   URL+="/allcaps"
 fi
 
