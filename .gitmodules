@@ -150,3 +150,6 @@
 [submodule "vim/vim.symlink/bundle/vim-ruby-minitest"]
 	path = vim/vim.symlink/bundle/vim-ruby-minitest
 	url = https://github.com/sunaku/vim-ruby-minitest.git
+[submodule "keyboard"]
+	path = keyboard
+	url = https://github.com/jasonrudolph/keyboard.git
