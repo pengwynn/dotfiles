@@ -87,6 +87,8 @@ set viminfo='100,f1  " Save up to 100 marks, enable capital marks
 set noswapfile
 set nobackup
 set nowritebackup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " Persistent Undo
 " ===============
