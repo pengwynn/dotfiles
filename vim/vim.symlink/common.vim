@@ -55,6 +55,9 @@ nnoremap <leader>w gqip
 " Visual mode: D
 vmap D y'>p
 
+" Visual find/replace
+vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
+
 " Remove whitespace
 map <Leader>W :%s/\s\+$//e<CR>
 
