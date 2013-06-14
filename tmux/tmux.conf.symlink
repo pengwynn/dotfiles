@@ -26,6 +26,7 @@ bind-key  \     split-window -h
 bind-key  -     split-window -v
 
 # windows and panes
+bind-key S      command-prompt -p ssh: "new-window -n %1 'ssh %1'"
 bind-key u      select-window -t :1
 bind-key W      split-window -h \; choose-window 'kill-pane ; join-pane -hs %%'
 bind-key x      kill-pane
