@@ -1,0 +1,60 @@
+#!/bin/sh
+
+VERBOSE=0
+
+# Gets the command name without path
+cmd(){ echo `basename $0`; }
+
+# Help command output
+usage(){
+echo "\
+`cmd` [OPTION...] PATTERN URL
+
+Grab a header from a curl call
+
+Example: `cmd` --value remaining https://api.github.com/
+
+--verbose; Display header field and value
+--help; Display this help message
+" | column -t -s ";"
+}
+
+# Error message
+error(){
+    echo "`cmd`: invalid option";
+    echo "Try '`cmd` -h' for more information.";
+    exit 1;
+}
+
+
+while test $# -gt 0
+do
+  case $1 in
+
+  # Normal option processing
+    -h | --help)
+      # usage and help
+      ;;
+    -v | --verbose)
+      # verbose info
+      VERBOSE=1
+      ;;
+    -?)
+      error
+      ;;
+    *)
+      PATTERN="$1:"
+      URL="$2"
+      break
+      ;;
+  esac
+
+
+  shift
+done
+
+if [[ $VERBOSE -eq 1 ]]; then
+  curl -I $URL | grep -Fi $PATTERN
+else
+  curl -I $URL | grep -Fi $PATTERN | cut -d ' ' -f 2 
+fi
