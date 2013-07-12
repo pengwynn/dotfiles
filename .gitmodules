@@ -153,3 +153,6 @@
 [submodule "keyboard"]
 	path = keyboard
 	url = https://github.com/jasonrudolph/keyboard.git
+[submodule "vim/vim.symlink/bundle/vim-golang"]
+	path = vim/vim.symlink/bundle/vim-golang
+	url = https://github.com/jnwhiteh/vim-golang.git
