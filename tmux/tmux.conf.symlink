@@ -118,15 +118,15 @@ set-window-option -g allow-rename on
 # renumber windows
 set-option -g renumber-windows on
 
+# starts windows at 1 not 0
+set-option -g base-index 1
+
 ## tmux window titling for X
 set-option -g set-titles on
 set-option -g set-titles-string '#S'
 
 set-window-option -g window-status-format ' #I #W '
 set-window-option -g window-status-attr dim
-
-# starts windows at 1 not 0
-set-option -g base-index 1
 
 set -g mode-mouse on
 set -g mouse-resize-pane on

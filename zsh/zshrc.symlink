@@ -5,7 +5,7 @@ export ZSH=$HOME/.dotfiles
 export DOTFILES=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/code
+export PROJECTS=~/github
 
 source /opt/github/env.sh
 
