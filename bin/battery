@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Author: Nicolas Goles
 # url: https://github.com/Goles/Battery
@@ -28,7 +28,7 @@ battery_charge()
 # Run Battery
 #
 
-BATTERY_STATUS=`battery_charge`
+BATTERY_STATUS=$(battery_charge)
 [ -z "$BATTERY_STATUS" ] && exit
 
 #
@@ -107,7 +107,7 @@ fi
 # Apply the correct color to the battery status prompt
 #
 
-if [ $BATTERY_STATUS -ge 75 ]; then
+if [ "$BATTERY_STATUS" -ge 75 ]; then
 
     # Green
     case "$tmux" in
@@ -115,7 +115,7 @@ if [ $BATTERY_STATUS -ge 75 ]; then
         false) COLOR=$good_color ;;
     esac
 
-elif [ $BATTERY_STATUS -ge 25 ] && [ $BATTERY_STATUS -lt 75 ]; then
+elif [ "$BATTERY_STATUS" -ge 25 ] && [ "$BATTERY_STATUS" -lt 75 ]; then
 
     # Yellow
     case "$tmux" in
@@ -123,7 +123,7 @@ elif [ $BATTERY_STATUS -ge 25 ] && [ $BATTERY_STATUS -lt 75 ]; then
         false) COLOR=$middle_color ;;
     esac
 
-elif [ $BATTERY_STATUS -lt 25 ]; then
+elif [ "$BATTERY_STATUS" -lt 25 ]; then
 
     # Red
     case "$tmux" in
@@ -137,7 +137,7 @@ fi
 # Print the battery status
 #
 
-GRAPH=$(spark 0 ${BATTERY_STATUS} 100 | awk '{print substr($0,4,3)}')
+GRAPH=$(spark 0 "${BATTERY_STATUS}" 100 | awk '{print substr($0,4,3)}')
 
 if [ "$tmux" == "false" ]; then
     printf "\e[0;%sm%s %s \e[m\n"  "$COLOR" "[$BATTERY_STATUS%]"  "$GRAPH"
