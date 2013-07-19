@@ -133,7 +133,7 @@ set -g mouse-resize-pane on
 set -g mouse-select-pane on
 set -g mouse-select-window on
 
-# Toggle mouse on with ^F m
+# Toggle mouse on
 bind m \
   set -g mode-mouse on \;\
   set -g mouse-resize-pane on \;\
@@ -141,7 +141,7 @@ bind m \
   set -g mouse-select-window on \;\
   display 'Mouse: ON'
 
-# Toggle mouse off with ^F M
+# Toggle mouse off
 bind M \
   set -g mode-mouse off \;\
   set -g mouse-resize-pane off \;\
