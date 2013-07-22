@@ -1,0 +1,10 @@
+#!/bin/bash
+# Usage: iso8601 [<epoch>]
+# Show a date in iso8601 format
+
+set -e
+if [[ -z "$1" ]]; then
+  date -u +"%Y-%m-%dT%H:%M:%SZ"
+else
+  date -r "$1" +"%Y-%m-%dT%H:%M:%SZ"
+fi
