@@ -1,0 +1,7 @@
+#/bin/bash
+# Usage: newmerate <text>
+# Create spacially kerned, upcase text
+
+TEXT="$1"
+
+echo $TEXT | tr '[:lower:]' '[:upper:]' | sed 's/[^A-Z]//g;s/ //g;s/./& /g'
