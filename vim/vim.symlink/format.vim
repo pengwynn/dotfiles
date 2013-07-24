@@ -2,5 +2,5 @@
 vnoremap <Leader>j !python -m json.tool<CR>
 
 " Github => GitHub
-map <Leader>g :%s/GitHub/GitHub/g<CR>
+map <Leader>g :%s/Github/GitHub/g<CR>
 
