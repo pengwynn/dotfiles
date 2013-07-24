@@ -1,0 +1,5 @@
+#!/bin/bash
+# Usage: git-contributors
+# Show list of contributors sorted by line count
+
+git --no-pager shortlog -s -n
