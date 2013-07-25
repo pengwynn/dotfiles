@@ -187,7 +187,8 @@ $(git_time_since_commit)%{$reset_color%} \
 
 set_prompt () {
   #export RPROMPT="$(notes_prompt TODO) %{$fg_bold[yellow]%}$(notes_prompt HACK)%{$reset_color%} %{$fg_bold[red]%}$(notes_prompt FIXME)%{$reset_color%} %{$fg_bold[white]%}$(prompt_todo_text +next)%{$reset_color%}"
-  export RPROMPT="$(prompt_todo_text +next)"
+  # export RPROMPT="$(prompt_todo_text +next)"
+  export RPROMPT=""
 }
 
 precmd() {
