@@ -2,10 +2,10 @@
 
 set -e
 
-if [[ -z $1 ]]; then
-  SESSION=$(basename $PWD);
+if [[ -z "$1" ]]; then
+  SESSION=${PWD##*/};
 else
-  SESSION=$1
+  SESSION="$1"
 fi
 
 # Checks to see if an executable exists and then
@@ -14,31 +14,31 @@ fi
 # example:
 #   _safe_window console script/console
 _safe_window() {
-  if [[ -x $2 ]]; then
-    tmux new-window -n $1 -t $SESSION
+  if [[ -x "$2" ]]; then
+    tmux new-window -n "$1" -t "$SESSION"
     local WINDOW_NUMBER=$(tmux list-windows | tail -n1 | cut -d':' -f1)
-    tmux send-keys -t $SESSION:$WINDOW_NUMBER $2 C-m
-    tmux rename-window -t $SESSION:$WINDOW_NUMBER $1
+    tmux send-keys -t "$SESSION":"$WINDOW_NUMBER" "$2" C-m
+    tmux rename-window -t "$SESSION":"$WINDOW_NUMBER" "$1"
   fi
 }
 
-if ! (tmux has-session -t $SESSION >/dev/null 2>&1); then
+if ! (tmux has-session -t "$SESSION" >/dev/null 2>&1); then
   if [[ -x $PWD/.tmux ]]; then
     # load project-specific layout if found
     $PWD/.tmux
   else
-    tmux new-session -s $SESSION -n vim -d
-    tmux new-window -n shell -t $SESSION
-    tmux rename-window -t $SESSION:2 shell
+    tmux new-session -s "$SESSION" -n vim -d
+    tmux new-window -n shell -t "$SESSION"
+    tmux rename-window -t "$SESSION":2 shell
 
-    tmux send-keys -t $SESSION:1 'vim' C-m #':CtrlP' C-m
+    tmux send-keys -t 1 'vim' C-m #':CtrlP' C-m
     _safe_window console script/console
     _safe_window server script/server
 
-    tmux select-window -t $SESSION:1
+    tmux select-window -t "$SESSION":1
   fi
 
 fi
 
-tmux attach -t $SESSION
+tmux attach -t "$SESSION"
 
