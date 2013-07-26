@@ -15,10 +15,10 @@ fi
 #   _safe_window console script/console
 _safe_window() {
   if [[ -x "$2" ]]; then
-    tmux new-window -n "$1" -t "$SESSION"
+    tmux new-window -n "$1"
     local WINDOW_NUMBER=$(tmux list-windows | tail -n1 | cut -d':' -f1)
-    tmux send-keys -t "$SESSION":"$WINDOW_NUMBER" "$2" C-m
-    tmux rename-window -t "$SESSION":"$WINDOW_NUMBER" "$1"
+    tmux send-keys "$2" C-m
+    tmux rename-window "$1"
   fi
 }
 
@@ -28,10 +28,11 @@ if ! (tmux has-session -t "$SESSION" >/dev/null 2>&1); then
     $PWD/.tmux
   else
     tmux new-session -s "$SESSION" -n vim -d
+    tmux send-keys 'vim' C-m
+
     tmux new-window -n shell -t "$SESSION"
     tmux rename-window -t "$SESSION":2 shell
 
-    tmux send-keys -t 1 'vim' C-m #':CtrlP' C-m
     _safe_window console script/console
     _safe_window server script/server
 
