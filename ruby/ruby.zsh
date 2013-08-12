@@ -3,4 +3,4 @@ alias b="bundle"
 alias be="bundle exec"
 
 # rspec
-alias specs="rspec --format=documenation"
+alias specs="rspec --format=documentation"
