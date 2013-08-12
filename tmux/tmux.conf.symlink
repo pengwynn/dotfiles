@@ -107,10 +107,12 @@ set-option -g renumber-windows on
 # starts windows at 1 not 0
 set-option -g base-index 1
 
-set-option -g   set-titles        off
-set-option -gw  automatic-rename  off
-set-option -gw  monitor-activity  off
-set-option -gw  monitor-content   off
+set-option -g   visual-activity   on
+set-option -g   visual-content    on
+set-option -g   set-titles        on
+set-option -gw  automatic-rename  on
+set-option -gw  monitor-activity  on
+set-option -gw  monitor-content   on
 
 set-window-option -g window-status-format ' #I #W '
 set-window-option -g window-status-attr dim
