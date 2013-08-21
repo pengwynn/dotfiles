@@ -2,8 +2,8 @@
 " Navigation
 " ==========
 " Move between wrapped lines as though they were physical lines.
-noremap k gk
-noremap j gj
+" noremap k gk
+" noremap j gj
 noremap <up> g<up>
 noremap <down> g<down>
 
