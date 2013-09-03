@@ -75,6 +75,7 @@ set-option -g status-bg default
 set-option -g status-left-fg default
 set-option -g status-left-bg default
 set-option -g status-right-bg default
+bind-key / set-option status 
 
 # "I' == current window index
 # 'H' == Hostname
