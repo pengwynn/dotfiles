@@ -22,7 +22,7 @@ function prompt_color () {
   case $ITERM_PROFILE in
     SolarizedLight )
       echo "blue";;
-    Tomorrow )
+    Tomorrow|Keynote )
       echo "yellow" ;;
     *)
       echo "white" ;;
