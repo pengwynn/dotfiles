@@ -1,12 +1,12 @@
 function! SetBackgroundForIterm()
-  if $ITERM_PROFILE == "SolarizedLight"
-    colorscheme solarized
+  if $ITERM_PROFILE == "solarized-light"
+    colorscheme base16-solarized
     set background=light
-  elseif $ITERM_PROFILE == "Tomorrow"
-    colorscheme Tomorrow
+  elseif $ITERM_PROFILE == "tomorrow"
+    colorscheme base16-tomorrow
     set background=light
-  elseif $ITERM_PROFILE == "TomorrowNight"
-    colorscheme Tomorrow-Night-Eighties
+  elseif $ITERM_PROFILE == "tomorrow-night"
+    colorscheme base16-tomorrow
     set background=dark
   else
     colorscheme base16-solarized
