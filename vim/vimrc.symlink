@@ -7,20 +7,38 @@ if filereadable(expand('~/.vimrc.before'))
 endif
 
 
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+Bundle 'L9'
+Bundle 'tpope/vim-fugitive'
+Bundle 'chriskempson/base16-vim'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'gh:vim-ruby/vim-ruby'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/ZoomWin'
+Bundle 'mattn/webapi-vim'
+Bundle 'tpope/vim-rails'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'godlygeek/tabular'
+Bundle 'scrooloose/nerdtree'
+Bundle 'mattn/gist-vim'
+Bundle 'epmatsw/ag.vim'
+Bundle 'tpope/vim-commentary'
+Bundle 'tejr/vim-tmux'
+"Bundle 'altercation/vim-colors-solarized'
+
+
 " Per-directory .vimrc files
 set exrc
 set secure
-
-
-
-" Pathogen Initialization
-" =======================
-
-" This loads all the plugins in ~/.vim/bundle
-" Use tpope's pathogen plugin to manage all other plugins
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
 
 source ~/.vim/colors.vim
 call SetBackgroundForIterm()

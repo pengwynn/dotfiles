@@ -9,7 +9,7 @@ function! SetBackgroundForIterm()
     colorscheme Tomorrow-Night-Eighties
     set background=dark
   else
-    colorscheme solarized
+    colorscheme base16-solarized
     set background=dark
   end
 endfunction

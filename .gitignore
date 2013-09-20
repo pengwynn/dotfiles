@@ -2,3 +2,4 @@
 *_creds.zsh
 .netrwhist
 nginx/vhosts/github*
+vim/vim.symlink/bundle/**
