@@ -35,8 +35,6 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tejr/vim-tmux'
 Bundle 'sjl/vitality.vim'
 Bundle 'ervandew/supertab'
-"Bundle 'altercation/vim-colors-solarized'
-
 
 " Per-directory .vimrc files
 set exrc
