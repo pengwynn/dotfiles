@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Inspired by
+#   https://coderwall.com/p/s-2_nw
+#   https://github.com/sjl/vitality.vim/blob/4bb8c078c3a9a23f8af5db1dd95832faa802a1a9/doc/vitality.txt#L199
+
+set -e
+
+if [[ $# > 0 ]]; then
+    if [[ -z $TMUX ]]; then
+        # TODO: source an ENV var here
+        echo "\033]50;SetProfile=$1\a"
+    else
+        tmux setenv -t $(tmux display -p "#S") ITERM_PROFILE "$1"
+        echo "\033Ptmux;\033\033]50;SetProfile=$1\007\033\\"
+    fi
+else
+    if [[ -z $TMUX ]]; then
+        echo $ITERM_PROFILE
+    else
+        # TODO Optimize this
+        tmux showenv -t $(tmux display -p "#S") | grep ITERM_PROFILE | cut -d"=" -f 2 | xargs -n1 echo -n
+    fi
+fi
+

@@ -42,9 +42,6 @@ Bundle 'ervandew/supertab'
 set exrc
 set secure
 
-source ~/.vim/colors.vim
-call SetBackgroundForIterm()
-
 " Syntax
 " ======
 
@@ -175,4 +172,4 @@ source ~/.vim/rails.vim
 source ~/.vim/ruby.vim
 source ~/.vim/common.vim
 source ~/.vim/tmux.vim
-
+source ~/.vim/colors.vim
