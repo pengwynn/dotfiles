@@ -15,7 +15,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'L9'
-Bundle 'tpope/vim-fugitive'
 Bundle 'chriskempson/base16-vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'gh:vim-ruby/vim-ruby'
@@ -33,7 +32,6 @@ Bundle 'mattn/gist-vim'
 Bundle 'epmatsw/ag.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'tejr/vim-tmux'
-Bundle 'sjl/vitality.vim'
 Bundle 'ervandew/supertab'
 
 " Per-directory .vimrc files
@@ -171,3 +169,6 @@ source ~/.vim/ruby.vim
 source ~/.vim/common.vim
 source ~/.vim/tmux.vim
 source ~/.vim/colors.vim
+
+colorscheme base16-solarized
+set background=dark
