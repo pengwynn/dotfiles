@@ -33,6 +33,7 @@ Bundle 'epmatsw/ag.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'tejr/vim-tmux'
 Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-rbenv'
 
 " Per-directory .vimrc files
 set exrc
