@@ -9,16 +9,14 @@ function g {
     if [[ $# > 0 ]]; then
         git "$@"
     else
+        echo "Last commit: $(time_since_last_commit) ago"
         git status --short --branch
     fi
 }
 
-function minutes_since_last_commit {
-    now=`date +%s`
-    last_commit=`git log --pretty=format:'%at' -1`
-    seconds_since_last_commit=$((now-last_commit))
-    minutes_since_last_commit=$((seconds_since_last_commit/60))
-    echo $minutes_since_last_commit
+function time_since_last_commit() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  git log -1 --pretty=format:"%ar" | sed 's/\([0-9]*\) \(.\).*/\1\2/'
 }
 
 function sandbox() {
