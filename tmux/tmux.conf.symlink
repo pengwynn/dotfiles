@@ -145,6 +145,10 @@ bind M \
 set-option -g pane-active-border-fg colour4
 set-option -g pane-active-border-bg default
 
+## chooser colors
+set-window-option -g    mode-bg   colour5    # selector background
+set-window-option -g    mode-fg   black  # selector foreground
+
 
 ## Copy/paste
 unbind -t vi-copy Enter
