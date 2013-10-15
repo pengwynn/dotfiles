@@ -65,7 +65,7 @@ set -g history-limit 10000
 ## messages
 set-option -g message-fg colour0
 set-option -g message-bg colour4
-set-option -g display-time 1500
+set-option -g display-time 5000
 
 ## set status bar
 set-option -g status-utf8 on
