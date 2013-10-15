@@ -21,5 +21,8 @@
 
   <key>UserName</key>
   <string>wynn</string>
+
+  <key>ThrottleInterval</key>
+  <integer>120</integer>
 </dict>
 </plist>
