@@ -187,3 +187,10 @@ source ~/.vim/colors.vim
 
 colorscheme base16-solarized
 set background=dark
+
+" Git Gutter
+" ==========
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_eager = 0
+
+hi StatusLine ctermfg=5 ctermbg=10 guifg=#6c71c4 guibg=#073642
