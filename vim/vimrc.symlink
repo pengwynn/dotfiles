@@ -35,6 +35,7 @@ Bundle 'tejr/vim-tmux'
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-rbenv'
 Bundle 'gem.vim'
+Bundle 'zerowidth/vim-copy-as-rtf'
 
 " Per-directory .vimrc files
 set exrc
