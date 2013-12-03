@@ -1,0 +1,17 @@
+install ack
+install cowsay
+install figlet
+install gawk
+install grc
+install hub
+install imagemagick
+install macvim --override-system-vim
+install reattach-to-user-namespace
+install the_silver_searcher
+install tmux
+install tree
+install wget
+install zsh
+
+update
+doctor
