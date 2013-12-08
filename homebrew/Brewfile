@@ -13,5 +13,14 @@ install tree
 install wget
 install zsh
 
+# quicklook plugins
+cask install qlcolorcode
+cask install qlstephen
+cask install qlmarkdown
+cask install quicklook-json
+cask install qlprettypatch
+cask install quicklook-csv
+cask install betterzipql
+cask install webp-quicklook
+
 update
-doctor
