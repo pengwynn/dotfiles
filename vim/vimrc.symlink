@@ -36,6 +36,7 @@ Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-rbenv'
 Bundle 'gem.vim'
 Bundle 'zerowidth/vim-copy-as-rtf'
+Bundle 'kien/ctrlp.vim'
 
 " Per-directory .vimrc files
 set exrc
@@ -185,6 +186,7 @@ source ~/.vim/ruby.vim
 source ~/.vim/common.vim
 source ~/.vim/tmux.vim
 source ~/.vim/colors.vim
+source ~/.vim/ctrlp.vim
 
 colorscheme base16-solarized
 set background=dark
