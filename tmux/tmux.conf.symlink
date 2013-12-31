@@ -58,7 +58,7 @@ bind-key n      command-prompt 'rename-window "%%"'
 bind-key N      command-prompt 'rename-session "%%"'
 bind-key Escape copy-mode -u
 bind-key Up     copy-mode -u
-bind-key r      source-file $HOME/.tmux.conf
+bind-key r      source-file $HOME/.tmux.conf; display "The matrix has been reloaded"
 bind-key R      refresh-client
 bind-key a      send-key C-a
 # -r: can be repeated without pressing prefix#     again (500ms after last '-r' action or prefix)
