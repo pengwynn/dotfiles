@@ -37,6 +37,7 @@ Bundle 'tpope/vim-rbenv'
 Bundle 'gem.vim'
 Bundle 'zerowidth/vim-copy-as-rtf'
 Bundle 'kien/ctrlp.vim'
+Bundle 'justinmk/vim-gtfo'
 
 " Per-directory .vimrc files
 set exrc
