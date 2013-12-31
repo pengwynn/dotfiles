@@ -42,6 +42,9 @@ nmap <Leader>t :TagbarToggle<CR>
 " Yank from cursor to end of line
 nnoremap Y y$
 
+" Select the text that was last edited/pasted.
+" http://vimcasts.org/episodes/bubbling-text/
+nmap gV `[v`]
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
