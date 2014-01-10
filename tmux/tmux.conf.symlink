@@ -37,6 +37,7 @@ bind-key ,      previous-window # <
 bind-key .      next-window     # >
 bind-key <      swap-window -t :-
 bind-key >      swap-window -t :+
+bind-key BSpace switch-client -l
 
 # vi mode
 bind-key -t vi-copy 'v' begin-selection
