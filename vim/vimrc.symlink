@@ -38,6 +38,7 @@ Bundle 'gem.vim'
 Bundle 'zerowidth/vim-copy-as-rtf'
 Bundle 'kien/ctrlp.vim'
 Bundle 'justinmk/vim-gtfo'
+Bundle 'jayflo/vim-skip'
 
 " Per-directory .vimrc files
 set exrc
