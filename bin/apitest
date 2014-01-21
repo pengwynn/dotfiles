@@ -1,0 +1,4 @@
+#!/bin/sh
+TEST_PATH="test/integration/api/$1_test.rb"
+shift
+exec $(PWD)/script/testrb "$TEST_PATH" "$@"
