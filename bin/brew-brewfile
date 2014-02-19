@@ -1,0 +1,5 @@
+#!/bin/sh
+# Usage: brew-brewfile
+# List currently installed top-level packages in Brewfile format.
+brew leaves | sed 's/^/install /'
+
