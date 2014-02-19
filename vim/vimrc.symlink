@@ -40,6 +40,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'justinmk/vim-gtfo'
 Bundle 'jayflo/vim-skip'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'gcmt/wildfire.vim'
 
 " Per-directory .vimrc files
 set exrc
