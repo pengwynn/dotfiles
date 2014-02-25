@@ -1,0 +1,4 @@
+#!/bin/sh
+# Usage: git-edit-conflicts
+# Edit files in a conflict state.
+$EDITOR $(git-conflicts)
