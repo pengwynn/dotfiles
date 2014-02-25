@@ -3,6 +3,7 @@ export EDITOR="vim"
 
 alias cls="clear"
 alias lastfm="shell-fm"
+alias shout="tr [[:lower:]] [[:upper:]]"
 
 function colours() {
 for i in {0..255} ; do
