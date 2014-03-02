@@ -53,7 +53,7 @@ _safe_window() {
   fi
 }
 
-if ! (tmux has-session -t "$SESSION" >/dev/null 2>&1); then
+if ! (tmux list-sessions | cut -d':' -f1 | grep -q ^"$SESSION"\$); then
   if [ -d "$PROJECTS"/"$SESSION" ]; then
     cd "$PROJECTS"/"$SESSION"
   fi
