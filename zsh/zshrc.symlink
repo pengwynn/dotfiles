@@ -32,6 +32,9 @@ autoload -U tetris
 zle -N tetris
 bindkey ^T tetris
 
+# Fix history search in tmux
+bindkey '^R' history-incremental-search-backward
+
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
 
