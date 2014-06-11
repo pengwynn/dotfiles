@@ -11,6 +11,15 @@ function gh_browse {
   open "https://github.com/$1"
 }
 
+function repo_browse {
+  if [ -d .git ]; then
+    hub browse $1
+  else
+    echo "Must be in a git repository to run that command."
+    exit 1
+  fi
+}
+
 function usage {
 read -d '' usage <<"BLOCK"
 USAGE:   git-go [OPTION] [COMMAND]
@@ -91,14 +100,14 @@ case "$1" in
             * )
               filter="assigned";;
           esac
-          hub browse -- issues/$filter/$GH_LOGIN
+          repo_browse "-- issues/$filter/$GH_LOGIN"
         else
           gh_browse "dashboard/issues"
         fi
         ;;
       notifications )
         if [[ -z $global_browse ]]; then
-          hub browse -- notifications/$GH_LOGIN
+          repo_browse "-- notifications/$GH_LOGIN"
         else
           gh_browse "dashboard/notifications"
         fi
@@ -108,7 +117,7 @@ case "$1" in
         ;;
       pulls )
         if [[ -z $global_browse ]]; then
-          hub browse -- pulls/$GH_LOGIN
+          repo_browse "-- pulls/$GH_LOGIN"
         else
           gh_browse "dashboard/pulls"
         fi
@@ -122,7 +131,7 @@ case "$1" in
     esac
     ;;
   *)
-    hub browse -- $1
+    repo_browse "-- $1"
     ;;
 esac
 
