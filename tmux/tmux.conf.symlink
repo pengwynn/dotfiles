@@ -2,6 +2,8 @@
 set -ga update-environment ' ITERM_PROFILE TMUX_STATUS_LEFT'
 set-window-option -g mode-keys vi
 
+set -g default-terminal "screen-256color"
+
 ## keybindings
 unbind C-b
 unbind C-a
