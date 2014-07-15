@@ -46,6 +46,9 @@ else
   SESSION="$1"
 fi
 
+# tmux 1.9a+ doesn't like .'s in session names
+SESSION="${SESSION//./_}"
+
 _safe_window() {
   if [ -x "$2" ]; then
     tmux new-window -n "$1" -t "$SESSION"
