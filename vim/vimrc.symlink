@@ -11,36 +11,39 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+call vundle#begin()
+Plugin 'gmarik/vundle'
 
-Bundle 'L9'
-Bundle 'chriskempson/base16-vim'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'gh:vim-ruby/vim-ruby'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'mattn/webapi-vim'
-Bundle 'tpope/vim-rails'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'godlygeek/tabular'
-Bundle 'scrooloose/nerdtree'
-Bundle 'mattn/gist-vim'
-Bundle 'epmatsw/ag.vim'
-Bundle 'tpope/vim-commentary'
-Bundle 'tejr/vim-tmux'
-Bundle 'ervandew/supertab'
-Bundle 'tpope/vim-rbenv'
-Bundle 'gem.vim'
-Bundle 'zerowidth/vim-copy-as-rtf'
-Bundle 'kien/ctrlp.vim'
-Bundle 'justinmk/vim-gtfo'
-Bundle 'jayflo/vim-skip'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'gcmt/wildfire.vim'
+Plugin 'L9'
+Plugin 'chriskempson/base16-vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'gh:vim-ruby/vim-ruby'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'mattn/webapi-vim'
+Plugin 'tpope/vim-rails'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'godlygeek/tabular'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mattn/gist-vim'
+Plugin 'epmatsw/ag.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tejr/vim-tmux'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-rbenv'
+Plugin 'gem.vim'
+Plugin 'zerowidth/vim-copy-as-rtf'
+Plugin 'kien/ctrlp.vim'
+Plugin 'justinmk/vim-gtfo'
+Plugin 'jayflo/vim-skip'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'gcmt/wildfire.vim'
+
+call vundle#end()            " required
+filetype plugin indent on 
 
 " Per-directory .vimrc files
 set exrc
