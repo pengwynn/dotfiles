@@ -192,7 +192,6 @@ source ~/.vim/rails.vim
 source ~/.vim/ruby.vim
 source ~/.vim/common.vim
 source ~/.vim/tmux.vim
-source ~/.vim/colors.vim
 source ~/.vim/ctrlp.vim
 
 colorscheme base16-solarized
