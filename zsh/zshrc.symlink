@@ -43,6 +43,8 @@ source `brew --prefix grc`/etc/grc.bashrc
 # source subs
 eval "$($DOTFILES/wynn/bin/wynn init -)"
 eval "$(/Users/wynn/.coral/libexec/coral init -)"
+alias k='coral'
+compctl -K _coral k
 
 # added by travis gem
 [ -f /Users/wynn/.travis/travis.sh ] && source /Users/wynn/.travis/travis.sh
