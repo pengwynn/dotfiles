@@ -22,7 +22,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'mattn/webapi-vim'
 Plugin 'tpope/vim-rails'
-Plugin 'jnwhiteh/vim-golang'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
@@ -41,6 +40,9 @@ Plugin 'justinmk/vim-gtfo'
 Plugin 'jayflo/vim-skip'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'gcmt/wildfire.vim'
+Plugin 'fatih/vim-go'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()            " required
 filetype plugin indent on 
@@ -193,6 +195,8 @@ source ~/.vim/ruby.vim
 source ~/.vim/common.vim
 source ~/.vim/tmux.vim
 source ~/.vim/ctrlp.vim
+source ~/.vim/go.vim
+source ~/.vim/snippets.vim
 
 colorscheme base16-solarized
 set background=dark
