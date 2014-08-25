@@ -8,13 +8,19 @@ git remote prune origin
 # Remove local fully merged branches
 git branch --merged master | grep -v 'master$' | xargs git branch -d
 # Show remote fully merged branches
-echo "The following remote branches are fully merged and will be removed:"
-git branch -r --merged master | sed 's/ *origin\///' | grep -v 'master$'
-read -p "Continue (y/n)? "
-if [ "$REPLY" == "y" ]
+remotes_to_prune_count=`git branch -r --merged master | sed 's/ *origin\///' | grep -v 'master$' | wc -l`
+if [ $remotes_to_prune_count -gt 0 ]
 then
-   # Remove remote fully merged branches
-   git branch -r --merged master | sed 's/ *origin\///' \
-             | grep -v 'master$' | xargs -I% git push origin :%
-   echo "Done!"
+  echo "The following remote branches are fully merged and will be removed:"
+  git branch -r --merged master | sed 's/ *origin\///' | grep -v 'master$'
+  read -p "Continue (y/n)? "
+  if [ "$REPLY" == "y" ]
+  then
+     # Remove remote fully merged branches
+     git branch -r --merged master | sed 's/ *origin\///' \
+               | grep -v 'master$' | xargs -I% git push origin :%
+     echo "Done!"
+  fi
+else
+  echo "No remotes to prune. Done!"
 fi
