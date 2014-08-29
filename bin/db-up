@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Migrate the local Rails database, prepare the test database,
+# and forget about the changes to db/schema.rb
+#
+# USAGE:
+#
+#   $ db-up
+
+rake db:migrate db:test:prepare && git checkout db/schema.rb
