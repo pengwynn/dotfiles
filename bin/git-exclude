@@ -1,6 +1,7 @@
 #!/bin/sh
 
+mkdir -p .git/info
 for pattern in "$@"
 do
-	echo "$pattern" | tee -a .git/info/exclude
+	echo "$pattern" >> .git/info/exclude
 done
