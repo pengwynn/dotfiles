@@ -55,13 +55,14 @@
   subs = submodule foreach git pull origin master
   # clean up fully merged branches
   sweep = !git-sweep
+  # list only untracked files
+  untracked = ls-files --others --exclude-standard
   # remove a file from the index
   unstage = reset HEAD --
 	up = "!git remote update -p; git merge --ff-only @{u}"
   wdiff = diff --color-words
 
 [core]
-  excludesfile = /opt/boxen/config/git/gitignore
   excludesfile = /opt/boxen/config/git/gitignore
 
 [init]
