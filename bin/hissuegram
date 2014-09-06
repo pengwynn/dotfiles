@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+
+# Usage: GITHUB_TOKEN=yourtoken hissuegram owner/repo
+#
+# Lifted from @aroben https://gist.github.com/aroben/5b1eaf5318b04183231b
+
+def usage
+  "GITHUB_TOKEN=yourtoken hissuegram owner/repo"
+end
+
+begin
+  require "octokit"
+rescue LoadError
+  puts "hissuegram requires the octokit gem. Please run\n\ngem install octokit"
+  exit 1
+end
+
+unless access_token = ENV.fetch("GITHUB_TOKEN")
+  usage
+  exit 1
+end
+
+unless repo = ARGV[0]
+  usage
+  exit 1
+end
+
+
+client = Octokit::Client.new \
+  :access_token => access_token,
+  :auto_paginate => true
+
+begin
+  issues = client.issues repo, :state => :open
+rescue Octokit::NotFound
+  puts "Repository #{repo} not found."
+  exit 1
+end
+
+dates = issues.map { |i| i["created_at"] }
+days_ago = dates.map { |d| ((Time.now - d) / (60 * 60 * 24)).round }
+buckets = days_ago.group_by { |d| d / 7 }.map { |bucket, contents| [bucket, contents.length] }.sort
+
+puts sprintf("%10s %7s", "weeks ago", "count")
+puts buckets.map { |bucket, count| sprintf("% 10d % 7d %s", bucket, count, "=" * count) }.join("\n")
