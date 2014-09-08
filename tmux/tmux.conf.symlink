@@ -71,6 +71,7 @@ bind-key -r l   select-pane -t :.+
 set -g history-limit 10000
 
 ## messages
+set-option -g quiet
 set-option -g message-fg colour0
 set-option -g message-bg colour4
 set-option -g display-time 5000
