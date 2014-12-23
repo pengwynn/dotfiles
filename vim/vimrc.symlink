@@ -43,6 +43,8 @@ Plugin 'gcmt/wildfire.vim'
 Plugin 'fatih/vim-go'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'benmills/vim-golang-alternate'
+Plugin 'junegunn/vim-github-dashboard'
 
 call vundle#end()            " required
 filetype plugin indent on 
