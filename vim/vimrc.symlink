@@ -41,8 +41,6 @@ Plugin 'jayflo/vim-skip'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'fatih/vim-go'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 Plugin 'benmills/vim-golang-alternate'
 Plugin 'junegunn/vim-github-dashboard'
 
