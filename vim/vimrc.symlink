@@ -6,7 +6,6 @@ if filereadable(expand('~/.vimrc.before'))
   source ~/.vimrc.before
 endif
 
-
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -43,6 +42,8 @@ Plugin 'gcmt/wildfire.vim'
 Plugin 'fatih/vim-go'
 Plugin 'benmills/vim-golang-alternate'
 Plugin 'junegunn/vim-github-dashboard'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'tpope/vim-projectionist'
 
 call vundle#end()            " required
 filetype plugin indent on 
@@ -199,13 +200,13 @@ source ~/.vim/go.vim
 source ~/.vim/snippets.vim
 source ~/.vim/writing.vim
 
-colorscheme base16-solarized
-set background=dark
+let base16colorspace=256
+colorscheme base16-ocean
+
 
 " Git Gutter
 " ==========
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_eager = 0
 
-hi StatusLine ctermfg=5 ctermbg=10 guifg=#6c71c4 guibg=#073642
 

@@ -79,7 +79,7 @@ set-option -g display-time 5000
 ## set status bar
 set-option -g status-utf8 on
 set-option -g status-interval 1
-set-option -g status-fg colour10
+set-option -g status-fg colour00
 set-option -g status-bg default
 set-option -g status-left-fg default
 set-option -g status-left-bg default
@@ -97,7 +97,7 @@ bind-key / set-option status
 # Where appropriate, special character sequences may be prefixed with a
 # number to specify the maximum length, in this line "#10W'.
 set -g status-left ""
-set-option -g status-right '#[fg=yellow]#S#[fg=default] [#I:#P] /// #(battery -o tmux -m default -g default)#[fg=default]%a %d %b %H:%M'
+set-option -g status-right '#[fg=colour3]#S#[fg=default] [#I:#P] /// #(battery -o tmux -m default -g default)#[fg=default]%a %d %b %H:%M'
 
 set-option -g status-right-length 100
 set-option -g status-left-length 120
@@ -155,8 +155,8 @@ set-option -g pane-active-border-fg colour4
 set-option -g pane-active-border-bg default
 
 ## chooser colors
-set-window-option -g    mode-bg   colour5    # selector background
-set-window-option -g    mode-fg   black  # selector foreground
+set-window-option -g    mode-bg   colour5  # selector background
+set-window-option -g    mode-fg   black    # selector foreground
 
 
 ## Copy/paste
