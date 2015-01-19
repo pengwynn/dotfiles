@@ -155,7 +155,7 @@ set-option -g pane-active-border-fg colour4
 set-option -g pane-active-border-bg default
 
 ## chooser colors
-set-window-option -g    mode-bg   colour5  # selector background
+set-window-option -g    mode-bg   colour04  # selector background
 set-window-option -g    mode-fg   black    # selector foreground
 
 
