@@ -9,7 +9,7 @@ export ZSH=$HOME/.dotfiles
 export DOTFILES=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/github
+export PROJECTS=~/code
 
 source /opt/github/env.sh
 
@@ -43,11 +43,6 @@ bindkey '^R' history-incremental-search-backward
 for config_file ($ZSH/**/completion.sh) source $config_file
 
 source `brew --prefix grc`/etc/grc.bashrc
-
-# source subs
-eval "$(/Users/wynn/.coral/libexec/coral init -)"
-alias k='coral'
-compctl -K _coral k
 
 # added by travis gem
 [ -f /Users/wynn/.travis/travis.sh ] && source /Users/wynn/.travis/travis.sh

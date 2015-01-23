@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require 'octokit'
+
+target = ARGV.shift
+
+
+def clone(name, owner)
+  system "echo #{repo} #{path}"
+end
+
+nwo = case target
+      when /:\/\//
+        require 'uri'
+        URI.parse(target).path[1..-1]
+      else
+        target
+      end
+
+name, owner = nwo.split("/").reverse
+
+dest = ENV.fetch("CODE", "~/code")
+dest = File.join(dest, [name, owner].join("@"))
+
+puts "%s %s" % [owner, name]
+
+
+# TODO: Look for a repo under my account
+# TODO: Look for a repo I have access to
+# TODO: Search for repo name
