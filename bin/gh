@@ -1,0 +1,58 @@
+#!/bin/sh
+
+# gh
+# version 1.1.0
+
+# Opens the github page for a repo/branch in your browser.
+#   gh [remote] [branch]
+
+# Contributors
+#   Jason McReary - https://github.com/jasonmccreary
+#   Yoshua Wuyts - https://github.com/yoshuawuyts
+
+fn_findRemote() {
+  git branch -vv \
+     | awk '/\*/ {print $4}' \
+     | sed -E 's/\/[A-Za-z0-9_]+\]//g' \
+     | sed 's/\[//'
+}
+
+fn_ghUrl() {
+  git config --get "$1" \
+    | sed 's/git\@github\.com\:/https\:\/\/github.com\//' \
+    | sed 's/\.git$//'
+}
+
+git rev-parse 2>/dev/null
+
+if [ $? != 0 ]; then
+  echo "Not a git repository."
+  exit 1
+fi
+
+if [ ! -z "$1" ]; then
+  remote="$1"
+else
+  remote="$(fn_findRemote)"
+fi
+
+remote_url="remote.${remote}.url"
+giturl="$(fn_ghUrl "$remote_url")"
+
+if [ -z "$giturl" ]; then
+  echo "$remote_url not set."
+  exit 1
+fi
+
+if [ -z "$2" ]; then
+  branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+else
+  branch="$2"
+fi
+
+if [ ! -z "$branch" ]; then
+  giturl="${giturl}/tree/${branch}"
+fi
+
+open "$giturl"
+exit 0
