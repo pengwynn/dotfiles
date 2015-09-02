@@ -61,6 +61,7 @@
   unstage = reset HEAD --
   up = "!git remote update -p; git merge --ff-only @{u}"
   wdiff = diff --color-words
+  wip = "!$EDITOR $(git ls-files -m)"
 
 [core]
   excludesfile = /opt/boxen/config/git/gitignore
