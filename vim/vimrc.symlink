@@ -43,9 +43,11 @@ Plugin 'fatih/vim-go'
 Plugin 'benmills/vim-golang-alternate'
 Plugin 'junegunn/vim-github-dashboard'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-projectionist'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'ryanss/vim-hackernews'
 
 call vundle#end()            " required
 filetype plugin indent on 
