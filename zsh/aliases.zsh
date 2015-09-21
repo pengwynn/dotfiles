@@ -54,5 +54,7 @@ alias map="xargs -n1"
 # free up `w` for my flavored sub
 alias whodat="w"
 
+# enable yubikey and ssh
+alias remote="osascript -e 'tell application \"yubiswitch\" to KeyOn' && ssh remote.github.com -t gh-screen && osascript -e 'tell application \"yubiswitch\" to KeyOff' "
 
 
