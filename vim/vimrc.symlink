@@ -48,6 +48,7 @@ Plugin 'tpope/vim-projectionist'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'ryanss/vim-hackernews'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()            " required
 filetype plugin indent on 
