@@ -1,26 +1,65 @@
-install ack
-install cowsay
-install figlet
-install gawk
-install grc
-install hub
-install imagemagick
-install macvim --override-system-vim
-install reattach-to-user-namespace
-install the_silver_searcher
-install tmux
-install tree
-install wget
-install zsh
+tap 'caskroom/cask'
+tap 'homebrew/bundle'
+tap 'homebrew/dev-tools'
+tap 'homebrew/services'
+tap 'homebrew/versions'
+cask 'java'
 
-# quicklook plugins
-cask install qlcolorcode
-cask install qlstephen
-cask install qlmarkdown
-cask install quicklook-json
-cask install qlprettypatch
-cask install quicklook-csv
-cask install betterzipql
-cask install webp-quicklook
+brew 'ack'
+brew 'autoconf'
+brew 'caskroom/cask/brew-cask'
+brew 'cowsay'
+brew 'figlet'
+brew 'gawk'
+brew 'go'
+brew 'grc'
+brew 'hub'
+brew 'icu4c'
+brew 'imagemagick'
+brew 'jq'
+brew 'macvim', args: ['override-system-vim']
+brew 'pcre'
+brew 'rbenv'
+brew 'rbenv-default-gems'
+brew 'rbenv-readline'
+brew 'readline'
+brew 'reattach-to-user-namespace'
+brew 'redis'
+brew 'ruby-build'
+brew 'ssh-copy-id'
+brew 'the_silver_searcher'
+brew 'tmux'
+brew 'tree'
+brew 'wget'
+brew 'zsh'
 
-update
+cask '1password'
+cask 'appcleaner'
+cask 'betterzipql'
+cask 'cathode'
+cask 'dropbox'
+cask 'fantastical'
+cask 'flux'
+cask 'google-chrome'
+cask 'iterm2'
+cask 'karabiner'
+cask 'launchbar'
+cask 'qlcolorcode'
+cask 'qlmarkdown'
+cask 'qlprettypatch'
+cask 'qlstephen'
+cask 'quicklook-csv'
+cask 'quicklook-json'
+cask 'rdio'
+cask 'screenhero'
+cask 'seil'
+cask 'sequel-pro'
+cask 'sizeup'
+cask 'sketch'
+cask 'slack'
+cask 'textexpander'
+cask 'vagrant'
+cask 'viscosity'
+cask 'vmware-fusion'
+cask 'whiskey'
+cask 'yubiswitch'
