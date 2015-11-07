@@ -1,3 +1,6 @@
 [submodule "keyboard"]
 	path = keyboard
 	url = https://github.com/jasonrudolph/keyboard.git
+[submodule "zsh/pure"]
+	path = zsh/pure
+	url = https://github.com/sindresorhus/pure.git
