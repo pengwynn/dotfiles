@@ -6,7 +6,7 @@ DOTFILES_ROOT="`pwd`"
 
 set -e
 
-echo ''
+echo 'Symlinking dotfiles'
 
 info () {
   printf "  [ \033[00;34m..\033[0m ] $1"
