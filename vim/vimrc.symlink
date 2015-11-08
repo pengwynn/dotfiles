@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'L9'
 Plugin 'chriskempson/base16-vim'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'gh:vim-ruby/vim-ruby'
 Plugin 'tpope/vim-surround'
