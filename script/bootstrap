@@ -6,7 +6,8 @@ set -e
 
 Echo "Bootstrapping"
 
-echo $DIR
+Echo "Updating submodules"
+git submodule init && git submodule update
 
 script/platform
 script/generic

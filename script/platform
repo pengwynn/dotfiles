@@ -16,5 +16,5 @@ fi
 
 echo "Running installers for $platform"
 
-find . -name $platform.sh | while read installer ; do sh -x "${installer}" > /dev/null ; done
+find . -name $platform.sh | while read installer ; do sh "${installer}" > /dev/null ; done
 
