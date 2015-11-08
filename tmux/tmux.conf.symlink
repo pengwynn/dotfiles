@@ -127,28 +127,7 @@ set-option -gw  monitor-content   off
 set-window-option -g window-status-format ' #I #W '
 set-window-option -g window-status-attr dim
 
-set -g mode-mouse on
-set -g mouse-resize-pane on
-set -g mouse-select-pane on
-set -g mouse-select-window on
-
-# Toggle mouse on
-bind m \
-  set -g mode-mouse on \;\
-  set -g mouse-resize-pane on \;\
-  set -g mouse-select-pane on \;\
-  set -g mouse-select-window on \;\
-  display 'Mouse: ON'
-
-# Toggle mouse off
-bind M \
-  set -g mode-mouse off \;\
-  set -g mouse-resize-pane off \;\
-  set -g mouse-select-pane off \;\
-  set -g mouse-select-window off \;\
-  display 'Mouse: OFF'
-
-
+set -g mouse on
 
 ## pane border and colors
 set-option -g pane-active-border-fg colour4
