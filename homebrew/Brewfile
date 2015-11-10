@@ -36,6 +36,7 @@ brew 'zsh'
 
 cask '1password'
 cask 'appcleaner'
+cask 'atom'
 cask 'betterzipql'
 cask 'cathode'
 cask 'dropbox'
