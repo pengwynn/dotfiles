@@ -7,6 +7,7 @@ tap 'homebrew/versions'
 cask 'java'
 
 brew 'ack'
+brew 'archey'
 brew 'autoconf'
 brew 'caskroom/cask/brew-cask'
 brew 'cowsay'

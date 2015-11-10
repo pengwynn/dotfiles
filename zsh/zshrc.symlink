@@ -42,3 +42,5 @@ bindkey '^R' history-incremental-search-backward
 for config_file ($ZSH/**/completion.sh) source $config_file
 
 source `brew --prefix grc`/etc/grc.bashrc
+
+archey -c
