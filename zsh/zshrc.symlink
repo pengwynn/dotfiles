@@ -1,4 +1,4 @@
-export PATH=/Users/wynn/.dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/wynn/.config/base16-shell
+export PATH=.git/safe/../../bin:./bin:$HOME/.dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/.dotfiles/color/base16-shell
 
 # base-16
 BASE16_THEME="eighties"

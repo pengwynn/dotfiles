@@ -49,6 +49,7 @@
   rbc = rebase --continue
   # Interactive rebase with the selected number of latest commits
   reb = "!r() { git rebase -i HEAD~$1; }; r"tags = tag -l
+  safe = !mkdir -p .git/safe && echo "Repository marked safe!"
   # track a remote branch
   track = checkout -t
   st = status
