@@ -64,9 +64,6 @@
   wdiff = diff --color-words
   wip = "!$EDITOR $(git ls-files -m)"
 
-[core]
-  excludesfile = /opt/boxen/config/git/gitignore
-
 [init]
   templatedir = ~/.git_template
 
