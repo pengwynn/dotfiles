@@ -42,6 +42,3 @@ bindkey '^R' history-incremental-search-backward
 for config_file ($ZSH/**/completion.sh) source $config_file
 
 source `brew --prefix grc`/etc/grc.bashrc
-
-# added by travis gem
-[ -f /Users/wynn/.travis/travis.sh ] && source /Users/wynn/.travis/travis.sh
