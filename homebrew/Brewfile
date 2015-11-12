@@ -36,6 +36,7 @@ brew 'wget'
 brew 'zsh'
 
 cask '1password'
+cask 'aerial'
 cask 'appcleaner'
 cask 'atom'
 cask 'betterzipql'
