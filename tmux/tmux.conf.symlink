@@ -130,6 +130,8 @@ set-window-option -g window-status-format ' #I #W '
 set-window-option -g window-status-attr dim
 
 set -g mouse on
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
+bind -n WheelDownPane select-pane -t= \; send-keys -M
 
 ## pane border and colors
 set-option -g pane-active-border-fg colour4
