@@ -44,5 +44,6 @@ for config_file ($ZSH/**/completion.sh) source $config_file
 source `brew --prefix grc`/etc/grc.bashrc
 
 eval "$(rbenv init -)"
+rbenv global 2.2.3
 
 archey -c
