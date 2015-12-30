@@ -21,6 +21,7 @@ brew 'hub'
 brew 'icu4c'
 brew 'imagemagick'
 brew 'jq'
+brew 'jrnl'
 brew 'macvim', args: ['override-system-vim']
 brew 'pcre'
 brew 'rbenv'
