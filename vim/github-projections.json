@@ -1,0 +1,29 @@
+{
+  "app/api/*.rb": {
+    "alternate": "test/integration/api/{}_test.rb",
+    "type": "api"
+  },
+  "test/integration/api/*_test.rb": {
+    "alternate": "app/api/{}.rb",
+    "type": "api-test"
+  },
+  "jobs/*.rb": {
+    "alternate": "test/jobs/{}_test.rb",
+    "type": "job"
+  },
+  "test/jobs/*_test.rb": {
+    "alternate": "jobs/{}.rb",
+    "type": "test"
+  },
+  "docs/*": {
+    "type": "doc"
+  },
+  "app/view_models/*_view.rb": {
+    "alternate": "test/view_models/{}_view_test.rb",
+    "type": "view-model"
+  },
+  "test/view_models/{}_view_test.rb": {
+    "alternate": "app/view_models/{}_view.rb",
+    "type": "test"
+  }
+}
