@@ -19,3 +19,6 @@ function f() {
 cdf() {  # short for cdfinder
   cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
 }
+
+# minimal client for AnyBar status bar app
+function anybar { echo -n $1 | nc -4u -w0 localhost ${2:-1738};  }
