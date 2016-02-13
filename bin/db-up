@@ -7,4 +7,4 @@
 #
 #   $ db-up
 
-rake db:migrate db:test:prepare && git checkout db/schema.rb
+./bin/rake db:migrate db:test:prepare && git checkout db/schema.rb
