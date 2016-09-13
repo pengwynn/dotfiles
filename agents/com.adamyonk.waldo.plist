@@ -13,7 +13,7 @@
 
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/adamyonk/.dotfiles/bin/waldo</string>
+    <string>/Users/wynn/.dotfiles/bin/waldo</string>
   </array>
 </dict>
 </plist>
