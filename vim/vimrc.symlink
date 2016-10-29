@@ -28,7 +28,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'mattn/gist-vim'
 Plug 'epmatsw/ag.vim'
 Plug 'tpope/vim-commentary'
-Plug 'tejr/vim-tmux'
+Plug 'tmux-plugins/vim-tmux'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-rbenv'
 Plug 'gem.vim'
@@ -206,6 +206,11 @@ source ~/.vim/writing.vim
 let base16colorspace=256
 set bg=dark
 colorscheme base16-eighties
+
+" Nerdtree
+" ==========
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 
 " Git Gutter
