@@ -24,6 +24,7 @@ brew 'imagemagick'
 brew 'jo'
 brew 'jq'
 brew 'jrnl'
+brew 'kubectl'
 brew 'macvim', args: ['override-system-vim']
 brew 'pcre'
 brew 'rbenv'
