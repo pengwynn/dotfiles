@@ -26,6 +26,7 @@ brew 'jq'
 brew 'jrnl'
 brew 'kubectl'
 brew 'macvim', args: ['override-system-vim']
+brew 'mas'
 brew 'pcre'
 brew 'rbenv'
 brew 'rbenv-default-gems'
