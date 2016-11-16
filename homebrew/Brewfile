@@ -29,6 +29,7 @@ brew 'macvim', args: ['override-system-vim']
 brew 'mas'
 brew 'npm'
 brew 'pcre'
+brew 'pv'
 brew 'rbenv'
 brew 'rbenv-default-gems'
 brew 'rbenv-readline'
