@@ -1,5 +1,5 @@
 export GHI_PAGER=less
-export GIT_SANDBOX=~/Projects/sandbox
+export GIT_SANDBOX=~/code/sandbox
 export GIT_MERGE_AUTOEDIT=no
 
 # Wrap git with hub

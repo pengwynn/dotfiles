@@ -48,7 +48,10 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'ryanss/vim-hackernews'
 Plug 'jiangmiao/auto-pairs'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 call plug#end()
+
 
 " Per-directory .vimrc files
 set exrc
@@ -221,6 +224,10 @@ let g:gitgutter_eager = 0
 " GH Dashboard
 " ==========
 let g:github_dashboard = { 'username': 'pengwynn', 'password': $GITHUB_TOKEN }
+
+" JSX in .js files
+" ==========
+let g:jsx_ext_required = 0
 
 " Searching
 " ==========
