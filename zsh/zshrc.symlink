@@ -47,3 +47,6 @@ eval "$(rbenv init -)"
 rbenv global 2.2.4
 
 archey -c
+
+export NVM_DIR="/Users/wynn/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
