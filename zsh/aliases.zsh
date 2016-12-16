@@ -1,6 +1,4 @@
 alias cls='clear'
-alias l='ls -la'
-alias lastfm='shell-fm'
 alias reload!='. ~/.zshrc'
 alias count='wc -l'
 alias tft='curl "http://itsthisforthat.com/api.php?text"'
