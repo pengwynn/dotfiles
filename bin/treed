@@ -1,6 +1,6 @@
 #!/bin/sh
 # usage: treed PATH
-# Fiew folder structure using `tree` with some options
+# View folder structure using `tree` with some options
 #
 # Lifted from https://github.com/mathiasbynens/dotfiles/pull/249/files
 
