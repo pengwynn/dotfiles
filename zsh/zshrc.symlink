@@ -10,6 +10,7 @@ export ZSH=$HOME/.dotfiles
 export DOTFILES=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
+export CODE=~/code
 export PROJECTS=~/code
 
 # source every .zsh file in this rep
@@ -45,6 +46,8 @@ source "`brew --prefix`/etc/grc.bashrc"
 
 source '/usr/local/share/chruby/chruby.sh'
 source '/usr/local/share/chruby/auto.sh'
+
+chruby ruby-2.2.3
 
 archey -c
 
