@@ -1,0 +1,13 @@
+#!/bin/sh
+# Usage: $0 <args>
+# Install global homebrew and node modules
+
+set -e
+
+# Homebrew
+brew bundle --file="$HOME/Brewfile"
+
+# Node
+cat $DOTFILES/node/Yarnfile | xargs yarn global add
+
+
