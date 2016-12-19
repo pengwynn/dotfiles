@@ -10,4 +10,6 @@ brew bundle --file="$HOME/Brewfile"
 # Node
 cat $DOTFILES/node/Yarnfile | xargs yarn global add
 
+# Ruby
 
+cat $DOTFILES/ruby/default-gems | xargs gem install
