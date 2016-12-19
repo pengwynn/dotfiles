@@ -48,7 +48,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'ryanss/vim-hackernews'
 Plug 'jiangmiao/auto-pairs'
-Plug 'pangloss/vim-javascript'
+Plug 'sheerun/vim-polyglot'
 Plug 'mxw/vim-jsx'
 call plug#end()
 
