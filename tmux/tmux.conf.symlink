@@ -80,7 +80,7 @@ set-option -g display-time 5000
 
 ## set status bar
 set-option -g status-utf8 on
-set-option -g status-interval 1
+set-option -g status-interval 10
 set-option -g status-fg colour08
 set-option -g status-bg default
 set-option -g status-left-fg default
