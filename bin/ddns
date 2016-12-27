@@ -1,0 +1,12 @@
+#!/bin/sh
+
+source ~/.localrc
+
+IP=`curl -s http://icanhazip.com/`
+
+curl -H "Authorization: Bearer $DNSIMPLE_TOKEN" \
+     -H "Content-Type: application/json" \
+     -H "Accept: application/json" \
+     -X "PATCH" \
+     -i "https://api.dnsimple.com/v2/5138/zones/wynn.fm/records/201010" \
+     -d "{\"content\":\"$IP\"}"
