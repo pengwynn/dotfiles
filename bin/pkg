@@ -7,8 +7,11 @@ set -e
 # Homebrew
 brew bundle --file="$HOME/Brewfile"
 
+# Go
+cat $DOTFILES/go/packages | xargs go get
+
 # Node
-cat $DOTFILES/node/Yarnfile | xargs yarn global add
+cat $DOTFILES/node/packages | xargs yarn global add
 
 # Ruby
 
