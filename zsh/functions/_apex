@@ -1,0 +1,5 @@
+#compdef _apex apex
+
+_apex() {
+  compadd $(apex autocomplete)
+}
