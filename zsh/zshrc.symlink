@@ -53,7 +53,7 @@ source '/usr/local/share/chruby/auto.sh'
 
 chruby ruby-2.2.3
 
-archey -c
+archey -c -o
 
 export NVM_DIR="/Users/wynn/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
