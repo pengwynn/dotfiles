@@ -49,6 +49,7 @@ brew 'tree'
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
+brew 'wifi-password'
 brew 'zsh'
 
 cask '1password'
