@@ -1,6 +1,7 @@
 browser-sync
 fast-cli
 grunt
+jest
 netlify-cli
 now
 serverless
