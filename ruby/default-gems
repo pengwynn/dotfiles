@@ -1,4 +1,5 @@
 bundler
+guard
 octokit
 pry
 t
