@@ -33,6 +33,7 @@ brew 'macvim', args: ['override-system-vim']
 brew 'mas'
 brew 'npm'
 brew 'pcre'
+brew 'phantomjs'
 brew 'pv'
 brew 'python'
 brew 'readline'
