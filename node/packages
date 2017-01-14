@@ -5,4 +5,5 @@ jest
 netlify-cli
 now
 serverless
+yo
 
