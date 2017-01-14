@@ -104,14 +104,18 @@ set-option -g status-right '#[fg=colour3]#S#[fg=default] [#I:#P] /// #(battery -
 set-option -g status-right-length 100
 set-option -g status-left-length 120
 
+set-window-option -g window-status-format ' #I:#W '
+set-window-option -g window-status-attr dim
+
 ## highlight active window
 set-window-option -g window-status-current-fg colour4
 set-window-option -g window-status-current-attr bold
 set-window-option -g window-status-current-bg default
-set-window-option -g window-status-current-format '[ #I #W ]'
+set-window-option -g window-status-current-format '[ #I:#W ]'
 
-set-window-option -g window-status-bell-fg colour226
-set-window-option -g window-status-bell-bg colour23
+set-window-option -g window-status-bell-attr blink
+set-window-option -g window-status-bell-fg colour21
+set-window-option -g window-status-bell-bg colour9
 
 # renumber windows
 set-option -g renumber-windows on
