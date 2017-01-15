@@ -44,8 +44,6 @@ bindkey "^[[B" history-beginning-search-forward
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
 
-eval "$(grunt --completion=zsh)"
-
 source "`brew --prefix`/etc/grc.bashrc"
 
 source '/usr/local/share/chruby/chruby.sh'
@@ -57,3 +55,5 @@ archey -c -o
 
 export NVM_DIR="/Users/wynn/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+eval "$(grunt --completion=zsh)"
