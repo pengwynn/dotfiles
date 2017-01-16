@@ -70,7 +70,7 @@ REPO=$(git config remote.origin.url | cut -d/ -f4- | sed s/.git$//g)
 API_URL="https://api.github.com/repos/$REPO/statuses/$SHA"
 
 
-RESPONSE=$(curl -n $API_URL)
+RESPONSE=$(curl -H"Authorization: bearer $GITHUB_TOKEN" $API_URL)
 
 STATE=$(echo $RESPONSE | jq -r '.[0].state')
 TARGET=$(echo $RESPONSE | jq -r '.[0].target_url')
