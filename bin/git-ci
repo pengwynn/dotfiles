@@ -2,9 +2,9 @@
 command -v git >/dev/null 2>&1 || { echo >&2 "This command needs git installed and in PATH."; exit 1; }
 command -v jq >/dev/null 2>&1 || { echo >&2 "This command needs jq installed and in PATH. Install with brew install jq"; exit 1; }
 
-GREEN="\e[0;32m"
-YELLOW="\e[0;33m"
-RED="\e[0;31m"
+GREEN="\e[0;32;7m"
+YELLOW="\e[0;33;7m"
+RED="\e[0;31;7m"
 NOCOLOR="\e[0m"
 
 function usage {
@@ -77,13 +77,13 @@ TARGET=$(echo $RESPONSE | jq -r '.[0].target_url')
 
 case "$STATE" in
   pending )
-    printf "$YELLOW%s $NOCOLOR%s\n" $STATE $TARGET
+    printf "$YELLOW%s$NOCOLOR %s\n" $STATE $TARGET
     ;;
   failure )
-    printf "$RED%s $NOCOLOR%s\n" $STATE $TARGET
+    printf "$RED%s$NOCOLOR %s\n" $STATE $TARGET
     ;;
   success )
-    printf "$GREEN%s $NOCOLOR%s\n" $STATE $TARGET
+    printf "$GREEN%s$NOCOLOR %s\n" $STATE $TARGET
     ;;
 esac
 
