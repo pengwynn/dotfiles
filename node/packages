@@ -1,6 +1,6 @@
 browser-sync
 fast-cli
-grunt
+grunt-cli
 jest
 netlify-cli
 now
