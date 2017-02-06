@@ -58,3 +58,7 @@ export NVM_DIR="/Users/wynn/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 eval "$(grunt --completion=zsh)"
+
+if [ -s $HOME/.awsam/bash.rc ]; then
+  source $HOME/.awsam/bash.rc
+fi
