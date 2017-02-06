@@ -207,8 +207,8 @@ source ~/.vim/snippets.vim
 source ~/.vim/writing.vim
 
 let base16colorspace=256
-set bg=dark
-colorscheme base16-eighties
+set background=light
+colorscheme base16-solarized-light
 
 " Nerdtree
 " ==========
