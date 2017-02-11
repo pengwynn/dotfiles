@@ -55,4 +55,5 @@ alias whodat="w"
 # enable yubikey and ssh
 alias remote="osascript -e 'tell application \"yubiswitch\" to KeyOn' && ssh remote.github.com -t gh-screen && osascript -e 'tell application \"yubiswitch\" to KeyOff' "
 
-
+# iA writer
+alias ia="open $1 -a /Applications/iA\ Writer.app"
