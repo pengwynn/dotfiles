@@ -4,6 +4,7 @@ grunt-cli
 jest
 netlify-cli
 now
+pure-prompt
 serverless
 yo
 

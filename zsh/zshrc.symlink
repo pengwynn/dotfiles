@@ -62,3 +62,6 @@ eval "$(grunt --completion=zsh)"
 if [ -s $HOME/.awsam/bash.rc ]; then
   source $HOME/.awsam/bash.rc
 fi
+
+autoload -U promptinit; promptinit
+prompt pure
