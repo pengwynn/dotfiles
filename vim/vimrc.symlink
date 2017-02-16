@@ -50,6 +50,7 @@ Plug 'ryanss/vim-hackernews'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'mxw/vim-jsx'
+Plug 'fleischie/vim-styled-components'
 call plug#end()
 
 
