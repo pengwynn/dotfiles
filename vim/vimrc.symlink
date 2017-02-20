@@ -213,6 +213,7 @@ endfunction
 map <leader>f :call ShowFileInNERDTree()<cr>
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeIgnore=['node_modules$[[dir]]']
 
 
 " Git Gutter
