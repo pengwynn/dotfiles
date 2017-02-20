@@ -181,18 +181,6 @@ set statusline+=%=                              " Set right-side status info aft
 set statusline+=%l/%L:%v                        " Set <line number>/<total lines>:<column>
 set statusline+=\                               " Set ending space
 
-" NERDTree
-" ========
-function! ShowFileInNERDTree()
-  if exists("t:NERDTreeBufName")
-    NERDTreeFind
-  else
-    NERDTree
-    wincmd l
-    NERDTreeFind
-  endif
-endfunction
-map <leader>f :call ShowFileInNERDTree()<cr>
 
 " Plugin overrides
 source ~/.vim/autocmd.vim
@@ -211,8 +199,18 @@ let base16colorspace=256
 set background=light
 colorscheme base16-solarized-light
 
-" Nerdtree
-" ==========
+" NERDTree
+" ========
+function! ShowFileInNERDTree()
+  if exists("t:NERDTreeBufName")
+    NERDTreeFind
+  else
+    NERDTree
+    wincmd l
+    NERDTreeFind
+  endif
+endfunction
+map <leader>f :call ShowFileInNERDTree()<cr>
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
