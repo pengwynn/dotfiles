@@ -6,5 +6,7 @@ netlify-cli
 now
 pure-prompt
 serverless
+webpack
+webpack-dev-server
 yo
 
