@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Usage: pkg ruby
+# Summary: Install default Ruby gems
+# Help: This will print out when you run `sub help who`.
+# You can have multiple lines even!
+#
+#    Show off an example indented
+#
+# And maybe start off another one?
+
+set -e
+
+PKG_MGR="ruby"
+source "$(dirname $0)/installer-functions"
+
+if [ "$#" -ne 1  ]; then
+  cat $PKG_FILE | xargs gem install
+fi

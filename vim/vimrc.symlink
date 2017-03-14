@@ -31,6 +31,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-rbenv'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
 Plug 'gem.vim'
 Plug 'zerowidth/vim-copy-as-rtf'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -51,6 +53,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'mxw/vim-jsx'
 Plug 'fleischie/vim-styled-components'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 
@@ -214,6 +218,15 @@ map <leader>f :call ShowFileInNERDTree()<cr>
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 let g:NERDTreeIgnore=['node_modules$[[dir]]']
+
+" Snippets
+" ========
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 
 " Git Gutter

@@ -47,21 +47,24 @@ for config_file ($ZSH/**/completion.sh) source $config_file
 
 source "`brew --prefix`/etc/grc.bashrc"
 
-source '/usr/local/share/chruby/chruby.sh'
-source '/usr/local/share/chruby/auto.sh'
-
-chruby ruby-2.2.3
-
 archey -c -o
 
-export NVM_DIR="/Users/wynn/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# asdf
+if [ -s "$HOME/.asdf/asdf.sh" ]; then
+  source $HOME/.asdf/asdf.sh
+fi
+if [ -s "$HOME/.asdf/completions/asdf.bash" ]; then
+  source $HOME/.asdf/completions/asdf.bash
+fi
 
-eval "$(grunt --completion=zsh)"
-
-if [ -s $HOME/.awsam/bash.rc ]; then
+# awsam
+if [ -s "$HOME/.awsam/bash.rc" ]; then
   source $HOME/.awsam/bash.rc
 fi
+
+
+# pkg
+eval "$($DOTFILES/pkg/bin/pkg init -)"
 
 autoload -U promptinit; promptinit
 prompt pure

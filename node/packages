@@ -1,4 +1,5 @@
 browser-sync
+create-react-app
 fast-cli
 grunt-cli
 jest
@@ -9,4 +10,5 @@ serverless
 webpack
 webpack-dev-server
 yo
+yarn-completions
 
