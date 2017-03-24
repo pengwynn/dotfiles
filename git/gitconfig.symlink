@@ -1,6 +1,7 @@
 [user]
   name = Wynn Netherland
   email = wynn.netherland@gmail.com
+	signingkey = 955C9887A1D112F3
 [color]
   ui = auto
 [color "branch"]
