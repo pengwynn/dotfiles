@@ -3,7 +3,7 @@ export PATH=.git/safe/../../bin:./bin:$HOME/.dotfiles/bin:/usr/local/bin:/usr/lo
 # base-16
 BASE16_SHELL="$HOME/.dotfiles/color/base16-shell/scripts"
 alias dark="source $BASE16_SHELL/base16-eighties.sh"
-alias light="source $BASE16_SHELL/base16-tomorrow.sh"
+alias light="source $BASE16_SHELL/base16-solarized-light.sh"
 [[ -d "$BASE16_SHELL" ]] && dark
 
 # shortcut to this dotfiles path is $ZSH
