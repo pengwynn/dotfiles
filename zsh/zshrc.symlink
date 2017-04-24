@@ -68,3 +68,7 @@ eval "$($DOTFILES/pkg/bin/pkg init -)"
 
 autoload -U promptinit; promptinit
 prompt pure
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export GH_LOGIN="pengwynn"
