@@ -1,7 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # mx
-# version 0.3
+# version 0.4
 
 # Contributors:
 #   Wynn Netherland - http://github.com/pengwynn
@@ -29,14 +29,12 @@
 #   cd ~/.dotfiles
 #   tmux new-session -s "$SESSION" -n editor -d
 #   tmux send-keys 'e' C-m ':CtrlP' C-m
-#   tmux new-window -n shell -t "$SESSION"
 #   tmux select-window -t "$SESSION":1
 
 # If there is no .tmux file, the default window setup is as follows:
-# editor  - runs $EDITOR right away
-# shell   - empty shell
-# console - if script/console is available
-# server  - if script/server is available
+# editor/shell  - runs $EDITOR right away and a new shell in a 50/50 split
+# console       - if script/console is available
+# server        - if script/server is available
 
 set -e
 
@@ -66,11 +64,12 @@ if ! (tmux list-sessions | cut -d':' -f1 | grep -q ^"$SESSION"\$); then
   else
     tmux new-session -s "$SESSION" -n editor -d
     tmux send-keys "$EDITOR" C-m #':CtrlP' C-m
-    tmux new-window -n shell -t "$SESSION"
+    tmux split-window -h
     _safe_window console script/console
     _safe_window server script/server
 
     tmux select-window -t "$SESSION":1
+    tmux select-pane -t0
   fi
 fi
 
