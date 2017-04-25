@@ -3,6 +3,7 @@ set -ga update-environment ' ITERM_PROFILE TMUX_STATUS_LEFT'
 set-window-option -g mode-keys vi
 
 set -g default-terminal "screen-256color"
+set -g default-shell $SHELL
 
 ## keybindings
 unbind C-b
@@ -42,8 +43,8 @@ bind-key >      swap-window -t :+
 bind-key BSpace switch-client -l
 
 # vi mode
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
+bind-key -Tcopy-mode-vi 'v' send -X begin-selection
+bind-key -Tcopy-mode-vi 'y' send -X copy-selection
 
 # Smart pane switching with awareness of vim splits
 # See: https://github.com/christoomey/vim-tmux-navigator
@@ -73,13 +74,11 @@ bind-key -r l   select-pane -t :.+
 set -g history-limit 10000
 
 ## messages
-set-option -g quiet
 set-option -g message-fg colour0
 set-option -g message-bg colour4
 set-option -g display-time 5000
 
 ## set status bar
-set-option -g status-utf8 on
 set-option -g status-interval 10
 set-option -g status-fg colour08
 set-option -g status-bg default
@@ -124,11 +123,9 @@ set-option -g renumber-windows on
 set-option -g base-index 1
 
 set-option -g   visual-activity   off
-set-option -g   visual-content    off
 set-option -g   set-titles        on
 set-option -gw  automatic-rename  on
 set-option -gw  monitor-activity  off
-set-option -gw  monitor-content   off
 
 ## pane border and colors
 set-option -g pane-active-border-fg colour4
@@ -138,11 +135,6 @@ set-option -g pane-active-border-bg default
 set-window-option -g    mode-bg   colour04  # selector background
 set-window-option -g    mode-fg   black    # selector foreground
 
-
-## Copy/paste
-unbind -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe 'reattach-to-user-namespace pbcopy'
-set-option -g default-command "reattach-to-user-namespace -l zsh; tmux rename-window zsh"
 
 set -g mouse on
 bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
