@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #/ Usage: git pr [<branch>]
 #/ Open the pull request page for <branch>, or the current branch if not
 #/ specified. Lands on the new pull request page when no PR exists yet.
