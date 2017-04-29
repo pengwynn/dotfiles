@@ -72,7 +72,6 @@
 [diff]
   tool = vimdiff
 
-# vim: ft=gitconfig
 [credential]
   helper = osxkeychain
 
