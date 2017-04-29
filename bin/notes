@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [[ -z $PATTERN ]]; then
-  PATTERN='TODO|HACK|FIXME|OPTIMIZE'
-fi
-
-gawk 'match($0, /^.*('$PATTERN'):?\s?(.*)$/, ary) {print FILENAME":"FNR":"ary[1]":"ary[2]}' $@
