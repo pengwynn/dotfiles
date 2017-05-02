@@ -1,8 +1,0 @@
-#!/bin/sh
-# hide file by putting a dot in front
-# usage: hide FILE [FILE]...
-set -e
-for f in "$@"
-do
-  mv -v "$f" $(dirname "$f")/.$(basename "$f")
-done

@@ -1,5 +1,0 @@
-#compdef _cheat cheat
-
-_cheat() {
-  compadd $(cheat sheets)
-}

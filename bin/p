@@ -1,4 +1,0 @@
-#!/bin/sh
-# Usage: p <expr>
-# Print arbitrary Ruby expression <expr>.
-ruby -e "p($*)"

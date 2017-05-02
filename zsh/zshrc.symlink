@@ -62,10 +62,6 @@ if [ -s "$HOME/.awsam/bash.rc" ]; then
   source $HOME/.awsam/bash.rc
 fi
 
-
-# pkg
-eval "$($DOTFILES/pkg/bin/pkg init -)"
-
 autoload -U promptinit; promptinit
 prompt pure
 
