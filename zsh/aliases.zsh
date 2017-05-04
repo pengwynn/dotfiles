@@ -57,3 +57,6 @@ alias remote="osascript -e 'tell application \"yubiswitch\" to KeyOn' && ssh rem
 
 # iA writer
 alias ia="open $1 -a /Applications/iA\ Writer.app"
+
+# Rails migration date
+alias migd="date +'%Y%m%d%H%M%S'"
