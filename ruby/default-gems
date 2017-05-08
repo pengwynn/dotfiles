@@ -4,3 +4,4 @@ guard
 octokit
 pry
 t
+travis
