@@ -78,7 +78,7 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 
-[commit]
-	gpgsign = true
+; [commit]
+; 	gpgsign = true
 
 # vim: ft=gitconfig sw=2 ts=2 et
