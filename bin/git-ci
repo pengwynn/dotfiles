@@ -52,7 +52,7 @@ else
   if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1 ]; then
     SHA=$(git rev-parse HEAD)
   else
-    echo "Please supply commit SHA or run from a git REPOsitory"
+    echo "Please supply commit SHA or run from a git Repository"
     echo ""
     usage
     exit 1
