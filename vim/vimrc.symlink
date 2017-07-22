@@ -54,8 +54,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'mxw/vim-jsx'
 Plug 'fleischie/vim-styled-components'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 call plug#end()
 
 
