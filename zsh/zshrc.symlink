@@ -47,7 +47,6 @@ for config_file ($ZSH/**/completion.sh) source $config_file
 
 source "`brew --prefix`/etc/grc.bashrc"
 
-archey -c -o
 
 # asdf
 if [ -s "$HOME/.asdf/asdf.sh" ]; then
