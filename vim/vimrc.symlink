@@ -184,19 +184,6 @@ set statusline+=%=                              " Set right-side status info aft
 set statusline+=%l/%L:%v                        " Set <line number>/<total lines>:<column>
 set statusline+=\                               " Set ending space
 
-
-" Plugin overrides
-source ~/.vim/autocmd.vim
-source ~/.vim/format.vim
-source ~/.vim/ruby.vim
-source ~/.vim/common.vim
-source ~/.vim/tmux.vim
-source ~/.vim/ctrlp.vim
-source ~/.vim/go.vim
-source ~/.vim/goyo.vim
-source ~/.vim/snippets.vim
-source ~/.vim/writing.vim
-
 let base16colorspace=256
 set background=light
 colorscheme base16-solarized-light
