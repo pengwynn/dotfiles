@@ -188,7 +188,6 @@ set statusline+=\                               " Set ending space
 " Plugin overrides
 source ~/.vim/autocmd.vim
 source ~/.vim/format.vim
-source ~/.vim/rails.vim
 source ~/.vim/ruby.vim
 source ~/.vim/common.vim
 source ~/.vim/tmux.vim
