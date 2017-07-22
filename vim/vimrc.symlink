@@ -185,8 +185,11 @@ set statusline+=%l/%L:%v                        " Set <line number>/<total lines
 set statusline+=\                               " Set ending space
 
 let base16colorspace=256
-set background=light
-colorscheme base16-solarized-light
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " NERDTree
 " ========

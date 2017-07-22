@@ -1,11 +1,5 @@
 export PATH=".git/safe/../../bin:./bin:$HOME/.dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/opt/mysql@5.6/bin:$PATH"
 
-# base-16
-BASE16_SHELL="$HOME/.dotfiles/color/base16-shell/scripts"
-alias dark="source $BASE16_SHELL/base16-eighties.sh"
-alias light="source $BASE16_SHELL/base16-solarized-light.sh"
-[[ -d "$BASE16_SHELL" ]] && dark
-
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 export DOTFILES=$HOME/.dotfiles
