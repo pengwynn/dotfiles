@@ -14,7 +14,7 @@ if [ "$1" == "--help" -o "$1" == '-h' ]; then
 fi
 
 remote_url=$(git config --get remote.origin.url)
-repo_with_owner=$(echo $remote_url | perl -pe's/(git@|https:\/\/)?github.com(:|\/)([-\.\w]+)\/([-\.\w]+)\.git/$3\/$4/')
+repo_with_owner=$(echo $remote_url | perl -pe's/(git@|https:\/\/)?github.com(:|\/)([-\.\w]+)\/([-\w]+)(\.git)?/$3\/$4/')
 
 # figure out the branch
 branch=${1:-"$(git symbolic-ref HEAD | sed 's@refs/heads/@@')"}
@@ -24,7 +24,7 @@ if git rev-parse "refs/remotes/origin/$branch" 1>/dev/null 2>&1; then
     # escape forward slashes
     branch=${branch//\//\%2f}
 
-    exec open "$repo_with_owner/pull/$branch"
+    exec open "https://github.com/$repo_with_owner/pull/$branch"
 else
     echo "error: branch '$branch' does not exist on the origin remote." 1>&2
     echo "       try again after pushing the branch"
