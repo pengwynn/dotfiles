@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+NEW_WINDOW_NAME="$(basename $1)"
+
+if tmux list-windows -F"#W" | grep $1 -q
+then
+  index=$(tmux list-windows -F"#I")
+  tmux select-window -t $index
+else
+  tmux new-window -c "#{pane_current_path}/$1" -n $NEW_WINDOW_NAME
+  tmux send-keys "$EDITOR" C-m
+  tmux split-window -h -c "#{pane_current_path}"
+  tmux select-pane -t0
+  tmux resize-pane -Z
+fi
+
+
