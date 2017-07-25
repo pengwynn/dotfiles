@@ -59,7 +59,7 @@ if ! (tmux list-sessions | cut -d':' -f1 | grep -q ^"$SESSION"\$); then
     cd "$PROJECTS"/"$SESSION"
   fi
 
-  if [ -x "$PWD"/.tmux ]; then
+  if [ -f "$PWD"/.tmux ]; then
     bash "$PWD"/.tmux "$SESSION"
   else
     tmux new-session -s "$SESSION" -n editor -d
