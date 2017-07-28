@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+function dc_rebuild {
+    docker-compose build "$@" && docker-compose stop "$@" && docker-compose up -d "$@"
+}
+
+function dc_cycle {
+    docker-compose stop "$@" && docker-compose up -d "$@"
+}
+
+function dc_clean {
+    docker rm $(docker ps -a -q)
+    docker rmi $(docker images -q -f dangling=true)
+}
+
+function dc_nuke {
+    docker kill $(docker ps -q)
+    docker rm $(docker ps -a -q)
+    docker rmi $(docker images -q)
+}
+
+if [[ $# > 0 ]]; then
+  case "$1" in
+    rebuild )
+      shift
+      dc_rebuild "$@"
+      ;;
+    cycle )
+      shift
+      dc_cycle "$@"
+      ;;
+    clean )
+      dc_clean
+      ;;
+    nuke )
+      dc_nuke
+      ;;
+    *)
+      docker-compose "$@"
+      ;;
+  esac
+else
+  docker-compose
+fi
+
