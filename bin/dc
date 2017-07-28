@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Borrowed from @ggerrietts
+
 function dc_rebuild {
     docker-compose build "$@" && docker-compose stop "$@" && docker-compose up -d "$@"
 }
