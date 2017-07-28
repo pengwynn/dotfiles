@@ -23,3 +23,6 @@ pkg
 
 # per-project scratchpad
 .scratch
+
+# projectionist
+.projections.json
