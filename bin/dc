@@ -19,21 +19,29 @@ function dc_nuke {
     docker rmi $(docker images -q)
 }
 
+function dc_console {
+    docker-compose exec "$1" /bin/bash
+}
+
 if [[ $# > 0 ]]; then
   case "$1" in
-    rebuild )
+    clean )
+      dc_clean
+      ;;
+    console )
       shift
-      dc_rebuild "$@"
+      dc_console "$@"
       ;;
     cycle )
       shift
       dc_cycle "$@"
       ;;
-    clean )
-      dc_clean
-      ;;
     nuke )
       dc_nuke
+      ;;
+    rebuild )
+      shift
+      dc_rebuild "$@"
       ;;
     *)
       docker-compose "$@"
