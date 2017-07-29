@@ -9,9 +9,9 @@ then
   index=$(tmux list-windows -F"#I")
   tmux select-window -t $index
 else
-  tmux new-window -c "#{pane_current_path}/$1" -n $NEW_WINDOW_NAME
+  tmux new-window -c "$1" -n $NEW_WINDOW_NAME
   tmux send-keys "$EDITOR" C-m
-  tmux split-window -h -c "#{pane_current_path}"
+  tmux split-window -h -c "$1"
   tmux select-pane -t0
   tmux resize-pane -Z
 fi
