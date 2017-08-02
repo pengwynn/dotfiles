@@ -25,6 +25,10 @@ function dc_console {
     docker-compose exec "$1" /bin/bash
 }
 
+function dc_ports {
+  docker ps --filter name="$1" --format "{{.Names}}: {{.Ports}}"
+}
+
 if [[ $# > 0 ]]; then
   case "$1" in
     clean )
@@ -40,6 +44,10 @@ if [[ $# > 0 ]]; then
       ;;
     nuke )
       dc_nuke
+      ;;
+    ports )
+      shift
+      dc_ports "$@"
       ;;
     rebuild )
       shift
