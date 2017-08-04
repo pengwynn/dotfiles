@@ -11,7 +11,7 @@ filetype off                   " required!
 
 call plug#begin('~/.vim/bundle')
 
-Plug 'L9'
+Plug 'vim-scripts/L9'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'plasticboy/vim-markdown'
@@ -34,7 +34,7 @@ Plug 'ervandew/supertab'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
-Plug 'gem.vim'
+Plug 'vim-scripts/gem.vim'
 Plug 'zerowidth/vim-copy-as-rtf'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'justinmk/vim-gtfo'
