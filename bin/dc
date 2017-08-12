@@ -26,7 +26,7 @@ function dc_console {
 }
 
 function dc_ports {
-  docker ps --filter name="$1" --format "{{.Names}}: {{.Ports}}"
+    docker ps --filter name="$1" --format "{{.Names}}: {{.Ports}}"
 }
 
 if [[ $# > 0 ]]; then
