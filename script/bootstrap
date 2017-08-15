@@ -4,9 +4,9 @@
 
 set -e
 
-Echo "Bootstrapping"
+echo "Bootstrapping"
 
-Echo "Updating submodules"
+echo "Updating submodules"
 git submodule init && git submodule update
 
 script/platform
