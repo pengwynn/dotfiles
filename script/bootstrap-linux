@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
 sudo apt-get update > /dev/null
 cat $HOME/.dotfiles/system/ubuntu | xargs sudo apt-get install -y
 
@@ -28,6 +32,12 @@ export GNUPGHOME="${ASDF_DIR:-$HOME/.asdf}/keyrings/nodejs" && mkdir -p "$GNUPGH
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 asdf install nodejs 8.1.4
 asdf global nodejs 8.1.4
+
+
+echo "Installing Ruby"
+asdf install ruby 2.2.3
+asdf global ruby 2.2.3
+cat ruby/default-gems | xargs gem install
 
 echo "Installing ctop"
 sudo wget https://github.com/bcicen/ctop/releases/download/v0.6.1/ctop-0.6.1-linux-amd64 -O /usr/local/bin/ctop
