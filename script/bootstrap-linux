@@ -45,6 +45,7 @@ sudo chmod +x /usr/local/bin/ctop
 
 
 echo "Set up zsh"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh-syntax-highlighting
 sudo ln -s -f $HOME/.dotfiles/zsh/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
 sudo ln -s -f $HOME/.dotfiles/zsh/pure/async.zsh /usr/local/share/zsh/site-functions/async
 sudo chmod -R 755 /usr/local/share/zsh/site-functions

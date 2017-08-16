@@ -60,7 +60,6 @@ fi
 autoload -U promptinit; promptinit
 prompt pure
 
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export GH_LOGIN="pengwynn"
 
@@ -75,3 +74,4 @@ eval "$(/Users/wynn/.dpm/bin/dpm init -)"
 eval "$(/Users/wynn/code/dev-cli@adamyonk/bin/dev init -)"
 
 archey -o
+source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
