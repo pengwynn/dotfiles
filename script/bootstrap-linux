@@ -16,8 +16,8 @@ asdf plugin-add nodejs
 asdf plugin-add ruby
 
 echo "Installing Go"
-asdf install go 1.8
-asdf global go 1.8
+asdf install golang 1.8
+asdf global golang 1.8
 
 echo "Installing hub"
 go get github.com/github/hub/...
