@@ -81,10 +81,10 @@ set-option -g display-time 5000
 ## set status bar
 set-option -g status-interval 10
 set-option -g status-fg colour08
-set-option -g status-bg default
-set-option -g status-left-fg default
-set-option -g status-left-bg default
-set-option -g status-right-bg default
+set-option -g status-bg colour0
+set-option -g status-left-fg colour0
+set-option -g status-left-bg colour0
+set-option -g status-right-bg colour0
 bind-key / set-option status
 
 # "I' == current window index
@@ -98,7 +98,7 @@ bind-key / set-option status
 # Where appropriate, special character sequences may be prefixed with a
 # number to specify the maximum length, in this line "#10W'.
 set -g status-left ""
-set-option -g status-right '#[fg=colour3]#S#[fg=default] [#I:#P] /// #(battery -o tmux -m default -g default)#[fg=default]%a %d %b %H:%M'
+set-option -g status-right '#(hostname) #[fg=colour3]#S#[fg=default] [#I:#P] /// #(battery -o tmux -m default -g default)#[fg=default]#(TZ="America/Chicago" date +"%%a %%d %%b %%H:%%M %%z" )'
 
 set-option -g status-right-length 100
 set-option -g status-left-length 120
