@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo apt-get update > /dev/null
-sudo apt-get install -y git tmux vim zsh silversearcher-ag jq screenfetch
+cat $HOME/.dotfiles/system/ubuntu | xargs sudo apt-get install -y
 
 export GITHUB_USER=pengwynn
 git config credential.helper envvar
