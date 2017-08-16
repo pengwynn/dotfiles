@@ -5,12 +5,15 @@ git-core
 jq
 libcurl4-openssl-dev
 libffi-dev
+libmysqlclient-dev
+libpq-dev
 libreadline-dev
 libsqlite3-dev
 libssl-dev
 libxml2-dev
 libxslt1-dev
 libyaml-dev
+mosh
 python-software-properties
 screenfetch
 silversearcher-ag
