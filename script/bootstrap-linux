@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 sudo apt-get update > /dev/null
-sudo apt-get install -y git tmux vim zsh
+sudo apt-get install -y git tmux vim zsh silversearcher-ag jq
 
 echo "Setting up version manager"
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 
-source ~/.asdf/asdf.sh
+source $HOME/.asdf/asdf.sh
 
 asdf plugin-add golang https://github.com/kennyp/asdf-golang
 asdf plugin-add nodejs
