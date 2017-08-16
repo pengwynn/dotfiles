@@ -11,7 +11,15 @@ if [[ "$(uname)" == "Darwin" ]]; then
 elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
    platform="linux"
 elif [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]]; then
-    platform="windows"
+   platform="windows"
+fi
+
+SCRIPT_DIR=$(dirname $BASH_SOURCE)
+platform_bootstrap="$SCRIPT_DIR/bootstrap-$platform"
+if [ -x "$platform_boostrap"];then
+  echo "Running $platform platform bootstrap"
+ 
+  $platform_bootstrap
 fi
 
 echo "Running installers for $platform"

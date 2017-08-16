@@ -1,3 +1,6 @@
 [submodule "color/base16-shell"]
 	path = color/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
+[submodule "zsh/pure"]
+	path = zsh/pure
+	url = https://github.com/sindresorhus/pure

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+sudo apt-get update > /dev/null
+sudo apt-get install -y git tmux vim zsh
+
+echo "Setting up version manager"
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+
+source ~/.asdf/asdf.sh
+
+asdf plugin-add golang https://github.com/kennyp/asdf-golang
+asdf plugin-add nodejs
+asdf plugin-add ruby
+
+echo "Installing Go"
+asdf install go 1.8
+asdf global go 1.8
+
+echo "Installing hub"
+go get github.com/github/hub/...
+
+echo "Installing Node & NPM"
+export GNUPGHOME="${ASDF_DIR:-$HOME/.asdf}/keyrings/nodejs" && mkdir -p "$GNUPGHOME" && chmod 0700 "$GNUPGHOME"
+# Imports Node.js release team's OpenPGP keys to the keyring
+bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+asdf install nodejs 8.1.4
+asdf global nodejs 8.1.4
+
+echo "Installing ctop"
+sudo wget https://github.com/bcicen/ctop/releases/download/v0.6.1/ctop-0.6.1-linux-amd64 -O /usr/local/bin/ctop
+sudo chmod +x /usr/local/bin/ctop
+
+
+echo "Set up zsh"
+sudo ln -s /Users/wynn/.dotfiles/zsh/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
+sudo ln -s /Users/wynn/.dotfiles/zsh/async.zsh /usr/local/share/zsh/site-functions/async
+sudo chmod -R 755 /usr/local/share/zsh/site-functions
+sudo chown -R root:root /usr/local/share/zsh/site-functions
+sudo chsh wynn -s /usr/bin/zsh

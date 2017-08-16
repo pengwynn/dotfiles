@@ -11,6 +11,7 @@ filetype off                   " required!
 
 call plug#begin('~/.vim/bundle')
 
+
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'alunny/pegjs-vim'
@@ -63,8 +64,8 @@ Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/ZoomWin'
+Plug 'vim-scripts/gem.vim'
 Plug 'w0rp/ale'
-
 if has('mac')
 Plug 'zerowidth/vim-copy-as-rtf'
 endif
