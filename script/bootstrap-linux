@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo apt-get update > /dev/null
-sudo apt-get install -y git tmux vim zsh silversearcher-ag jq
+sudo apt-get install -y git tmux vim zsh silversearcher-ag jq screenfetch
 
 export GITHUB_USER=pengwynn
 git config credential.helper envvar
@@ -35,8 +35,8 @@ sudo chmod +x /usr/local/bin/ctop
 
 
 echo "Set up zsh"
-sudo ln -s /Users/wynn/.dotfiles/zsh/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
-sudo ln -s /Users/wynn/.dotfiles/zsh/async.zsh /usr/local/share/zsh/site-functions/async
+sudo ln -s -f $HOME/.dotfiles/zsh/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
+sudo ln -s -f $HOME/.dotfiles/zsh/pure/async.zsh /usr/local/share/zsh/site-functions/async
 sudo chmod -R 755 /usr/local/share/zsh/site-functions
 sudo chown -R root:root /usr/local/share/zsh/site-functions
 sudo chsh wynn -s /usr/bin/zsh
