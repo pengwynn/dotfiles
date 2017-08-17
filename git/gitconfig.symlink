@@ -1,7 +1,7 @@
 [user]
   name = Wynn Netherland
   email = wynn.netherland@gmail.com
-	signingkey = 955C9887A1D112F3
+	signingkey = 151F3D244812281A0683DA1F8593D5B72B96BA07
 [color]
   ui = auto
 [color "branch"]
@@ -81,7 +81,9 @@
 [core]
 	excludesfile = ~/.gitignore_global
 
-; [commit]
-; 	gpgsign = true
+[commit]
+	gpgsign = true
 
 # vim: ft=gitconfig sw=2 ts=2 et
+[gpg]
+	program = /usr/local/bin/gpg
