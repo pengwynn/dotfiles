@@ -66,3 +66,6 @@ export GH_LOGIN="pengwynn"
 [ -f /Users/wynn/.travis/travis.sh ] && source /Users/wynn/.travis/travis.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Set up default package manager
+eval "$(/Users/wynn/.dpm/bin/dpm init -)"
