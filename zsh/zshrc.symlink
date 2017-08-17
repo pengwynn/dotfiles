@@ -41,9 +41,6 @@ bindkey "^N" history-beginning-search-forward
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
 
-# source "`brew --prefix`/etc/grc.bashrc"
-
-
 # asdf
 if [ -s "$HOME/.asdf/asdf.sh" ]; then
   source $HOME/.asdf/asdf.sh
