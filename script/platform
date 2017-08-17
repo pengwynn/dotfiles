@@ -16,7 +16,7 @@ fi
 
 SCRIPT_DIR=$(dirname $BASH_SOURCE)
 platform_bootstrap="$SCRIPT_DIR/bootstrap-$platform"
-if [ -x "$platform_boostrap"];then
+if [ -x "$platform_bootstrap"];then
   echo "Running $platform platform bootstrap"
  
   $platform_bootstrap
