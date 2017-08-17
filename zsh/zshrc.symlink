@@ -69,9 +69,7 @@ export GH_LOGIN="pengwynn"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Set up default package manager
-eval "$(/Users/wynn/.dpm/bin/dpm init -)"
-
-eval "$(/Users/wynn/code/dev-cli@adamyonk/bin/dev init -)"
+# eval "$(/Users/wynn/.dpm/bin/dpm init -)"
 
 archey -o
 source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
