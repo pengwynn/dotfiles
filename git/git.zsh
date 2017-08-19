@@ -15,10 +15,10 @@ function g {
 }
 
 function time_since_last_commit() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  git log -1 --pretty=format:"%ar" | sed 's/\([0-9]*\) \(.\).*/\1\2/'
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    git log -1 --pretty=format:"%ar" | sed 's/\([0-9]*\) \(.\).*/\1\2/'
 }
 
 function sandbox() {
-  cd $GIT_SANDBOX && git clone $1 && cd `last_modified`
+    cd $GIT_SANDBOX && git clone $1 && cd `last_modified`
 }
