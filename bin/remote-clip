@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+while (true); do nc -l 5556 | pbcopy; done
+
+
