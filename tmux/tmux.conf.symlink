@@ -104,7 +104,7 @@ set-option -g status-right-length 100
 set-option -g status-left-length 120
 
 set-window-option -g window-status-format ' #I:#W '
-set-window-option -g window-status-attr dim
+set-window-option -g window-status-attr default
 
 ## highlight active window
 set-window-option -g window-status-current-fg colour4
