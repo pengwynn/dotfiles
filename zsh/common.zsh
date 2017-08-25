@@ -22,3 +22,12 @@ cdf() {  # short for cdfinder
 
 # minimal client for AnyBar status bar app
 function anybar { echo -n $1 | nc -4u -w0 localhost ${2:-1738};  }
+
+# Refresh env vars under tmux
+if [ -n "$TMUX"  ]; then
+  function refresh {
+    export $(tmux show-environment | grep "^SSH_AUTH_SOCK")
+  }
+else
+  function refresh {  }
+fi
