@@ -49,6 +49,11 @@
   wdiff = diff --color-words
   wip = "!$EDITOR $(git ls-files -m)"
 
+  ri = rebase -i --autosquash
+  mri = rebase -i
+  fix = commit --fixup
+  squ = commit --squash
+
 [init]
   templatedir = ~/.git_template
 
@@ -74,6 +79,7 @@
 
 [web]
   browser = open
+
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
@@ -84,6 +90,7 @@
 [commit]
 	gpgsign = true
 
-# vim: ft=gitconfig sw=2 ts=2 et
 [gpg]
 	program = /usr/local/bin/gpg
+
+# vim: ft=gitconfig sw=2 ts=2 et
