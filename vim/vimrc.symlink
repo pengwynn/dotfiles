@@ -58,6 +58,14 @@ Plug 'sbdchd/neoformat'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
 Plug 'SirVer/ultisnips'
+Plug 'c-brenn/phoenix.vim'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'inside/vim-textobj-jsxattr'
+Plug 'andyl/vim-textobj-elixir'
+Plug 'tek/vim-textobj-ruby'
+Plug 'reedes/vim-textobj-sentence'
+Plug 'alunny/pegjs-vim'
 call plug#end()
 
 
