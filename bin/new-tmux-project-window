@@ -2,7 +2,12 @@
 
 set -e
 
-NEW_WINDOW_NAME="$(basename $1)"
+if [ "$2" ]; then
+  NEW_WINDOW_NAME="$2"
+else
+  NEW_WINDOW_NAME="$(basename $1)"
+fi
+
 
 if tmux list-windows -F"#W" | grep $1 -q
 then
