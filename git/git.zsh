@@ -3,7 +3,7 @@ export GIT_SANDBOX=~/code/sandbox
 export GIT_MERGE_AUTOEDIT=no
 
 # Wrap git with hub
-alias git=hub
+# alias git=hub
 
 function g {
     if [[ $# > 0 ]]; then
