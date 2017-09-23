@@ -5,8 +5,8 @@
 # After opening a tmux window and ssh-ing into another server, new panes will
 # open already ssh-ed to the server.
 function ssh() {
-  if [ -n "$TMUX" ] # set only if within running tmux
-  then
+  # set only if within running tmux
+  if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
     window_index=$(tmux display-message -p '#I')
 
     # arbitrary environment variable name to remember ssh args like server
