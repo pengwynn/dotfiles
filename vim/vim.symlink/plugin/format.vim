@@ -16,3 +16,4 @@ autocmd BufRead,BufNewFile,BufEnter *spec.js UltiSnipsAddFiletypes javascript-ja
 
 " Neoformat
 autocmd BufWritePre *.js Neoformat
+autocmd BufWritePre *.json Neoformat
