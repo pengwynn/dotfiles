@@ -11,14 +11,14 @@ function dc_cycle {
 }
 
 function dc_clean {
-    docker rm $(docker ps -a -q)
-    docker rmi $(docker images -q -f dangling=true)
+    docker rm "$(docker ps -a -q)"
+    docker rmi "$(docker images -q -f dangling=true)"
 }
 
 function dc_nuke {
-    docker kill $(docker ps -q)
-    docker rm $(docker ps -a -q)
-    docker rmi $(docker images -q)
+    docker kill "$(docker ps -q)"
+    docker rm "$(docker ps -a -q)"
+    docker rmi "$(docker images -q)"
 }
 
 function dc_console {
@@ -29,7 +29,7 @@ function dc_ports {
     docker ps --filter name="$1" --format "{{.Names}}: {{.Ports}}"
 }
 
-if [[ $# > 0 ]]; then
+if [[ $# -gt 0 ]]; then
   case "$1" in
     clean )
       dc_clean
