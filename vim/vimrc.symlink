@@ -65,6 +65,8 @@ Plug 'andyl/vim-textobj-elixir'
 Plug 'tek/vim-textobj-ruby'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'alunny/pegjs-vim'
+Plug 'w0rp/ale'
+
 call plug#end()
 
 
