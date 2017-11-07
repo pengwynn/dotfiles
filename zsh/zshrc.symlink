@@ -35,6 +35,8 @@ bindkey ^T tetris
 bindkey '^R' history-incremental-search-backward
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
+bindkey "^P" history-beginning-search-backward
+bindkey "^N" history-beginning-search-forward
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
