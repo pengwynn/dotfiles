@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Quick shortcut to an editor.
 #
@@ -13,10 +13,20 @@
 #   $ e .
 #   $ e /usr/local
 #   # => opens the specified directory in your editor
+# 
+#   $ e ag PATTERN [FOLDER]
+#   # => opens the files matching PATTERN in your editor
 
-if test "$1" == ""
-then
-  $EDITOR .
+if [[ $# -gt 0 ]]; then
+  case "$1" in
+    ag )
+      shift
+      $EDITOR $(ag -l "$@")
+      ;;
+    *)
+      $EDITOR "$@"
+      ;;
+  esac
 else
-  $EDITOR "$1"
+  $EDITOR .
 fi
