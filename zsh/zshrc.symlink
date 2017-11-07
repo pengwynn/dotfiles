@@ -74,4 +74,4 @@ eval "$(/Users/wynn/.dpm/bin/dpm init -)"
 
 eval "$(/Users/wynn/code/dev-cli@adamyonk/bin/dev init -)"
 
-archey
+archey -o
