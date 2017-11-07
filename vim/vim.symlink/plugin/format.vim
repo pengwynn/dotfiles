@@ -11,9 +11,6 @@ autocmd FileType * setlocal formatprg=
 autocmd FileType json setlocal formatprg=jq\ -sM\ .
 
 
-" Snippets
-autocmd BufRead,BufNewFile,BufEnter *spec.js UltiSnipsAddFiletypes javascript-jasmine-arrow
-
 " Neoformat
 autocmd BufWritePre *.js Neoformat
 autocmd BufWritePre *.json Neoformat
