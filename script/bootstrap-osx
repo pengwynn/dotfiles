@@ -29,6 +29,9 @@ asdf install ruby 2.3.1
 asdf global ruby 2.3.1
 cat ruby/default-gems | xargs gem install
 
+echo "Installing homebrew"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 echo "Installing ctop"
 sudo wget https://github.com/bcicen/ctop/releases/download/v0.6.1/ctop-0.6.1-linux-amd64 -O /usr/local/bin/ctop
 sudo chmod +x /usr/local/bin/ctop
@@ -41,3 +44,5 @@ sudo ln -s -f $HOME/.dotfiles/zsh/pure/async.zsh /usr/local/share/zsh/site-funct
 sudo chmod -R 755 /usr/local/share/zsh/site-functions
 sudo chown -R root:root /usr/local/share/zsh/site-functions
 sudo chsh wynn -s /usr/bin/zsh
+
+
