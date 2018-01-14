@@ -56,7 +56,7 @@ approach makes this so easy. I also have stolen freely from:
 * [Yan Pritzker](http://github.com/skwp/dotfiles)
 * [Josh Clayton](http://github.com/joshuaclayton/dotfiles)
 * [Adam Jahnke](http://github.com/adamyonk/dotfiles)
-* [Tom Ryder](http://github.com/tejr/dotfiles)
+* [Tom Ryder](https://sanctum.geek.nz/cgit/dotfiles.git/about/)
 * [Steve Losh](http://github.com/sjl/dotfiles)
 
 ## Share your dots
