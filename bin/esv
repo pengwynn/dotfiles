@@ -1,19 +1,30 @@
 #!/bin/bash
+#
+# From @pengwynn https://github.com/pengwynn/dotfiles/blob/f17bd6d5685a1b001d4d16ca91daef7b110ecc4f/bin/esv
+# with updates for v3 of the esv API.
 
-URL="http://www.esvapi.org/v2/rest/passageQuery?key=IP&output-format=plain-text"
+command -v jq >/dev/null 2>&1 || { echo >&2 "This command needs jq installed and in PATH. Install with brew install jq"; exit 1; }
+
+if [ -z $ESV_TOKEN ]; then
+    echo "ESV_TOKEN environment variable must be set";
+    echo "This can be obtained from https://api.esv.org/"
+    exit 1
+fi
+
+URL="https://api.esv.org/v3/passage/text/"
 
 # Option defaults
 DEBUG=0
-REFERENCES=1
-FIRST_VERSES=1
-VERSES=1
-FOOTNOTES=0
-COPYRIGHT=0
-PASSAGE_LINES=0
-HEADING_LINES=0
-HEADINGS=1
-SUBHEADINGS=1
-SELAHS=1
+REFERENCES=true
+FIRST_VERSES=true
+VERSES=true
+FOOTNOTES=false
+COPYRIGHT=false
+PASSAGE_LINES=false
+HEADING_LINES=false
+HEADINGS=true
+SUBHEADINGS=true
+SELAHS=true
 LINE_LENGTH=74
 
 # Gets the command name without path
@@ -24,7 +35,9 @@ usage(){
 echo "\
 `cmd` [OPTION...]
 
-Display Bible passage from English Standard Version
+Display Bible passage from English Standard Version.
+This requires jq to be installed and a valid ESV_TOKEN
+environment variable.
 
 Example: `cmd` prov3:5-6
 
@@ -59,17 +72,17 @@ for pass in 1 2; do
             -*) case $1 in
                 -h|--help)             usage; exit 1;;
                 -d|--debug)            DEBUG=1;;
-                -f|--first-verses)     FIRST_VERSES=1;;
-                -r|--references)       REFERENCES=1;;
-                -t|--footnotes)        FOOTNOTES=1;;
-                -p|--passage-lines)    PASSAGE_LINES=1;;
-                -l|--heading-lines)    HEADING_LINES=1;;
+                -f|--first-verses)     FIRST_VERSES=true;;
+                -r|--references)       REFERENCES=true;;
+                -t|--footnotes)        FOOTNOTES=true;;
+                -p|--passage-lines)    PASSAGE_LINES=true;;
+                -l|--heading-lines)    HEADING_LINES=true;;
                 --lines)               LINE_LENGTH=$2; shift;;
-                --no-references)       REFERENCES=0;;
-                --no-headings)         HEADINGS=0;;
-                --no-subheadings)      SUBHEADINGS=0;;
-                --no-verses)           FIRST_VERSES=0;VERSES=0;;
-                --no-selahs)           SELAHS=0;;
+                --no-references)       REFERENCES=false;;
+                --no-headings)         HEADINGS=false;;
+                --no-subheadings)      SUBHEADINGS=false;;
+                --no-verses)           FIRST_VERSES=false;VERSES=false;;
+                --no-selahs)           SELAHS=false;;
                 --*)                 error $1;;
                 -*)                  if [ $pass -eq 1 ]; then ARGS="$ARGS $1";
                                      else error $1; fi;;
@@ -85,7 +98,7 @@ for pass in 1 2; do
 done
 
 PASSAGE="$1"
-URL+="&include-passage-references=$REFERENCES"
+URL+="?include-passage-references=$REFERENCES"
 URL+="&include-first-verse-numbers=$FIRST_VERSES"
 URL+="&include-verse-numbers=$VERSES"
 URL+="&include-footnotes=$FOOTNOTES"
@@ -95,7 +108,8 @@ URL+="&include-heading-horizontal-lines=$HEADING_LINES"
 URL+="&include-headings=$HEADINGS"
 URL+="&include-subheadings=$SUBHEADINGS"
 URL+="&line-length=$LINE_LENGTH"
-URL+="&passage=$PASSAGE"
+URL+="&include-selahs=$SELAHS"
+URL+="&q=$PASSAGE"
 
 if [[ $DEBUG -eq 1 ]]; then
   echo "DEBUGGING URL:"
@@ -103,5 +117,7 @@ if [[ $DEBUG -eq 1 ]]; then
   echo
 fi
 
-curl -s $URL
-echo
+RESPONSE=$(curl -s -H"Authorization: Token $ESV_TOKEN" $URL)
+TEXT=$( echo $RESPONSE | jq -r '.passages' | jq -r 'join(" ")' )
+
+echo $TEXT
