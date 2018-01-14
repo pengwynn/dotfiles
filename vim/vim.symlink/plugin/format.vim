@@ -24,3 +24,4 @@ let g:ale_statusline_format = ['✖ %d', '⚠ %d', '']
 
 nnoremap ]r :ALENextWrap<cr>
 nnoremap [r :ALEPreviousWrap<cr>]
+let g:neoformat_try_formatprg = 1
