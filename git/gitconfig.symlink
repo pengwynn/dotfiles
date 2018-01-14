@@ -75,7 +75,7 @@
   tool = vimdiff
 
 [credential]
-	helper = envvar
+	helper = osxkeychain
 
 [web]
   browser = open
