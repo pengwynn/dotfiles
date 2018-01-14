@@ -103,7 +103,7 @@ set splitright                  " Opens vertical split right of current window
 set splitbelow                  " Opens horizontal split below current window
 "set shortmess=filnxtToOI       " see :help shortmess
                                 " http://items.sjbach.com/319/configuring-vim-right
-
+" tmux nav
 
 " Mouse
 " ======
@@ -234,8 +234,11 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Git Gutter
 " ==========
-set signcolumn=yes
-let g:gitgutter_eager = 0
+if exists('&signcolumn')  " Vim 7.4.2201
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
 
 " GH Dashboard
 " ==========
