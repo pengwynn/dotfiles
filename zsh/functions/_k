@@ -1,2 +1,2 @@
-#compdef l
+#compdef k
 _files -W ~/librato -/
