@@ -1,36 +1,81 @@
 #!/usr/bin/env bash
+#/ Usage: dc <command> [args]
+#/
+#/   Useful shortcuts for working with `docker` and `docker-compose`.
+#/
+#/   `dc` also accepts `docker-compose` commands in addition to the commands
+#/   listed below. In this sense the `dc` script as a shorthand notation for the
+#/   more lengthy `docker-compose`.
+#/
+#/   COMMANDS:
+#/     clean            Remove stopped containers and dangling images
+#/     console <image>  Attach a bash console to a running container
+#/     cycle   <image>  Stop a container and then start it up again
+#/     ports   <image>  Show mapped ports for a running container
+#/     rebuild <image>  Build the image, stop, and then start the container
+#/     activate         Start the Docker for Mac application
+#/     deactivate       Stop the Docker for Mac application
+#/     screen           Attach a `screen` session to the Docker VM
+#/     -h, --help       Show this message.
+#/
+#/   EXAMPLES:
+#/     dc clean
+#/     dc console 170fe7469429
+#/     dc cycle mysql
+#/     dc ports elasticsearch
+#/     dc rebuild redis
+#/     dc --file docker-compose.test.yml up -d
+#/
+#------------------------------------------------------------------------------
 
-# Borrowed from @ggerrietts
-
-function dc_rebuild {
-    docker-compose build "$@" && docker-compose stop "$@" && docker-compose up -d "$@"
-}
-
-function dc_cycle {
-    docker-compose stop "$@" && docker-compose up -d "$@"
+function usage {
+  grep '^#/' <"$0" | cut -c 4-
 }
 
 function dc_clean {
-    docker rm "$(docker ps -a -q)"
-    docker rmi "$(docker images -q -f dangling=true)"
-}
-
-function dc_nuke {
-    docker kill "$(docker ps -q)"
-    docker rm "$(docker ps -a -q)"
-    docker rmi "$(docker images -q)"
+  docker rm $(docker ps -aqf status=exited) 2>/dev/null || true
+  docker rmi $(docker images -qf dangling=true) 2>/dev/null || true
 }
 
 function dc_console {
-    docker-compose exec "$1" /bin/bash
+  docker exec -it "$1" /bin/bash
+}
+
+function dc_cycle {
+  docker-compose stop "$@" &&
+  docker-compose up -d "$@"
 }
 
 function dc_ports {
-    docker ps --filter name="$1" --format "{{.Names}}: {{.Ports}}"
+  docker ps --filter name="$1" --format "{{.Names}}: {{.Ports}}"
+}
+
+function dc_rebuild {
+  docker-compose build "$@" &&
+  docker-compose stop "$@" &&
+  docker-compose up -d "$@"
+}
+
+function dc_activate {
+  open "/Applications/Docker.app"
+}
+
+function dc_deactivate {
+  osascript -e "quit app \"docker\""
+}
+
+function dc_screen {
+  screen "${HOME}/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty"
 }
 
 if [[ $# -gt 0 ]]; then
   case "$1" in
+    --help )
+      usage
+      ;;
+    -h )
+      usage
+      ;;
     clean )
       dc_clean
       ;;
@@ -42,9 +87,6 @@ if [[ $# -gt 0 ]]; then
       shift
       dc_cycle "$@"
       ;;
-    nuke )
-      dc_nuke
-      ;;
     ports )
       shift
       dc_ports "$@"
@@ -53,6 +95,15 @@ if [[ $# -gt 0 ]]; then
       shift
       dc_rebuild "$@"
       ;;
+    activate )
+      dc_activate
+      ;;
+    deactivate )
+      dc_deactivate
+      ;;
+    screen )
+      dc_screen
+      ;;
     *)
       docker-compose "$@"
       ;;
@@ -60,4 +111,3 @@ if [[ $# -gt 0 ]]; then
 else
   docker-compose
 fi
-
