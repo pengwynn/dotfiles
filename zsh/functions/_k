@@ -1,2 +1,2 @@
 #compdef k
-_files -W ~/librato -/
+_files -W ~/kubos -/
