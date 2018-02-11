@@ -13,6 +13,7 @@ autocmd FileType json setlocal formatprg=jq\ -sM\ .
 
 " Neoformat
 autocmd BufWritePre *.js Neoformat
+autocmd BufWritePre *.graphql Neoformat
 autocmd BufWritePre *.json Neoformat
 
 " let g:ale_fix_on_save = 1
