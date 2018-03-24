@@ -70,3 +70,6 @@ export GH_LOGIN="pengwynn"
 
 archey -o
 source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# heroku autocomplete setup
+CLI_ENGINE_AC_ZSH_SETUP_PATH=/Users/wynn/Library/Caches/heroku/completions/zsh_setup && test -f $CLI_ENGINE_AC_ZSH_SETUP_PATH && source $CLI_ENGINE_AC_ZSH_SETUP_PATH;
