@@ -11,9 +11,8 @@ autocmd FileType * setlocal formatprg=
 
 
 " Neoformat
-autocmd BufWritePre *.js Neoformat
+autocmd BufWritePre *.js,*.jsx Neoformat
 autocmd BufWritePre *.graphql Neoformat
-autocmd BufWritePre *.json Neoformat
 
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
@@ -26,5 +25,6 @@ let g:ale_sign_warning = '->'
 let g:ale_statusline_format = ['✖ %d', '⚠ %d', '']
 
 nnoremap ]r :ALENextWrap<cr>
-nnoremap [r :ALEPreviousWrap<cr>]
+nnoremap [r :ALEPreviousWrap<cr>
+nnoremap <leader>f :ALEFix<cr>
 let g:neoformat_try_formatprg = 1
