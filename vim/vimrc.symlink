@@ -217,7 +217,7 @@ function! ShowFileInNERDTree()
     NERDTreeFind
   endif
 endfunction
-map <leader>f :call ShowFileInNERDTree()<cr>
+map <leader>r :call ShowFileInNERDTree()<cr>
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 let g:NERDTreeIgnore=['node_modules$[[dir]]']
