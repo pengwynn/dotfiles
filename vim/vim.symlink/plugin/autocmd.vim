@@ -1,6 +1,13 @@
 " Automatically reload vimrc when it's saved
 autocmd! BufWritePost vimrc.symlink so ~/.vimrc
 
+" Show relative paths in buffer list
+autocmd BufReadPost * silent! lcd .
+
+" Help gf find some things
+autocmd Filetype javascript,typescript set path=.,src
+autocmd Filetype javascript,typescript set suffixesadd+=.ts
+
 " Strip whitespace on save
 "autocmd BufWritePre * :%s/\s\+$//e
 
