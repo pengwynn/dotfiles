@@ -6,7 +6,7 @@ autocmd BufReadPost * silent! lcd .
 
 " Help gf find some things
 autocmd Filetype javascript,typescript set path=.,src
-autocmd Filetype javascript,typescript set suffixesadd+=.ts
+autocmd Filetype javascript,typescript set suffixesadd+=.ts,.tsx
 
 " Strip whitespace on save
 "autocmd BufWritePre * :%s/\s\+$//e
