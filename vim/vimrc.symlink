@@ -66,7 +66,7 @@ Plug 'vim-scripts/ZoomWin'
 Plug 'vim-scripts/gem.vim'
 Plug 'w0rp/ale'
 Plug 'kristijanhusak/vim-carbon-now-sh'
-Plug 'hotoo/jsgf.vim'
+Plug 'pengwynn/jsgf.vim', { 'branch': 'enhancemen-ts' }
 if has('mac')
 Plug 'zerowidth/vim-copy-as-rtf'
 endif
