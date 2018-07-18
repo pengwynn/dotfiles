@@ -11,7 +11,7 @@ autocmd FileType * setlocal formatprg=
 
 
 " Neoformat
-autocmd BufWritePre *.js,*.jsx Neoformat
+" autocmd BufWritePre *.js,*.jsx Neoformat
 autocmd BufWritePre *.graphql Neoformat
 
 let g:ale_fixers = {
