@@ -70,3 +70,6 @@ export GH_LOGIN="pengwynn"
 
 archey -o
 source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
