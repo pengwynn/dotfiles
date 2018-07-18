@@ -65,6 +65,7 @@ Plug 'vim-scripts/ZoomWin'
 Plug 'vim-scripts/gem.vim'
 Plug 'w0rp/ale'
 Plug 'kristijanhusak/vim-carbon-now-sh'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'pengwynn/jsgf.vim', { 'branch': 'enhancemen-ts' }
 if has('mac')
 Plug 'zerowidth/vim-copy-as-rtf'
@@ -290,3 +291,13 @@ function OpenCommitMessageDiff()
   " Get back to the commit message
   wincmd p
 endfunction
+
+" " Completion
+" " ==========
+" " Start autocompletion after 4 chars
+" let g:ycm_min_num_of_chars_for_completion = 4
+" let g:ycm_min_num_identifier_candidate_chars = 4
+" let g:ycm_enable_diagnostic_highlighting = 0
+" " Don't show YCM's preview window [ I find it really annoying ]
+" set completeopt-=preview
+" let g:ycm_add_preview_to_completeopt = 0
