@@ -9,15 +9,18 @@ endif
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-call plug#begin('~/.vim/bundle')
+" Install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
+call plug#begin('~/.vim/bundle')
 
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'alunny/pegjs-vim'
 Plug 'andyl/vim-textobj-elixir'
-Plug 'benmills/vim-golang-alternate'
-Plug 'cakebaker/scss-syntax.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -36,11 +39,9 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'justinmk/vim-gtfo'
 Plug 'kana/vim-textobj-user'
-Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'mxw/vim-jsx'
-Plug 'plasticboy/vim-markdown'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdtree'
@@ -59,7 +60,6 @@ Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/ZoomWin'
 Plug 'vim-scripts/gem.vim'
@@ -67,9 +67,6 @@ Plug 'w0rp/ale'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'pengwynn/jsgf.vim', { 'branch': 'enhancemen-ts' }
-if has('mac')
-Plug 'zerowidth/vim-copy-as-rtf'
-endif
 call plug#end()
 
 

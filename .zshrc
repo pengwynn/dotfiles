@@ -8,10 +8,10 @@ export DOTFILES=$HOME/.dotfiles
 export CODE=~/code
 export PROJECTS=~/code
 
-# source every .zsh file in this rep
+# source every .zsh file in this repo
 for config_file ($ZSH/**/*.zsh) source $config_file
 
-# use .localrc for SUPER SECRET CRAP that you don't
+# use .localrc for SUPER SECRET STUFF that you don't
 # want in your public, versioned repo.
 if [[ -a ~/.localrc ]]
 then
@@ -60,9 +60,6 @@ prompt pure
 
 export GH_LOGIN="pengwynn"
 
-# added by travis gem
-[ -f /Users/wynn/.travis/travis.sh ] && source /Users/wynn/.travis/travis.sh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Set up default package manager
@@ -71,5 +68,5 @@ export GH_LOGIN="pengwynn"
 archey -o
 source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+# export NVM_DIR="$HOME/.nvm"
+# . "/usr/local/opt/nvm/nvm.sh"

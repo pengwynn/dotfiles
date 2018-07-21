@@ -1,3 +1,7 @@
+
+alias dark="base16_oceanicnext"
+alias light="base16_solarized-light"
+
 alias cls='clear'
 alias reload!='. ~/.zshrc'
 alias count='wc -l'
