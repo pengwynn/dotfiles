@@ -1,8 +1,8 @@
-export PATH="$HOME/.cargo/bin:$HOME/.dotfiles/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$PATH"
 
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
-export DOTFILES=$HOME/.dotfiles
+export ZSH=~/zsh
+export DOTFILES=$HOME
 
 # your project folder that we can `c [tab]` to
 export CODE=~/code
@@ -54,6 +54,11 @@ if [ -s "$HOME/.awsam/bash.rc" ]; then
   source $HOME/.awsam/bash.rc
 fi
 
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -66,7 +71,9 @@ export GH_LOGIN="pengwynn"
 # eval "$(/Users/wynn/.dpm/bin/dpm init -)"
 
 archey -o
-source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] &&
+  source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # export NVM_DIR="$HOME/.nvm"
 # . "/usr/local/opt/nvm/nvm.sh"
