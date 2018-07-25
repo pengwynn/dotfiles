@@ -67,13 +67,13 @@ export GH_LOGIN="pengwynn"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Set up default package manager
-# eval "$(/Users/wynn/.dpm/bin/dpm init -)"
+ZSH_SYNTAX_HIGHLIGHT_PATH="/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[ -f $ZSH_SYNTAX_HIGHLIGHT_PATH ] && source $ZSH_SYNTAX_HIGHLIGHT_PATH
 
 archey -o
 
-[ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] &&
-  source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Set up default package manager
+# eval "$(/Users/wynn/.dpm/bin/dpm init -)"
 
 # export NVM_DIR="$HOME/.nvm"
 # . "/usr/local/opt/nvm/nvm.sh"
