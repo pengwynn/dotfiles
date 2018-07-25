@@ -87,8 +87,8 @@
 [core]
 	excludesfile = ~/.gitignore_global
 
-[commit]
-	gpgsign = true
+; [commit]
+; 	gpgsign = true
 
 [gpg]
 	program = /usr/local/bin/gpg
