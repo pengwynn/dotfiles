@@ -7,6 +7,7 @@ zstyle ':completion:*' insert-tab pending
 compdef dc=docker-compose
 
 compdef g=git
+compdef h=git
 
 zstyle ':completion:*:*:g*:*' user-commands \
                    amend:"Use the last commit message and amend your stuffs" \

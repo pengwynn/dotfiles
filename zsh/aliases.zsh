@@ -1,5 +1,3 @@
-alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 alias dark="base16_oceanicnext"
 alias light="base16_solarized-light"
 
