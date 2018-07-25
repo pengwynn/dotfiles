@@ -4,7 +4,6 @@ alias light="base16_solarized-light"
 alias cls='clear'
 alias reload!='. ~/.zshrc'
 alias count='wc -l'
-alias tft='curl "http://itsthisforthat.com/api.php?text"'
 
 alias shout="tr '[[:lower:]]' '[[:upper:]]'"
 
@@ -37,31 +36,10 @@ alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && kil
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
-# color aliases
-alias grcurl="colourify curl -s"
-
-# zmv ftw
-autoload -U zmv
-# alias for zmv for no quotes
-# mmv *.c.orig orig/*.c
-alias mmv='noglob zmv -W'
-
-
 # from @nvie https://coderwall.com/p/4tkkpq
 #
 # ls **/*.zsh | map dirname
 alias map="xargs -n1"
 
-# free up `w` for my flavored sub
-alias whodat="w"
-
-# enable yubikey and ssh
-alias remote="osascript -e 'tell application \"yubiswitch\" to KeyOn' && ssh remote.github.com -t gh-screen && osascript -e 'tell application \"yubiswitch\" to KeyOff' "
-
 # iA writer
 alias ia="open $1 -a /Applications/iA\ Writer.app"
-
-# Rails migration date
-alias migd="date +'%Y%m%d%H%M%S'"
-
-alias v=vagrant
