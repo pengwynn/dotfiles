@@ -26,3 +26,5 @@ pkg
 
 # projectionist
 .projections.json
+
+.localrc
