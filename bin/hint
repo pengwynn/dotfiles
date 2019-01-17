@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+SITE="https://devhints.io"
+STATUS=$(curl -w "%{http_code}" -s --output /dev/null "$SITE/$1")
+
+case "$STATUS" in
+  404) open "$SITE/?q=$1";;
+  *) open "$SITE/$1";;
+esac
