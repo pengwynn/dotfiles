@@ -15,6 +15,7 @@ autocmd FileType * setlocal formatprg=
 autocmd BufWritePre *.graphql Neoformat
 
 let g:ale_linters = {
+\    'markdown': ['write-good'],
 \    'typescript': ['tslint', 'tsserver'],
 \}
 
@@ -24,6 +25,9 @@ let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \}
 let g:ale_enabled = 1
+highlight ALEWarning ctermbg=Yellow ctermfg=Red
+highlight ALEError ctermbg=Red ctermfg=LightRed
+
 
 let g:ale_sign_error = '=>'
 let g:ale_sign_warning = '->'
