@@ -15,5 +15,6 @@ autocmd BufWinEnter *.md call MatchTechWordsToAvoid()
 autocmd InsertEnter *.md call MatchTechWordsToAvoid()
 autocmd InsertLeave *.md call MatchTechWordsToAvoid()
 autocmd BufWinLeave *.md call clearmatches()
+autocmd FileType asciidoc nnoremap <buffer><silent><leader>z :silent exec '!open -a Firefox %:p &' | exec ':redraw!'
 
 command! -nargs=* Wrap set wrap linebreak nolist
