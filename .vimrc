@@ -27,7 +27,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'epmatsw/ag.vim'
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
-Plug 'fleischie/vim-styled-components'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'gcmt/wildfire.vim'
 Plug 'godlygeek/tabular'
 Plug 'inside/vim-textobj-jsxattr'
