@@ -67,6 +67,7 @@ Plug 'w0rp/ale'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'pengwynn/jsgf.vim', { 'branch': 'enhancemen-ts' }
+Plug 'metakirby5/codi.vim'
 call plug#end()
 
 
