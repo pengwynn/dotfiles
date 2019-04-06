@@ -15,6 +15,7 @@ autocmd FileType * setlocal formatprg=
 autocmd BufWritePre *.graphql Neoformat
 
 let g:ale_linters = {
+\    'javascript': ['eslint', 'prettier'],
 \    'markdown': ['write-good'],
 \    'typescript': ['tslint', 'tsserver'],
 \}
