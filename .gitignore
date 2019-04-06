@@ -2,3 +2,4 @@
 *_creds.zsh
 .netrwhist
 vim/vim.symlink/bundle/**
+.vim/bundle
