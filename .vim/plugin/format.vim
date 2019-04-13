@@ -39,3 +39,11 @@ nnoremap ]r :ALENextWrap<cr>
 nnoremap [r :ALEPreviousWrap<cr>
 nnoremap <leader>f :ALEFix<cr>
 let g:neoformat_try_formatprg = 1
+
+let g:neoformat_sql_sqlfmt = {
+            \ 'exe': 'sqlfmt',
+            \ 'args': ['-u'],
+            \ 'stdin': 1,
+            \ }
+
+let g:neoformat_enabled_sql = ['sqlfmt']
