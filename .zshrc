@@ -1,4 +1,4 @@
-export PATH="$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$PATH"
+export PATH="$GOPATH/bin:$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$PATH"
 
 # shortcut to this dotfiles path is $ZSH
 export ZSH=~/zsh
