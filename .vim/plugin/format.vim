@@ -49,3 +49,5 @@ let g:neoformat_sql_sqlfmt = {
 let g:neoformat_enabled_sql = ['sqlfmt']
 
 let g:javascript_plugin_jsdoc = 1
+
+highlight Comment cterm=italic
