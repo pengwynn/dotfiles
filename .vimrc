@@ -101,12 +101,6 @@ set clipboard=unnamed           " Use system clipboard
 set hidden                      " Buffers can exist in the background
 set splitright                  " Opens vertical split right of current window
 set splitbelow                  " Opens horizontal split below current window
-"set shortmess=filnxtToOI       " see :help shortmess
-                                " http://items.sjbach.com/319/configuring-vim-right
-" tmux nav
-
-" Mouse
-" ======
 
 " Send more characters for redraws
 set ttyfast
