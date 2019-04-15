@@ -54,7 +54,7 @@ if [ -s "$HOME/.awsam/bash.rc" ]; then
   source $HOME/.awsam/bash.rc
 fi
 
-[[ $TMUX != "" ]] && export TERM="screen-256color"
+[[ $TMUX != "" ]] && export TERM="tmux-256color"
 
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
