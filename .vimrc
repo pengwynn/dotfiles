@@ -65,7 +65,7 @@ Plug 'vim-scripts/gem.vim'
 Plug 'w0rp/ale'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer --ts-completer --rust-completer ' }
-Plug 'pengwynn/jsgf.vim', { 'branch': 'enhancemen-ts' }
+Plug 'hotoo/jsgf.vim'
 Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-scriptease'
 call plug#end()
