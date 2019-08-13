@@ -14,14 +14,18 @@ autocmd FileType * setlocal formatprg=
 " autocmd BufWritePre *.js,*.jsx Neoformat
 autocmd BufWritePre *.graphql Neoformat
 
+let g:ale_linter_aliases = {'svelte': ['css', 'javascript']}
+let g:ale_linter_aliases = {'jasmine': ['javascript']}
 let g:ale_linters = {
 \    'javascript': ['eslint', 'prettier'],
+\    'svelte': ['stylelint', 'eslint'],
 \    'markdown': ['write-good'],
 \    'typescript': ['tslint', 'tsserver'],
 \}
 
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
+\   'svelte': ['prettier'],
 \   'typescript': ['prettier', 'tslint'],
 \   'ruby': ['rubocop'],
 \}
@@ -47,6 +51,23 @@ let g:neoformat_sql_sqlfmt = {
             \ }
 
 let g:neoformat_enabled_sql = ['sqlfmt']
+
+let g:neoformat_svelte_prettier = {
+            \ 'exe': 'prettier',
+            \ 'args': ['--stdin', '--stdin-filepath', '"%:p"'],
+            \ 'stdin': 1,
+            \ }
+
+let g:neoformat_enabled_svelte = ['prettier']
+
+let g:neoformat_jasmine_prettier = {
+            \ 'exe': 'prettier',
+            \ 'args': ['--stdin', '--stdin-filepath', '"%:p"'],
+            \ 'stdin': 1,
+            \ }
+
+let g:neoformat_enabled_jasmine = ['prettier']
+
 
 let g:javascript_plugin_jsdoc = 1
 
