@@ -3,3 +3,4 @@
 .netrwhist
 vim/vim.symlink/bundle/**
 .vim/bundle
+plug.vim.old
