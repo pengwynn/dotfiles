@@ -1,0 +1,72 @@
+#!/usr/bin/env node
+
+let chalk, fetch, owner, repo;
+try {
+  chalk = require("chalk");
+  fetch = require("cross-fetch");
+} catch (e) {
+  console.log("Please ensure `chalk` and `cross-fetch` are installed from npm and NODE_PATH is set in this environment.");
+  process.exit(1);
+}
+
+if (!process.env.GITHUB_TOKEN) {
+  console.log("Please ensure GITHUB_TOKEN is set in this environment.");
+  process.exit(1);
+}
+
+try {
+  ([owner, repo] = process.argv.slice(2)[0].split('/'));
+} catch (e) {
+  console.log(`ish
+
+Displays the GitHub issues you're subscribed to for the specified repository.
+
+Usage:
+  ish <owner>/<repo>
+`);
+  process.exit(1);
+}
+
+(async () => {
+  try {
+    const res = await fetch("https://api.github.com/graphql", {
+      headers: { Authorization: `bearer ${process.env.GITHUB_TOKEN}` },
+      method: "POST",
+      body: JSON.stringify({
+        query: `
+          query {
+            repository(owner: "${owner}", name: "${repo}") {
+              issues(first: 100, filterBy: {viewerSubscribed: true}) {
+                edges {
+                  node {
+                    title
+                    url
+                  }
+                }
+              }
+            }
+          }
+        `
+      })
+    });
+
+    if (res.status >= 400) {
+      throw new Error("Bad response from server");
+    }
+
+    const {
+      data: {
+        repository: { issues: { edges } }
+      }
+    } = await res.json();
+
+    edges.forEach(({ node: { title, url } }) => {
+      console.log();
+      console.log(chalk.green(title));
+      console.log(url);
+    });
+
+  } catch (err) {
+    console.error(err);
+  }
+})();
