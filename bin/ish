@@ -5,7 +5,9 @@ try {
   chalk = require("chalk");
   fetch = require("cross-fetch");
 } catch (e) {
-  console.log("Please ensure `chalk` and `cross-fetch` are installed from npm and NODE_PATH is set in this environment.");
+  console.log(
+    "Please ensure `chalk` and `cross-fetch` are installed from npm and NODE_PATH is set in this environment."
+  );
   process.exit(1);
 }
 
@@ -14,15 +16,33 @@ if (!process.env.GITHUB_TOKEN) {
   process.exit(1);
 }
 
+function resolveRepo(target) {
+  if (target) {
+    [owner, repo] = target.split("/");
+    return;
+  }
+  const { spawnSync } = require("child_process");
+  const getOriginUrl = spawnSync("git", [
+    "config",
+    "--get",
+    "remote.origin.url"
+  ]);
+  const originUrl = getOriginUrl.stdout.toString().trim();
+  [, owner, repo] = originUrl
+    .split(/\.com/)[1]
+    .replace(".git", "")
+    .split(/[:/]/);
+}
+
 try {
-  ([owner, repo] = process.argv.slice(2)[0].split('/'));
+  resolveRepo(process.argv.slice(2)[0]);
 } catch (e) {
   console.log(`ish
 
 Displays the GitHub issues you're subscribed to for the specified repository.
 
 Usage:
-  ish <owner>/<repo>
+  ish [<owner>/<repo>]
 `);
   process.exit(1);
 }
@@ -56,7 +76,9 @@ Usage:
 
     const {
       data: {
-        repository: { issues: { edges } }
+        repository: {
+          issues: { edges }
+        }
       }
     } = await res.json();
 
@@ -65,7 +87,6 @@ Usage:
       console.log(chalk.green(title));
       console.log(url);
     });
-
   } catch (err) {
     console.error(err);
   }
