@@ -68,7 +68,27 @@ let g:neoformat_jasmine_prettier = {
 
 let g:neoformat_enabled_jasmine = ['prettier']
 
+let g:neoformat_liquid_prettier = {
+            \ 'exe': 'prettier',
+            \ 'args': ['--stdin', '--stdin-filepath', '"%:p"'],
+            \ 'stdin': 1,
+            \ }
+
+let g:neoformat_enabled_liquid = ['prettier']
+
 
 let g:javascript_plugin_jsdoc = 1
 
 highlight Comment cterm=italic
+
+" Liquid
+au BufNewFile,BufRead *.liquid					set ft=liquid
+
+au BufNewFile,BufRead */_layouts/*.html,*/_includes/*.html	set ft=liquid
+au BufNewFile,BufRead *.html,*.xml,*.textile
+      \ if getline(1) == '---' | set ft=liquid | endif
+au BufNewFile,BufRead *.markdown,*.mkd,*.mkdn,*.md
+      \ if getline(1) == '---' |
+      \   let b:liquid_subtype = 'markdown' |
+      \   set ft=liquid |
+      \ endif
