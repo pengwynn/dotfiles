@@ -68,6 +68,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer --ts-complet
 Plug 'hotoo/jsgf.vim'
 Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-scriptease'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 
