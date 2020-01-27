@@ -74,13 +74,18 @@ Usage:
       throw new Error("Bad response from server");
     }
 
+    const { data } = await res.json();
+
+    if (!data.repository) {
+      console.error(chalk.red(`Could not resolve repository ${owner}/${repo}`));
+      process.exit(1);
+    }
+
     const {
-      data: {
-        repository: {
-          issues: { edges }
-        }
+      repository: {
+        issues: { edges }
       }
-    } = await res.json();
+    } = data;
 
     edges.forEach(({ node: { title, url } }) => {
       console.log();
