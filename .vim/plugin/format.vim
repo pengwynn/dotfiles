@@ -17,7 +17,7 @@ autocmd BufWritePre *.graphql Neoformat
 let g:ale_linters = {
 \    'javascript': ['eslint', 'prettier'],
 \    'markdown': ['write-good'],
-\    'typescript': ['tslint', 'tsserver'],
+\    'typescript': ['eslint', 'tslint', 'tsserver'],
 \}
 
 let g:ale_fixers = {
@@ -28,7 +28,6 @@ let g:ale_fixers = {
 let g:ale_enabled = 1
 highlight ALEWarning ctermbg=Yellow ctermfg=Red
 highlight ALEError ctermbg=Red ctermfg=LightRed
-
 
 let g:ale_sign_error = '=>'
 let g:ale_sign_warning = '->'
@@ -48,6 +47,18 @@ let g:neoformat_sql_sqlfmt = {
 
 let g:neoformat_enabled_sql = ['sqlfmt']
 
+let g:neoformat_typescriptreact_prettier = {
+    \ 'exe': 'prettier',
+    \ 'args': ['--stdin', '--stdin-filepath', '"%:p"', '--parser', 'typescript'],
+    \ 'stdin': 1
+    \ }
+let g:neoformat_enabled_typescriptreact = ['tsfmt', 'prettier']
+
 let g:javascript_plugin_jsdoc = 1
 
 highlight Comment cterm=italic
+
+augroup mkjs_ft
+  au!
+  autocmd BufNewFile,BufRead *.mkjs set syntax=javascript
+augroup END

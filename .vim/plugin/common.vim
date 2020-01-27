@@ -18,6 +18,11 @@ vnoremap L $h
 " select all
 map <Leader>a ggVG
 
+" Go to matching symbol with tab
+nnoremap <tab> %
+vnoremap <tab> %
+
+
 " Windows
 " ==========
 
