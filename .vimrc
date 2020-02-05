@@ -285,6 +285,9 @@ function OpenCommitMessageDiff()
   wincmd p
 endfunction
 
+  let g:vimwiki_list = [{'path': '~/Dropbox/wiki/',
+                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
 " " Completion
 " " ==========
 " " Start autocompletion after 4 chars
