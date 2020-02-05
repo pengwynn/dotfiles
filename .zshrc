@@ -74,11 +74,5 @@ ZSH_SYNTAX_HIGHLIGHT_PATH="/usr/local/share/zsh-syntax-highlighting/zsh-syntax-h
 
 archey -o
 
-# Set up default package manager
-# eval "$(/Users/wynn/.dpm/bin/dpm init -)"
-
-# export NVM_DIR="$HOME/.nvm"
-# . "/usr/local/opt/nvm/nvm.sh"
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
