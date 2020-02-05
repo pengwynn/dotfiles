@@ -18,3 +18,6 @@ autocmd BufWinLeave *.md call clearmatches()
 autocmd FileType asciidoc nnoremap <buffer><silent><leader>z :silent exec '!open -a Firefox %:p &' | exec ':redraw!'
 
 command! -nargs=* Wrap set wrap linebreak nolist
+
+" VimWiki
+nmap <leader>ts :read! date -R<CR>
