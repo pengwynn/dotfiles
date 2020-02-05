@@ -14,14 +14,18 @@ autocmd FileType * setlocal formatprg=
 " autocmd BufWritePre *.js,*.jsx Neoformat
 autocmd BufWritePre *.graphql Neoformat
 
+let g:ale_linter_aliases = {'svelte': ['css', 'javascript']}
+let g:ale_linter_aliases = {'jasmine': ['javascript']}
 let g:ale_linters = {
 \    'javascript': ['eslint', 'prettier'],
+\    'svelte': ['stylelint', 'eslint'],
 \    'markdown': ['write-good'],
 \    'typescript': ['tslint', 'tsserver'],
 \}
 
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
+\   'svelte': ['prettier'],
 \   'typescript': ['prettier', 'tslint'],
 \   'ruby': ['rubocop'],
 \}
@@ -48,6 +52,43 @@ let g:neoformat_sql_sqlfmt = {
 
 let g:neoformat_enabled_sql = ['sqlfmt']
 
+let g:neoformat_svelte_prettier = {
+            \ 'exe': 'prettier',
+            \ 'args': ['--stdin', '--stdin-filepath', '"%:p"'],
+            \ 'stdin': 1,
+            \ }
+
+let g:neoformat_enabled_svelte = ['prettier']
+
+let g:neoformat_jasmine_prettier = {
+            \ 'exe': 'prettier',
+            \ 'args': ['--stdin', '--stdin-filepath', '"%:p"'],
+            \ 'stdin': 1,
+            \ }
+
+let g:neoformat_enabled_jasmine = ['prettier']
+
+let g:neoformat_liquid_prettier = {
+            \ 'exe': 'prettier',
+            \ 'args': ['--stdin', '--stdin-filepath', '"%:p"'],
+            \ 'stdin': 1,
+            \ }
+
+let g:neoformat_enabled_liquid = ['prettier']
+
+
 let g:javascript_plugin_jsdoc = 1
 
 highlight Comment cterm=italic
+
+" Liquid
+au BufNewFile,BufRead *.liquid					set ft=liquid
+
+au BufNewFile,BufRead */_layouts/*.html,*/_includes/*.html	set ft=liquid
+au BufNewFile,BufRead *.html,*.xml,*.textile
+      \ if getline(1) == '---' | set ft=liquid | endif
+au BufNewFile,BufRead *.markdown,*.mkd,*.mkdn,*.md
+      \ if getline(1) == '---' |
+      \   let b:liquid_subtype = 'markdown' |
+      \   set ft=liquid |
+      \ endif

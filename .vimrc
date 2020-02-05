@@ -1,11 +1,6 @@
 " Vim
 " ===
 
-" Source ~/.vimrc.before if it exists
-if filereadable(expand('~/.vimrc.before'))
-  source ~/.vimrc.before
-endif
-
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -33,7 +28,6 @@ Plug 'gcmt/wildfire.vim'
 Plug 'godlygeek/tabular'
 Plug 'inside/vim-textobj-jsxattr'
 Plug 'jayflo/vim-skip'
-" Plug 'jiangmiao/auto-pairs'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -66,9 +60,10 @@ Plug 'vim-scripts/gem.vim'
 Plug 'w0rp/ale'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer --ts-completer --rust-completer ' }
-Plug 'pengwynn/jsgf.vim', { 'branch': 'enhancemen-ts' }
+Plug 'hotoo/jsgf.vim'
 Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-scriptease'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 
@@ -285,12 +280,7 @@ function OpenCommitMessageDiff()
   wincmd p
 endfunction
 
-" " Completion
-" " ==========
-" " Start autocompletion after 4 chars
-" let g:ycm_min_num_of_chars_for_completion = 4
-" let g:ycm_min_num_identifier_candidate_chars = 4
-" let g:ycm_enable_diagnostic_highlighting = 0
-" " Don't show YCM's preview window [ I find it really annoying ]
-" set completeopt-=preview
-" let g:ycm_add_preview_to_completeopt = 0
+let g:vimwiki_list = [{'path': '~/notes/',
+                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
