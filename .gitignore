@@ -4,3 +4,4 @@
 vim/vim.symlink/bundle/**
 .vim/bundle
 plug.vim.old
+.vim/autoload/plug.vim
