@@ -74,14 +74,14 @@ ZSH_SYNTAX_HIGHLIGHT_PATH="/usr/local/share/zsh-syntax-highlighting/zsh-syntax-h
 
 archey -o
 
-export NVM_DIR="$HOME/.nvm"
-if [ -f $HOME/.nvm/alias/default ]; then
-  PATH=${PATH}:${HOME}/.nvm/versions/node/v$(cat ~/.nvm/alias/default)/bin
-fi
-nvm() {
-  [ -s $NVM_DIR/nvm.sh ] && source $NVM_DIR/nvm.sh
-  nvm "$@"
-}
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# if [ -f $HOME/.nvm/alias/default ]; then
+#   PATH=${PATH}:${HOME}/.nvm/versions/node/v$(cat ~/.nvm/alias/default)/bin
+# fi
+# nvm() {
+#   [ -s $NVM_DIR/nvm.sh ] && source $NVM_DIR/nvm.sh
+#   nvm "$@"
+# }
+# # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules"

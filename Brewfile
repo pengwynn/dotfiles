@@ -8,6 +8,8 @@ tap 'vektorlab/slackcat', 'https://github.com/vektorlab/slackcat'
 tap 'caius/jo'
 tap 'simeji/jid'
 cask 'java'
+cask 'font-jetbrains-mono'
+cask 'monodraw'
 
 brew 'ack'
 brew 'archey'
