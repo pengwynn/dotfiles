@@ -297,3 +297,5 @@ endfunction
 " " Don't show YCM's preview window [ I find it really annoying ]
 " set completeopt-=preview
 " let g:ycm_add_preview_to_completeopt = 0
+"
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
