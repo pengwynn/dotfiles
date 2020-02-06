@@ -281,7 +281,4 @@ function OpenCommitMessageDiff()
   wincmd p
 endfunction
 
-let g:vimwiki_list = [{'path': '~/notes/',
-                       \ 'syntax': 'markdown', 'ext': '.md'}]
-
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
