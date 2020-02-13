@@ -20,4 +20,4 @@ autocmd FileType asciidoc nnoremap <buffer><silent><leader>z :silent exec '!open
 command! -nargs=* Wrap set wrap linebreak nolist
 
 " VimWiki
-nmap <leader>ts :.! date -R<CR>
+nmap <leader>ts :.! TZ='America/Chicago' date -R<CR>
