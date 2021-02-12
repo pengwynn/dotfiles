@@ -1,4 +1,6 @@
-export PATH="$GOPATH/bin:$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$PATH"
+export PATH="$GOPATH/bin:$HOME/.cargo/bin:$HOME/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$PATH"
+
+fpath+=$HOME/.zsh/pure
 
 # shortcut to this dotfiles path is $ZSH
 export ZSH=~/zsh
@@ -41,25 +43,19 @@ bindkey "^N" history-beginning-search-forward
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
 
-# asdf
-if [ -s "$HOME/.asdf/asdf.sh" ]; then
-  source $HOME/.asdf/asdf.sh
-fi
-if [ -s "$HOME/.asdf/completions/asdf.bash" ]; then
-  source $HOME/.asdf/completions/asdf.bash
-fi
 
 # awsam
 if [ -s "$HOME/.awsam/bash.rc" ]; then
   source $HOME/.awsam/bash.rc
 fi
 
-[[ $TMUX != "" ]] && export TERM="tmux-256color"
+# [[ $TMUX != "" ]] && export TERM="tmux-256color"
 
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
+export BAT_THEME=base16
 
 autoload -U promptinit; promptinit
 prompt pure
@@ -69,7 +65,14 @@ export GH_LOGIN="pengwynn"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-ZSH_SYNTAX_HIGHLIGHT_PATH="/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+ZSH_SYNTAX_HIGHLIGHT_PATH="/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 [ -f $ZSH_SYNTAX_HIGHLIGHT_PATH ] && source $ZSH_SYNTAX_HIGHLIGHT_PATH
 
 archey -o
+
+# nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# rbenv
+eval "$(rbenv init -)"
