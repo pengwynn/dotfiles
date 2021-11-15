@@ -1,5 +1,7 @@
 *_private.zsh
 *_creds.zsh
 .netrwhist
-nginx/vhosts/github*
 vim/vim.symlink/bundle/**
+.vim/bundle
+plug.vim.old
+.vim/autoload/plug.vim

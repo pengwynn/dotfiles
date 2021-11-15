@@ -28,6 +28,10 @@ battery_charge()
 # Run Battery
 #
 
+if [[ "$(uname)" != "Darwin" ]]; then
+   exit 0
+fi
+
 BATTERY_STATUS=$(battery_charge)
 [ -z "$BATTERY_STATUS" ] && exit
 

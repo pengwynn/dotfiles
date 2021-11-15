@@ -1,0 +1,98 @@
+#!/usr/bin/env node
+
+let chalk, fetch, owner, repo;
+try {
+  chalk = require("chalk");
+  fetch = require("cross-fetch");
+} catch (e) {
+  console.log(
+    "Please ensure `chalk` and `cross-fetch` are installed from npm and NODE_PATH is set in this environment."
+  );
+  process.exit(1);
+}
+
+if (!process.env.GITHUB_TOKEN) {
+  console.log("Please ensure GITHUB_TOKEN is set in this environment.");
+  process.exit(1);
+}
+
+function resolveRepo(target) {
+  if (target) {
+    [owner, repo] = target.split("/");
+    return;
+  }
+  const { spawnSync } = require("child_process");
+  const getOriginUrl = spawnSync("git", [
+    "config",
+    "--get",
+    "remote.origin.url"
+  ]);
+  const originUrl = getOriginUrl.stdout.toString().trim();
+  [, owner, repo] = originUrl
+    .split(/\.com/)[1]
+    .replace(".git", "")
+    .split(/[:/]/);
+}
+
+try {
+  resolveRepo(process.argv.slice(2)[0]);
+} catch (e) {
+  console.log(`ish
+
+Displays the GitHub issues you're subscribed to for the specified repository.
+
+Usage:
+  ish [<owner>/<repo>]
+`);
+  process.exit(1);
+}
+
+(async () => {
+  try {
+    const res = await fetch("https://api.github.com/graphql", {
+      headers: { Authorization: `bearer ${process.env.GITHUB_TOKEN}` },
+      method: "POST",
+      body: JSON.stringify({
+        query: `
+          query {
+            repository(owner: "${owner}", name: "${repo}") {
+              issues(first: 100, filterBy: {viewerSubscribed: true}) {
+                edges {
+                  node {
+                    title
+                    url
+                  }
+                }
+              }
+            }
+          }
+        `
+      })
+    });
+
+    if (res.status >= 400) {
+      throw new Error("Bad response from server");
+    }
+
+    const { data } = await res.json();
+
+    if (!data.repository) {
+      console.error(chalk.red(`Could not resolve repository ${owner}/${repo}`));
+      process.exit(1);
+    }
+
+    const {
+      repository: {
+        issues: { edges }
+      }
+    } = data;
+
+    edges.forEach(({ node: { title, url } }) => {
+      console.log();
+      console.log(chalk.green(title));
+      console.log(url);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+})();

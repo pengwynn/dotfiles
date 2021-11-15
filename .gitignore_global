@@ -1,0 +1,30 @@
+.DS_Store
+
+# Thumbnails
+._*
+
+# completion caches
+.rake_tasks
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Foreman
+.env
+
+.netrwhist
+
+# Gem builds
+pkg
+
+# Cached rake tasks
+.rake_tasks
+
+# per-project scratchpad
+.scratch
+
+# projectionist
+.projections.json
+
+.localrc

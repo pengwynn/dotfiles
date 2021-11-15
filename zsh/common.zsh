@@ -22,3 +22,26 @@ cdf() {  # short for cdfinder
 
 # minimal client for AnyBar status bar app
 function anybar { echo -n $1 | nc -4u -w0 localhost ${2:-1738};  }
+
+# Refresh env vars under tmux
+if [ -n "$TMUX"  ]; then
+  function refresh {
+    export $(tmux show-environment | grep "^SSH_AUTH_SOCK")
+  }
+else
+  function refresh {  }
+fi
+
+# Codi
+# Usage: codi [filetype] [filename]
+codi() {
+  local syntax="${1:-python}"
+  shift
+  vim -c \
+    "let g:startify_disable_at_vimenter = 1 |\
+    set bt=nofile ls=0 noru nonu nornu |\
+    hi ColorColumn ctermbg=NONE |\
+    hi VertSplit ctermbg=NONE |\
+    hi NonText ctermfg=0 |\
+    Codi $syntax" "$@"
+}

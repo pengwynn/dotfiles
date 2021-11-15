@@ -1,2 +1,0 @@
-compdef dc=docker-compose
-
