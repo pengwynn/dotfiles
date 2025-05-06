@@ -1,0 +1,12 @@
+font-family = "JetBrains Mono"
+font-size = 14
+font-thicken = true
+
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+fullscreen = true
+macos-non-native-fullscreen = visible-menu
+
+link-url = true

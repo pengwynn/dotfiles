@@ -14,16 +14,19 @@ export PROJECTS=~/code
 # source every .zsh file in this repo
 for config_file ($ZSH/**/*.zsh) source $config_file
 
+
+. $HOME/.asdf/asdf.sh
+fpath=(${ASDF_DIR}/completions $fpath)
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -Uz compinit && compinit
+
 # use .localrc for SUPER SECRET STUFF that you don't
 # want in your public, versioned repo.
 if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
-
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
 
 # quote pasted URLs
 autoload -U url-quote-magic
@@ -79,5 +82,23 @@ archey -o
 alias vim="nvim"
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
-. $HOME/.asdf/asdf.sh
+
+# bun completions
+[ -s "/Users/wynn/.bun/_bun" ] && source "/Users/wynn/.bun/_bun"
+
+# bun
+export BUN_INSTALL="/Users/wynn/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export DENO_INSTALL="/Users/wynn/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+
+# ngrok completions
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
+# autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
