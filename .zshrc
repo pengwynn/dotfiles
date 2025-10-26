@@ -109,5 +109,5 @@ if [[ $- == *i* ]]; then
     source "$ZSH_AUTOSUGGEST_PATH"
   fi
 
-  archey -o
+  fastfetch
 fi
