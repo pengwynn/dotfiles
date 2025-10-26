@@ -1,1 +1,1 @@
-/Users/wynn/.vim/init.vim
+/Users/wnetherland/.vim/init.vim
