@@ -14,7 +14,6 @@ export PROJECTS=~/code
 # source every .zsh file in this repo
 for config_file ($ZSH/**/*.zsh) source $config_file
 
-
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
 
