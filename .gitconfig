@@ -75,7 +75,7 @@
   tool = vimdiff
 
 [credential]
-	helper = osxkeychain
+	helper = store
 
 [web]
   browser = open
@@ -94,3 +94,12 @@
 	program = /usr/local/bin/gpg
 
 # vim: ft=gitconfig sw=2 ts=2 et
+[credential "https://git.corp.adobe.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
