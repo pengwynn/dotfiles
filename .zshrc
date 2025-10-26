@@ -67,25 +67,7 @@ ZSH_SYNTAX_HIGHLIGHT_PATH="/opt/homebrew/share/zsh-syntax-highlighting/zsh-synta
 archey -o
 
 alias vim="nvim"
-alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
-
-# bun completions
-[ -s "/Users/wynn/.bun/_bun" ] && source "/Users/wynn/.bun/_bun"
-
-# bun
-export BUN_INSTALL="/Users/wynn/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-export DENO_INSTALL="/Users/wynn/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
-
-# ngrok completions
-if command -v ngrok &>/dev/null; then
-  eval "$(ngrok completion)"
-fi
 # autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
