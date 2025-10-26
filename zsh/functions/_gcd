@@ -1,5 +1,0 @@
-#compdef gcd
-local -a ignored
-ignored=('tmp' '**/tmp')
-_path_files -/ -W $GOSRC -F ignored
-
