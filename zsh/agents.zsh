@@ -2,11 +2,7 @@ codex() {
     if [[ "$1" == "update" ]]; then
         npm install -g @openai/codex@latest
     else
-        command codex \
-            --model 'gpt-5-codex' \
-            --full-auto \
-            -c model_reasoning_summary_format=experimental \
-            --search "$@"
+        command codex "$@"
     fi
 }
 
