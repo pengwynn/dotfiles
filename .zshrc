@@ -46,19 +46,12 @@ bindkey "^N" history-beginning-search-forward
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
 
-
-# awsam
-if [ -s "$HOME/.awsam/bash.rc" ]; then
-  source $HOME/.awsam/bash.rc
-fi
-
-# [[ $TMUX != "" ]] && export TERM="tmux-256color"
-
-BASE16_SHELL="$HOME/.config/base16-shell/"
+# Tinted Shell
+BASE16_SHELL_PATH="$HOME/.config/tinted-theming/tinted-shell"
 [ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
-export BAT_THEME=base16
+  [ -s "$BASE16_SHELL_PATH/profile_helper.sh" ] && \
+    source "$BASE16_SHELL_PATH/profile_helper.sh"
+
 
 autoload -U promptinit; promptinit
 prompt pure
