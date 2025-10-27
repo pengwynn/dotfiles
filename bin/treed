@@ -1,7 +1,0 @@
-#!/bin/sh
-# usage: treed PATH
-# View folder structure using `tree` with some options
-#
-# Lifted from https://github.com/mathiasbynens/dotfiles/pull/249/files
-
-tree -aC -I ".git" --dirsfirst "$@" | less -FRNX

@@ -141,10 +141,9 @@ fi
 # Print the battery status
 #
 
-GRAPH=$(spark 0 "${BATTERY_STATUS}" 100 | awk '{print substr($0,4,3)}')
 
 if [ "$tmux" == "false" ]; then
-    printf "\e[0;%sm%s %s \e[m\n"  "$COLOR" "[$BATTERY_STATUS%]"  "$GRAPH"
+    printf "\e[0;%sm%s %s \e[m\n"  "$COLOR" "[$BATTERY_STATUS%]"
 else
-    printf "%s%s %s" "$COLOR" "[$BATTERY_STATUS%]" "$GRAPH"
+    printf "%s%s %s" "$COLOR" "[$BATTERY_STATUS%]"
 fi
