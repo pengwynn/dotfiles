@@ -14,10 +14,10 @@ copilot() {
     fi
 }
 
-claude() {
+gemini() {
     if [[ "$1" == "update" ]]; then
-        npm install -g @anthropic-ai/claude-code
+        npm install -g @google/gemini-cli
     else
-        command claude "$@"
+        command gemini "$@"
     fi
 }
