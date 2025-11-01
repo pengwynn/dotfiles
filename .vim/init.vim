@@ -7,14 +7,13 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'epmatsw/ag.vim'
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'inside/vim-textobj-jsxattr'
 Plug 'jayflo/vim-skip'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-github-dashboard'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'junegunn/vim-github-dashboard'
 Plug 'justinmk/vim-gtfo'
 Plug 'kana/vim-textobj-user'
@@ -24,7 +23,7 @@ Plug 'mattn/webapi-vim'
 Plug 'reedes/vim-pencil'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'sbdchd/neoformat'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tek/vim-textobj-ruby'
 Plug 'tmux-plugins/vim-tmux'
@@ -45,11 +44,10 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/ZoomWin'
 Plug 'vim-scripts/gem.vim'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'github/copilot.vim'
 Plug 'cappyzawa/starlark.vim'
 """ copilot chat
-Plug 'github/copilot.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'CopilotC-Nvim/CopilotChat.nvim'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer --ts-completer --rust-completer ' }
@@ -97,11 +95,16 @@ set ttyfast
 " Enable mouse use in all modes
 set mouse=a
 
+" Faster gitgutter/linting updates
+set updatetime=100
+
 " Search Settings
 " ===============
 
 set incsearch        " Find the next match as we type the search
 set hlsearch         " Hilight searches by default
+set ignorecase       " Ignore case when searching
+set smartcase        " Override ignorecase if search contains capitals
 set viminfo='100,f1  " Save up to 100 marks, enable capital marks
 
 " Turn Off Swap Files
@@ -117,12 +120,19 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " ===============
 
 " Keep undo history across sessions, by storing in file
-" Only works in MacVim (gui) mode
-if has('gui_running')
+if has('persistent_undo')
   set undodir=~/.vim/backups
   set undofile
-  " Hide the toolbar
-  set guioptions-=T
+endif
+
+" Neovim-specific settings
+if has('nvim')
+  " True color support
+  set termguicolors
+  " Hide the toolbar in GUI
+  if has('gui_running')
+    set guioptions-=T
+  endif
 endif
 
 " Indentation and Display
@@ -153,9 +163,11 @@ set nofoldenable        " Don't fold by default
 " Completion
 " ==========
 
-"set wildmode=list:longest
-set wildmode=longest,list,full
+set wildmode=longest:full,full
 set wildmenu                    " Enable ctrl-n and ctrl-p to scroll thru matches
+if has('nvim') || has('patch-8.1.1880')
+  set wildoptions=pum           " Show completion matches in a popup menu
+endif
 set wildignore=*.o,*.obj,*~     " Stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 
@@ -333,7 +345,6 @@ nnoremap <c-l> <c-w>l
 
 " Toggle paste
 nnoremap <leader>p :set invpaste paste?<CR>
-set showmode
 
 " Toggle case
 nmap <F9> :set ignorecase! ignorecase?<CR>
@@ -350,13 +361,14 @@ nnoremap Y y$
 " http://vimcasts.org/episodes/bubbling-text/
 nmap gV `[v`]
 
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+" Quick escape from insert mode
 inoremap jj <esc>
 
 " wrap current paragraph
 nnoremap <leader>w gqip
+
+" Edit vimrc
+nnoremap <leader>ev :e $MYVIMRC<CR>
 
 " Duplicate a selection
 " Visual mode: D
