@@ -1,0 +1,94 @@
+#compdef chrome-cli
+
+_chrome_cli_tab_ids() {
+  local -a tab_ids
+  tab_ids=(${(f)"$(chrome-cli list tabs 2>/dev/null | sed -n 's/^\[\([0-9][0-9]*\)\].*/\1/p')"})
+  _describe -t tabs 'Chrome tab' tab_ids
+}
+
+_chrome_cli_window_ids() {
+  local -a window_ids
+  window_ids=(${(f)"$(chrome-cli list windows 2>/dev/null | sed -n 's/^\[\([0-9][0-9]*\)\].*/\1/p')"})
+  _describe -t windows 'Chrome window' window_ids
+}
+
+_chrome-cli() {
+  local context state state_descr line
+  typeset -A opt_args
+
+  _arguments -C \
+    '(-h --help)'{-h,--help}'[print help]' \
+    '1:command:->command' \
+    '*::argument:->argument'
+
+  case $state in
+    command)
+      _values 'chrome-cli command' \
+        'list[list Chrome windows, tabs, or links]' \
+        'info[print information about a tab]' \
+        'open[open a URL]' \
+        'close[close a tab or window]' \
+        'reload[reload a tab]' \
+        'back[navigate back in a tab]' \
+        'forward[navigate forward in a tab]' \
+        'activate[activate a tab]' \
+        'size[print or set a window size]' \
+        'position[print or set a window position]' \
+        'source[print a tab source]' \
+        'execute[execute JavaScript in a tab]' \
+        'chrome[Chrome-specific commands]' \
+        'help[print help]' \
+        'version[print chrome-cli version]'
+      ;;
+    argument)
+      case $words[2] in
+        list)
+          _arguments \
+            '2:resource:(windows tabs links tablinks)' \
+            '(-w)-w[list tabs or links in a specific window]:window ID:_chrome_cli_window_ids'
+          ;;
+        info|reload|back|forward|source)
+          _arguments '(-t)-t[operate on a specific tab]:tab ID:_chrome_cli_tab_ids'
+          ;;
+        open)
+          _arguments \
+            '2:URL:_urls' \
+            '(-n -i -t -w)-n[open in a new window]' \
+            '(-n -i -t -w)-i[open in a new incognito window]' \
+            '(-n -i -w)-t[open in a specific tab]:tab ID:_chrome_cli_tab_ids' \
+            '(-n -i -t)-w[open in a specific window]:window ID:_chrome_cli_window_ids'
+          ;;
+        close)
+          _arguments \
+            '(-t)-w::window ID:_chrome_cli_window_ids' \
+            '(-w)-t[close a tab]:tab ID:_chrome_cli_tab_ids'
+          ;;
+        activate)
+          _arguments \
+            '(-t)--focus[bring the tab window to the front]' \
+            '(-t)-t[activate a tab]:tab ID:_chrome_cli_tab_ids'
+          ;;
+        size)
+          _arguments \
+            '2:width:' \
+            '3:height:' \
+            '(-w)-w[use a specific window]:window ID:_chrome_cli_window_ids'
+          ;;
+        position)
+          _arguments \
+            '2:x coordinate:' \
+            '3:y coordinate:' \
+            '(-w)-w[use a specific window]:window ID:_chrome_cli_window_ids'
+          ;;
+        execute)
+          _arguments \
+            '2:JavaScript:' \
+            '(-t)-t[execute in a specific tab]:tab ID:_chrome_cli_tab_ids'
+          ;;
+        chrome)
+          _arguments '2:Chrome command:(version)'
+          ;;
+      esac
+      ;;
+  esac
+}

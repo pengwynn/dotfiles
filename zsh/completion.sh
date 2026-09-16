@@ -5,6 +5,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' insert-tab pending
 
 compdef dc=docker-compose
+compdef _chrome-cli chrome-cli
 
 compdef g=git
 compdef h=git
@@ -30,4 +31,3 @@ zstyle ':completion:*:*:g*:*' user-commands \
                    thanks:"Display commit count by author for a given Git ref" \
                    undo:"Undo your last commit, but don't throw away your changes" \
                    wtf:"Display the state of your repository in a readable, easy-to-scan format." \
-
