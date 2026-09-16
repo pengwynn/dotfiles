@@ -4,16 +4,51 @@
     "break",
     "title",
     "break",
-    "os",
-    "uptime",
-    "packages",
-    "shell",
-    "display",
-    "terminal",
-    "cpu",
-    "memory",
-    "localip",
-    "battery",
+    {
+      "type": "os",
+      "key": "     os",
+      "keyColor": "yellow",
+    },
+    {
+      "type": "uptime",
+      "key": "     up",
+    },
+    {
+      "type": "packages",
+      "key": "   brew",
+    },
+    {
+      "type": "shell",
+      "key": "  shell",
+    },
+    {
+      "type": "display",
+      "key": "display",
+    },
+    {
+      "type": "terminal",
+      "key": "   term",
+    },
+    {
+      "type": "cpu",
+      "key": "    cpu",
+    },
+    {
+      "type": "memory",
+      "key": "    mem",
+    },
+    {
+      "type": "localip",
+      "key": "     ip",
+    },
+    {
+      "type": "gpu",
+      "key": "    gpu",
+    },
+    {
+      "type": "battery",
+      "key": "      ⚡︎",
+    },
     "break",
     "colors",
   ],
