@@ -21,3 +21,11 @@ gemini() {
         command gemini "$@"
     fi
 }
+
+claude() {
+    if [[ "$1" == "update" ]]; then
+        brew up && brew upgrade claude-code
+    else
+        command claude "$@"
+    fi
+}
