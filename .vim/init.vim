@@ -393,6 +393,9 @@ nnoremap <silent> <leader>g :GFiles<CR>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
 
+" Copy current file path to clipboard
+nnoremap <leader>cp :let @+=expand('%:p')<CR>
+
 
 let g:netrw_altv=1
 
