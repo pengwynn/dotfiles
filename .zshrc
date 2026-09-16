@@ -93,10 +93,6 @@ if [[ $- == *i* ]]; then
   autoload -U promptinit; promptinit
   prompt pure
 
-  if [[ -f "$HOME/.fzf.zsh" ]]; then
-    source "$HOME/.fzf.zsh"
-  fi
-
   ZSH_SYNTAX_HIGHLIGHT_PATH="/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   if [[ -f $ZSH_SYNTAX_HIGHLIGHT_PATH ]]; then
     source "$ZSH_SYNTAX_HIGHLIGHT_PATH"
@@ -111,3 +107,5 @@ if [[ $- == *i* ]]; then
 
   fastfetch
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
