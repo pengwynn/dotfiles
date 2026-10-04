@@ -23,7 +23,8 @@
     },
     {
       "type": "display",
-      "key": "display",
+      "key": " screen",
+      "format": "{scaled-width}x{scaled-height}@{refresh-rate}Hz",
     },
     {
       "type": "terminal",
@@ -47,7 +48,8 @@
     },
     {
       "type": "battery",
-      "key": "      ⚡︎",
+      "key": "     ⚡︎",
+      "format": "{capacity} ({status})",
     },
     "break",
     "colors",
